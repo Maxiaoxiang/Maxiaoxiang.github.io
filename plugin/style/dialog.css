@@ -1,0 +1,111 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Mxx
+ * @date    2015-03-12 09:46:25
+ * @version 0.1
+ */
+ body{
+ 	height: 2000px;
+ }
+.dialog_baseBox{
+	position: absolute;
+	z-index: 9999;
+	background-color: #fff;
+	font-family: '微软雅黑',sans-serif;
+	padding: 17px;
+	border-radius: 5px;
+}
+.dialog_body{
+	padding: 10px;
+}
+.dialog_footer,.dialog_body{
+	text-align: center;
+}
+.dialog_alertSendSubmit,.dialog_confirmSendSubmit,.dialog_confirmCancelBtn{
+	border: medium none;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 17px;
+	font-weight: 500;
+	padding: 10px 30px;
+	background-color: #aedef4;
+	display: inline-block;
+	font-family: 'Open Sans',sans-serif;
+}
+.dialog_alertSendSubmit:hover{
+	background-color:#a7d5ea;
+}
+.dialog_confirmSendSubmit:hover{
+	background-color:#a7d5ea;
+}
+.dialog_confirmCancelBtn:hover{
+	background-color: #c8c8c8;
+}
+.dialog_confirmCancelBtn{
+	margin-left: 10px;
+	background-color: #d0d0d0;
+}
+.dialog_mask{
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 999;
+	overflow: hidden;
+	display: block;
+	opacity: 1.08;
+	background-color: rgba(0,0,0,0.4);
+}
+
+/*-----------------------MxxTips-------------------------*/
+#MxxTips_box{
+	display: inline-block;
+	position: absolute;
+	border-radius: 8px;
+	background: #000;
+	color: #fff;
+	padding: 15px;
+	text-align: center;
+	font-family: '微软雅黑',sans-serif;
+}
+.entry-triangle-left{
+	position: absolute;
+	right: -8px;
+	width: 0px;
+	height: 0px;
+	border-bottom: 8px solid transparent;
+	border-top: 8px solid transparent;
+	border-left: 8px solid #000;
+}
+.entry-triangle-right{
+	position: absolute;
+	left: -8px;
+	width: 0px;
+	height: 0px;
+	border-bottom: 8px solid transparent;
+	border-top: 8px solid transparent;
+	border-right: 8px solid #000;
+}
+.entry-triangle-bottom{
+	position: absolute;
+	top: -8px;
+	left: 15px;
+	width: 0px;
+	height: 0px;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #000;
+}
+.entry-triangle-top{
+	position: absolute;
+	bottom: -8px;
+	left: 15px;
+	width: 0px;
+	height: 0px;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 8px solid #000;
+}

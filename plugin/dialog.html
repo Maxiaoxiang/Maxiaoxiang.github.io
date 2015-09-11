@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>Maxiaoxiang</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./style/base.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./style/dialog.css" media="screen">
+    </head>
+    <body>
+        <a href="javascript:;" class="test">测试common</a>
+        <a href="javascript:;" class="test1">测试alert</a>
+        <a href="javascript:;" class="test2">测试confirm</a>
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="./script/MxxUi-dialog.js"></script>
+        <script src="./script/MxxUi-draggable.js"></script>
+        <script>
+            $(function(){
+
+                $('.test').click(function(){
+                    $(this).MxxDialog({
+                        dialogType:'common',
+                        content:'ok',
+                        width:'120'
+                    });
+                });
+                
+                $('.test1').click(function(){
+                    $(this).MxxDialog({
+                        alertSendCall:function(){
+                            alert('这是alert点击确定前的回调');
+                        }
+                    });
+                });
+
+                $('.test2').click(function(){
+                    $(this).MxxDialog({
+                        dialogType:'confirm'
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
