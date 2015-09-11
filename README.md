@@ -1,2 +1,2 @@
 # Maxiaoxiang.github.io
-杂七杂八
+[我的博客](http://maxiaoxiang.github.io)  
