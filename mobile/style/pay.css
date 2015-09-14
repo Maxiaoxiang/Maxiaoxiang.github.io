@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+/*order*/
+.same{
+	padding:0 1.25rem 0 2.25rem;
+	margin:1rem 0;
+	background:#fff;
+	font-size: .8rem;
+}
+.order li{
+	height:3.25rem;
+	line-height: 3.25rem;
+}
+.order .money{
+	border-top:.1rem solid #f2f2f2;
+	border-bottom:.1rem solid #f2f2f2;
+}
+.order li .result{
+	padding-left:1rem;
+}
+
+/*role*/
+.role a{
+	display: block;
+	height:3.25rem;
+	line-height: 3.25rem;
+	background:url('../image/pay_icon.png') no-repeat;
+	background-position: right 1.25rem;
+	background-size: 1.5rem auto;
+}
+.role .vendor{
+	border-bottom:.1rem solid #f2f2f2;
+}
+
+/*option*/
+.option a{
+	display: block;
+	height:3.25rem;
+	line-height: 3.25rem;
+	background:url('../image/pay_icon.png') no-repeat;
+	background-position: right -1.75rem;
+	background-size: 1.5rem auto;
+}
+
+/*operation*/
+.operation{
+	font-size: .8rem;
+	padding:0 1.25rem;
+}
+.operation p{
+    padding: 1rem 1.25rem 0 2.5rem;
+    line-height: 1.2rem;
+    background: url('../image/pay_icon.png') no-repeat;
+    background-position: 1rem -7.9rem;
+    background-size: 1.4rem auto;
+}
+.operation a{
+	display: inline-block;
+	margin:2rem 0;
+	padding:0 1.5rem;
+	float: left;
+	height:2.5rem;
+	line-height: 2.5rem;
+	color:#fff;
+	background: #f89e4e;
+}
+.operation .cancel{
+	margin-left:2rem;
+}
+.operation .confirm{
+	margin-right:2rem;
+	float: right !important;
+	background: #53cefd !important;
+}
+.operation .success{
+	display: none;
+	background-position: 1rem -4.7rem;
+}
+
+@media (min-width: 360px){
+	.operation a{
+		padding:0 2rem;
+	}
+}

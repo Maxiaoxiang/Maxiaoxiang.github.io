@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+body{
+	margin:0;
+	background-color: #f2f2f2;
+	font-size: 20px;
+	color:#666;
+	font-family:"Lucida Grande", "Microsoft JhengHei", "Microsoft YaHei";
+}
+a{
+	text-decoration: none;
+	color:#666;
+}
+ul{
+	list-style-type: none;
+	padding:0;
+	margin:0;
+}
+.clearfix:after {
+     content:".";
+     display:block;
+     height:0;
+     clear:both;
+     visibility:hidden;
+}
+.clearfix{display:inline-block;}
+/* Hide from IE Mac */
+.clearfix {display:block;}
+/* End hide from IE Mac */
+/* end of clearfix */
