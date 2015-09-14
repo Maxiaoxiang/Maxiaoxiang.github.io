@@ -42,9 +42,9 @@
 	width: 33%;
 	float: left;
 	text-align: center;
-	padding:2.4rem 0 .1rem 0;
+	padding:2.2rem 0 .1rem 0;
 	background:url('../image/index_icon.png') no-repeat;
-	background-position: center -602px;
+	background-position: center -604px;
 	background-size: 5rem auto;
 }
 .footer a{
@@ -56,5 +56,5 @@
 	background-size: 10rem auto;
 }
 .footer .cart{
-	background-position: center -537px;
+	background-position: center -539px;
 }

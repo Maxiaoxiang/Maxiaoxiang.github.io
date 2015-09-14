@@ -103,6 +103,9 @@
 	height:3.25rem;
 	line-height: 3.25rem;
 }
+.operation{
+	margin-bottom: 2rem;
+}
 .address a,.operation a{
 	display: block;
 	background:url('../image/index_icon.png') no-repeat;
@@ -132,16 +135,16 @@
 	width: 33%;
 	float: left;
 	text-align: center;
-	padding:2.4rem 0 .1rem 0;
+	padding:2.2rem 0 .1rem 0;
 	background:url('../image/index_icon.png') no-repeat;
-	background-position: center -484px;
+	background-position: center -486px;
 	background-size: 5rem auto;
 }
 .footer .cloud{
-	background-position: center -602px;
+	background-position: center -604px;
 }
 .footer .cart{
-	background-position: center -537px;
+	background-position: center -539px;
 }
 .footer .cloud a,.footer .cart a{
 	color:#ccc;

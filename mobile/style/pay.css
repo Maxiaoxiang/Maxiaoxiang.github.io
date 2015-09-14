@@ -48,10 +48,10 @@
 	padding:0 1.25rem;
 }
 .operation p{
-    padding: 1rem 1.25rem 0 2.5rem;
+    padding: 1rem 1.25rem 1rem 2.5rem;
     line-height: 1.2rem;
     background: url('../image/pay_icon.png') no-repeat;
-    background-position: 1rem -7.9rem;
+    background-position: 1rem -8rem;
     background-size: 1.4rem auto;
 }
 .operation a{

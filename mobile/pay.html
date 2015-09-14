@@ -40,9 +40,18 @@
     <!-- 操作 -->
     <div class="operation">
     	<p>警告 : 凡以购物退款或者信用卡提额等各种名义要求确认支付操作的均为诈骗，请谨慎确认该比交易！</p>
-    	<p class="success" id="success">订单已确认，等待买家提交验证码付款！</p>
+    	<p class="success">订单已确认，等待买家提交验证码付款！</p>
     	<a href="javascript:;" class="cancel">取消付款</a>
-    	<a href="javascript:;" class="confirm" id="pay">确认付款</a>
-    </div> 
+    	<a href="javascript:;" class="confirm">确认付款</a>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('.confirm').click(function(){
+                $('.operation a').hide();
+                $('.success').show();
+            });
+        });
+    </script>
 </body>
 </html>
