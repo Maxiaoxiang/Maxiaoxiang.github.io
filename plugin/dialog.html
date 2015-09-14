@@ -17,26 +17,32 @@
         <script src="./script/MxxUi-draggable.js"></script>
         <script>
             $(function(){
-
                 $('.test').click(function(){
                     $(this).MxxDialog({
-                        dialogType:'common',
-                        content:'ok',
-                        width:'120'
+                        'dialogType':'common',
+                        'content':'ok',
+                        'width':'120',
+                        'commonCallback':function(){
+                            alert('common回调')
+                        }
                     });
                 });
                 
                 $('.test1').click(function(){
                     $(this).MxxDialog({
-                        alertSendCall:function(){
+                        'alertSendCall':function(){
                             alert('这是alert点击确定前的回调');
-                        }
+                        },
+                        'alertCloseCall':function(){
+                            alert('这是alert点击确定后的回调');
+                        },
+                        'alertSendSubmit':'确定'
                     });
                 });
 
                 $('.test2').click(function(){
                     $(this).MxxDialog({
-                        dialogType:'confirm'
+                        'dialogType':'confirm'
                     });
                 });
             });

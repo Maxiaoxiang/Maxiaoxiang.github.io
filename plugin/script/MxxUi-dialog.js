@@ -18,22 +18,22 @@
 
 	Dialog.defaults = {
 
-		width : 450,
-		dialogType : 'alert',			//弹出层类型
-		title : '标题',					//标题
-		content : '内容',				//内容
-		alertSendSubmit : 'OK',			//alert按钮文本内容
-		closeBtn : true, 				//添加关闭按钮
-		alertSendCall : null,			//alert确定回调
-		alertCloseCall : null,			//alert关闭回调
-		confirmSendSubmit : '确定',		//confirm确定按钮文本
-		confirmCancelBtn : '取消',		//confirm取消按钮文本
-		confirmSendCall : null,			//confirm确定回调
-		confirmCancelCall : null,		//confirm取消回调
-		commonCallback : null,			//common回调
-		hasMask : true, 				//遮罩层
-		isDraggable : true, 			//是否使用拖拽组件(MxxUi-draggable.js)
-		draggableOption : {				//拖拽组件的options
+		'width' : 450,									//宽
+		'dialogType' : 'alert',							//弹出层类型
+		'title' : '标题',								//标题
+		'content' : '内容',								//内容
+		'alertSendSubmit' : 'OK',						//alert按钮文本内容
+		'closeBtn' : true, 								//添加关闭按钮
+		'alertSendCall' : function(){} || {},			//alert确定回调
+		'alertCloseCall' : function(){} || {},			//alert关闭回调
+		'confirmSendSubmit' : '确定',					//confirm确定按钮文本
+		'confirmCancelBtn' : '取消',					//confirm取消按钮文本
+		'confirmSendCall' : function(){} || {},			//confirm确定回调
+		'confirmCancelCall' : function(){} || {},		//confirm取消回调
+		'commonCallback' : function(){} || {},			//common回调
+		'hasMask' : true, 								//遮罩层
+		'isDraggable' : true, 							//是否使用拖拽组件(MxxUi-draggable.js)
+		'draggableOption' : {							//拖拽组件的options
 			fixarea : [0,document.body.clientWidth,0,$(document).height()]
 		}
 
@@ -60,7 +60,7 @@
 		_initUi : function(){
 
 			var that = this;
-
+			var arr = [];
 			var footerContent = '';
 
 			//判断弹出层类型
@@ -80,12 +80,14 @@
 
 			}
 
-			this.baseBox = $('<div class="dialog_baseBox">'
+			arr.push('<div class="dialog_baseBox">'
 				+	'<div class="dialog_body">'
 				+		'<p class="dialog_content">'+ this.options.content + '</p>'
 				+	'</div>'
 				+'</div>');
-
+			
+			this.baseBox = $(arr.join(''));
+			
 			if(this.options.dialogType != 'common'){
 
 				this.baseBox.find('.dialog_body').prepend('<h2 class="dialog_title">' + this.options.title + '</h2>');
