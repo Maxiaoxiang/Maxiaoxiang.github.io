@@ -1,11 +1,5 @@
 @charset "UTF-8";
-/**
- * 
- * @authors Your Name (you@example.org)
- * @date    2015-03-12 09:46:15
- * @version $Id$
- */
-html,body{margin: 0;padding: 0;}
+html,body{margin: 0;padding: 0;font-family:"Lucida Grande", "Microsoft JhengHei", "Microsoft YaHei";}
 ul,li{list-style: none;padding: 0;margin: 0;}
 /*清除浮动*/
 .clearfix:before, .clearfix:after {content:"";display:table;}
