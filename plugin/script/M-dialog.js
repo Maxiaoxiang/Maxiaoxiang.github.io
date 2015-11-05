@@ -14,7 +14,7 @@
             parameter = parameter || {};
             getApi = getApi || function () {};
         }
-		this.$elem = elem;
+		this.$elem = elem; 
 		this.defaults = {
 			title:'',//标题
 			close:'x',//关闭按钮
