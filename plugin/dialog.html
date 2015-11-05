@@ -49,27 +49,23 @@
         </style>
     </head>
     <body>
-        <a href="javascript:;" class="no1">啊啊啊啊</a>
+        <!-- <a href="javascript:;" class="no1">啊啊啊啊</a> -->
         <a href="javascript:;" class="no2">哦哦哦哦</a>
-        <a href="javascript:;" class="test1">弹出层1</a>
-        <a href="javascript:;" class="test2">弹出层2</a>
+        <div class="box"></div>
         <div class="M-box"></div>
         <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="./script/M-dialog.js"></script>
         <script>
             $(function(){
                 $('.no1').click(function(){
-                    $('.test1').myDialog({
-                        color:'black'
-                    },function(){
-                        //console.log('1');
+                    $('.box').myDialog({
+                        
                     });
                 });
                 $('.no2').click(function(){
-                    $('.test2').myDialog({
-                        color:'red'
-                    },function(){
-                        //console.log('1');
+                    $('.M-box').myDialog({
+                        title:'标题',
+                        content:'内容'
                     });
                 });
             });

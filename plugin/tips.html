@@ -12,6 +12,7 @@
         <span class="test" style="position:absolute;top:50%;left:50%;">测试文字</span>
         <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="./script/MxxUi-tips.js"></script>
+        <script src="./script/MxxUi-draggable.js"></script>
         <script>
             $(function(){
                 $('.test').hover(function(){
@@ -19,6 +20,7 @@
                         content:'哇哇哇'
                     });
                 });
+                $('.test').MxxDraggable();
             });
         </script>
     </body>
