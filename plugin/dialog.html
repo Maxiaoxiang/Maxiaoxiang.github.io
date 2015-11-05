@@ -9,26 +9,65 @@
         <style>
             .M-box{
                 display: none;
-                width:100px;
-                height:100px;
+                position: relative;
+                width:300px;
+                height:200px;
                 border:1px solid #ccc;
                 background:#fff;
-                line-height: 100px;
                 text-align: center;
+            }
+            .M-title{
+                padding-left: 5px;
+                height: 45px;
+                line-height: 45px;
+                text-align: left;
+                border-bottom: 1px solid #ebebeb;
+            }
+            .M-content{
+                padding-top:50px;
+            }
+            .M-close{
+                position: absolute;
+                top:0;
+                right:0;
+                height:45px;
+                line-height: 2;
+                width:45px;
+                cursor: pointer;
+                font-size: 20px;
+            }
+            .M-button{
+                position: absolute;
+                bottom:0;
+                height: 45px;
+                line-height: 45px;
+                width:100%;
+            }
+            .M-ok{
+                padding-right:10px;
             }
         </style>
     </head>
     <body>
         <a href="javascript:;" class="test">弹出层</a>
-        <div class="M-box">
-            弹出层
-        </div>
+        <!-- <a href="javascript:;" class="test1">弹出层1</a> -->
+        <div class="M-box"></div>
         <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="./script/M.dialog.js"></script>
         <script>
             $(function(){
                 $('.test').click(function(){
-                    $(this).dialog();
+                    $('.M-box').dialog({
+                        title:'标题',
+                        content:'我了个去内容啊',
+                        close:'x',
+                        beforeShow:function(){
+                            //console.log('这是展开前回调');
+                        },
+                        afterHide:function(){
+                            console.log('这是关闭后回调');
+                        }
+                    });
                 });
             });
         </script>
