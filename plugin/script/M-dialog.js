@@ -6,48 +6,57 @@
  */
 ;(function($,window,document,undefined){
 
-	var Dialog = function(elem,parameter,getApi){
-        if (typeof parameter == 'function') { //重载
-            getApi = parameter;
-            parameter = {};
-        } else {
-            parameter = parameter || {};
-            getApi = getApi || function () {};
-        }
-		this.$elem = elem; 
-		this.defaults = {
-			title:'',//标题
-			close:'x',//关闭按钮
-			content:'',//内容
-			zIndex: '9999',//层级
-			isMask: true,//遮罩
-			opacity:'0.5',//透明度
-			beforeShow:function(){},//展开前事件
-			afterHide:function(){}
-		};
-		this.options = $.extend({},this.defaults,parameter);
+	//参数
+	var defaults = {
+		title:'',//标题
+		close:'x',//关闭按钮
+		content:'',//内容
+		zIndex: '9999',//层级
+		isMask: true,//遮罩
+		clickMask:false,//遮罩关闭
+		opacity:'0.5',//透明度
+		button:{},
+		beforeShow:function(){}
 	};
 
-	Dialog.prototype = {
-		init:function(){
-			console.log(this)
-			var op = this.options;//配置参数
-			var $body = $('body');
-			var $window = $(window);//窗口
-			$title = $('<div class="M-title">'+op.title+'</div>');//标题
-			$close = $('<div class="M-close">'+op.close+'</div>');//关闭按钮
-			$content = $('<div class="M-content">'+op.content+'</div>');//内容区域
-			this.$mask = $('.M-mask');
-			this.$elem.css({
+	var Dialog = function(element,options){
+		var _ = this;
+		var $this = $(element);
+		var $body = $('body');
+		var $window = $(window);
+		var $title = $('<div class="M-title">'+options.title+'</div>');//标题
+		var $close = $('<div class="M-close">'+options.close+'</div>');//关闭按钮
+		var $content = $('<div class="M-content">'+options.content+'</div>');//内容区域
+		var $button = $('<div class="M-button"></div>');//按钮
+		var $mask = $('.M-mask');
+		_.open = function(){
+			$this.show();
+			if(options.isMask){
+				$mask.show();
+			}
+		};
+		_.close = function(){
+			$this.hide();
+			if($mask.length !== 0){
+				$mask.hide();
+			}
+		};
+		_.resize = function(){
+			$this.css({
+				'top': ($window.height() - $this.outerHeight()) / 2 + 'px',
+				'left': ($window.width() - $this.outerWidth()) / 2 + 'px'
+			});
+		};
+		var init = function(){
+			$this.css({
 				'display':'none',
 				'position':'absolute',
-				'top': ($window.height() - this.$elem.outerHeight()) / 2 + 'px',
-				'left': ($window.width() - this.$elem.outerWidth()) / 2 + 'px',
-				'z-index':op.zIndex
+				'top':($window.height() - $this.outerHeight()) / 2 + 'px',
+				'left':($window.width() - $this.outerWidth()) / 2 + 'px',
+				'z-index':options.zIndex
 			}).empty().append($title).append($close).append($content);
-
-			if(op.isMask && this.$mask.length == 0){//遮罩
-				this.$mask = $('<div class="M-mask"></div>').css({
+			if(options.isMask && $mask.length == 0){
+				$mask = $('<div class="M-mask"></div>').css({
 					'display':'none',
 					'position':'fixed',
 					'top':'0',
@@ -55,35 +64,44 @@
 					'width':'100%',
 					'height':'100%',
 					'background':'#000',
-					'opacity':op.opacity,
-					'z-index':op.zIndex - 1
-				}).appendTo($body);
+					'opacity':options.opacity,
+					'z-index':options.zIndex - 1
+				}).appendTo($body).before($this);
 			}
-
-			$close.click(this.close());
-			this.open();
-		},
-		open:function(){
-			this.$elem.show();
-			this.toggleMask();
-		},
-		toggleMask:function(){
-			if(this.$mask.length != '0' && this.$mask.is(':hidden')){
-				this.$mask.show();
+			$button.appendTo($content);
+			$close.click(_.close);
+			$window.resize(_.resize);
+			if(options.clickMask){
+				$mask.click(_.close);
 			}
-		},
-		close:function(){
-			this.$elem.hide();
-			this.toggleMask();
-		},
-		resize:function(){},
-		destroy:function(){}
+			for(name in options.button){
+				(function(name){
+					$('<a class="javascript:;" class="'+options.button.cls+'">'+name+'</a>').appendTo($button).click(function(){
+						options.button[name](_);
+					});
+				})(name);
+			}
+		};
+		init();
 	};
 
-	$.fn.myDialog = function(options,getApi){
-		var dialog = new Dialog(this,options,getApi);
-		return dialog.init();
-	};
+	Dialog.prototype = {};
+
+	$.fn.mDialog = function(parameter,callback){
+		if(typeof parameter == 'function'){
+			callback = parameter;
+			parameter = {};
+		}else{
+			parameter = parameter || {};
+			callback = callback || function(){};
+		}
+		var options = $.extend({},defaults,parameter);
+		return this.each(function(){
+			var dialog = new Dialog(this,options,callback);
+			callback(dialog);
+			return dialog.open();
+		});
+	};	
 
 	return $;
 

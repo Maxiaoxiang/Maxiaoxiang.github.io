@@ -9,7 +9,6 @@
         <style>
             .M-box{
                 display: none;
-                position: relative;
                 width:300px;
                 height:200px;
                 border:1px solid #ccc;
@@ -49,23 +48,24 @@
         </style>
     </head>
     <body>
-        <!-- <a href="javascript:;" class="no1">啊啊啊啊</a> -->
-        <a href="javascript:;" class="no2">哦哦哦哦</a>
-        <div class="box"></div>
+        <a href="javascript:;" class="no2">弹弹弹，弹走鱼尾纹。。。</a>
         <div class="M-box"></div>
         <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="./script/M-dialog.js"></script>
         <script>
             $(function(){
-                $('.no1').click(function(){
-                    $('.box').myDialog({
-                        
-                    });
-                });
                 $('.no2').click(function(){
-                    $('.M-box').myDialog({
+                    $('.M-box').mDialog({
                         title:'标题',
-                        content:'内容'
+                        content:'内容',
+                        button:{
+                            'ok':function(callback){
+                                console.log(callback)
+                            },
+                            'no':function(callback){
+                                callback.close();
+                            }
+                        }
                     });
                 });
             });
