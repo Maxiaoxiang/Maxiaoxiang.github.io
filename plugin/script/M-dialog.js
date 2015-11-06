@@ -76,7 +76,7 @@
 			}
 			for(name in options.button){
 				(function(name){
-					$('<a class="javascript:;" class="'+options.button.cls+'">'+name+'</a>').appendTo($button).click(function(){
+					$('<a href="javascript:;" class="'+options.button.cls+'">'+name+'</a>').appendTo($button).click(function(){
 						options.button[name](_);
 					});
 				})(name);
