@@ -7,6 +7,9 @@
         <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
         <link rel="stylesheet" type="text/css" href="./style/base.css" media="screen">
         <style>
+            body{
+                height:3000px;
+            }
             .M-box{
                 display: none;
                 width:300px;
@@ -37,19 +40,42 @@
             }
             .M-button{
                 position: absolute;
+                right:20px;
                 bottom:0;
                 height: 45px;
                 line-height: 45px;
                 width:100%;
+                text-align: right;
             }
-            .M-ok{
-                padding-right:10px;
+            .M-yes{
+                padding-right: 10px;
+            }
+            .M-message{
+                display: none;
+                width:200px;
+                height:100px;
+                line-height: 100px;
+                border:1px solid #ccc;
+                background:#fff;
+                text-align: center;
+            }
+            .M-message .M-content{
+                padding:0;
             }
         </style>
     </head>
     <body>
         <a href="javascript:;" class="no2">弹弹弹，弹走鱼尾纹。。。</a>
+        <br/>
+        <br/>
+        <br/>
+        <a href="javascript:;" class="test">消息提示框A</a>
+        <br/>
+        <br/>
+        <br/>
+        <a href="javascript:;" class="test1">消息提示框B</a>
         <div class="M-box"></div>
+        <div class="M-message"></div>
         <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="./script/M-dialog.js"></script>
         <script>
@@ -58,14 +84,42 @@
                     $('.M-box').mDialog({
                         title:'标题',
                         content:'内容',
+                        clickMask:true,
                         button:{
-                            'ok':function(callback){
-                                console.log(callback)
+                            'yes':function(callback){
+                                $('.no2').html('哇啊啊啊');
+                                alert('确定前回调');
+                                callback.close();
                             },
                             'no':function(callback){
+                                $('.no2').text('弹走鱼尾纹~');
                                 callback.close();
                             }
+                        },
+                        beforeShow:function(){
+                            console.log('显示前事件');
                         }
+                    });
+                });
+                $('.test').click(function(){
+                    $('.M-message').mDialog({
+                        type:'message',
+                        content:'这条消息2秒后关闭',
+                        beforeShow:function(){
+                            alert('这是显示前的事件啊亲~');
+                        },
+                        afterHide:function(){
+                            alert('这当然就是关闭后的事件啊');
+                        }
+                    });
+                });
+                $('.test1').click(function(){
+                    $('.M-message').mDialog({
+                        type:'message',
+                        content:'这条半秒就关啦~',
+                        existence:500
+                    },function(callback){
+                        console.log(callback.getType());
                     });
                 });
             });

@@ -1,8 +1,31 @@
+/*
+                   _ooOoo_
+                  o8888888o
+                  88" . "88
+                  (| -_- |)
+                  O\  =  /O
+               ____/`---'\____
+             .'  \\|     |//  `.
+            /  \\|||  :  |||//  \
+           /  _||||| -:- |||||-  \
+           |   | \\\  -  /// |   |
+           | \_|  ''\---/''  |   |
+           \  .-\__  `-`  ___/-. /
+         ___`. .'  /--.--\  `. . __
+      ."" '<  `.___\_<|>_/___.'  >'"".
+     | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+     \  \ `-.   \_ __\ /__ _/   .-` /  /
+======`-.____`-.___\_____/___.-`____.-'======
+                   `=---='
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         佛祖保佑       永无BUG
+*/
 /**
  * Dialog弹出层插件
  * @authors Mxx
  * @date    2015-11-03
  * @version 0.2
+ * （拖拽,按钮class,动画 ,→BUG←,多窗口）
  */
 ;(function($,window,document,undefined){
 
@@ -15,46 +38,88 @@
 		isMask: true,//遮罩
 		clickMask:false,//遮罩关闭
 		opacity:'0.5',//透明度
-		button:{},
-		beforeShow:function(){}
+		button:{},//按钮
+		type:'',//弹窗类型('':默认,'message':提示消息)
+		follow:true,//随屏幕滚动
+		existence:2000,//显示时间
+		beforeShow:function(){},//显示前事件
+		afterHide:function(){}//关闭后事件
 	};
 
 	var Dialog = function(element,options){
 		var _ = this;
 		var $this = $(element);
+		var isOpen = false;
 		var $body = $('body');
 		var $window = $(window);
 		var $title = $('<div class="M-title">'+options.title+'</div>');//标题
 		var $close = $('<div class="M-close">'+options.close+'</div>');//关闭按钮
 		var $content = $('<div class="M-content">'+options.content+'</div>');//内容区域
 		var $button = $('<div class="M-button"></div>');//按钮
-		var $mask = $('.M-mask');
-		_.open = function(){
-			$this.show();
-			if(options.isMask){
-				$mask.show();
+		var $mask = $('.M-mask');//遮罩
+		//打开
+		_.open = function(func){
+			if(options.beforeShow() != false){
+				(func || function(){})();
+				$this.show();
+				if(options.isMask) $mask.show();
+				if(options.type == 'message'){
+					setTimeout(_.close,options.existence);
+				}
 			}
 		};
+		//关闭
 		_.close = function(){
 			$this.hide();
 			if($mask.length !== 0){
-				$mask.hide();
+				$mask.remove();
 			}
+			options.afterHide();
 		};
+		//窗口变化居中
 		_.resize = function(){
 			$this.css({
 				'top': ($window.height() - $this.outerHeight()) / 2 + 'px',
 				'left': ($window.width() - $this.outerWidth()) / 2 + 'px'
 			});
 		};
-		var init = function(){
+		//滚动时居中
+		_.scroll = function(){
 			$this.css({
-				'display':'none',
-				'position':'absolute',
-				'top':($window.height() - $this.outerHeight()) / 2 + 'px',
-				'left':($window.width() - $this.outerWidth()) / 2 + 'px',
-				'z-index':options.zIndex
-			}).empty().append($title).append($close).append($content);
+				'top':($window.height() - $this.outerHeight()) / 2 + $(document).scrollTop()
+			});
+		};
+		//弹窗类型
+		_.getType = function(){
+			return options.type;
+		};
+		var init = function(){
+			if(options.type == 'message'){//弹窗类型为message不加载title,button,close
+				$this.css({
+					'display':'none',
+					'position':'absolute',
+					'top':($window.height() - $this.outerHeight()) / 2 + 'px',
+					'left':($window.width() - $this.outerWidth()) / 2 + 'px',
+					'z-index':options.zIndex
+				}).empty().append($content);
+			}else{
+				$this.css({
+					'display':'none',
+					'position':'absolute',
+					'top':($window.height() - $this.outerHeight()) / 2 + 'px',
+					'left':($window.width() - $this.outerWidth()) / 2 + 'px',
+					'z-index':options.zIndex
+				}).empty().append($title).append($close).append($content);
+				$button.appendTo($content);
+				$close.click(_.close);
+				for(name in options.button){
+					(function (name){
+						$('<a href="javascript:;" class="M-'+name+'">'+name+'</a>').appendTo($button).click(function(){
+							options.button[name](_);
+						});
+					})(name);
+				}
+			}
 			if(options.isMask && $mask.length == 0){
 				$mask = $('<div class="M-mask"></div>').css({
 					'display':'none',
@@ -68,19 +133,10 @@
 					'z-index':options.zIndex - 1
 				}).appendTo($body).before($this);
 			}
-			$button.appendTo($content);
-			$close.click(_.close);
 			$window.resize(_.resize);
-			if(options.clickMask){
-				$mask.click(_.close);
-			}
-			for(name in options.button){
-				(function(name){
-					$('<a href="javascript:;" class="'+options.button.cls+'">'+name+'</a>').appendTo($button).click(function(){
-						options.button[name](_);
-					});
-				})(name);
-			}
+			if(options.follow) $window.scroll(_.scroll);
+			if(options.clickMask) $mask.click(_.close);
+			_.open();
 		};
 		init();
 	};
@@ -97,9 +153,8 @@
 		}
 		var options = $.extend({},defaults,parameter);
 		return this.each(function(){
-			var dialog = new Dialog(this,options,callback);
+			var dialog = new Dialog(this,options);
 			callback(dialog);
-			return dialog.open();
 		});
 	};	
 
