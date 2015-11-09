@@ -42,7 +42,7 @@
 		type:'',//弹窗类型('':默认,'message':提示消息)
 		follow:true,//随屏幕滚动
 		time:2000,//显示时间
-		isDraggable:true,//拖动
+		isDraggable:false,//拖动
 		beforeShow:function(){},//显示前事件
 		afterHide:function(){}//关闭后事件
 	};
@@ -142,9 +142,7 @@
 			$window.resize(_.resize);
 			if(options.follow) $window.scroll(_.scroll);
 			if(options.clickMask) $mask.click(_.close);
-			if(options.isDraggable){
-				$title.css({'cursor':'move'});
-			}
+			if(options.isDraggable) $title.css({'cursor':'move'});
 			_.open();
 		};
 		init();
