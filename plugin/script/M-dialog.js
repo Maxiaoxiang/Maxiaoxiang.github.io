@@ -41,7 +41,8 @@
 		button:{},//按钮
 		type:'',//弹窗类型('':默认,'message':提示消息)
 		follow:true,//随屏幕滚动
-		existence:2000,//显示时间
+		time:2000,//显示时间
+		isDraggable:true,//拖动
 		beforeShow:function(){},//显示前事件
 		afterHide:function(){}//关闭后事件
 	};
@@ -64,7 +65,7 @@
 				$this.show();
 				if(options.isMask) $mask.show();
 				if(options.type == 'message'){
-					setTimeout(_.close,options.existence);
+					setTimeout(_.close,options.time);
 				}
 			}
 		};
@@ -93,6 +94,11 @@
 		_.getType = function(){
 			return options.type;
 		};
+		//拖动
+		var drag = function(){
+			//loading...
+		};
+		//初始
 		var init = function(){
 			if(options.type == 'message'){//弹窗类型为message不加载title,button,close
 				$this.css({
@@ -136,6 +142,9 @@
 			$window.resize(_.resize);
 			if(options.follow) $window.scroll(_.scroll);
 			if(options.clickMask) $mask.click(_.close);
+			if(options.isDraggable){
+				$title.css({'cursor':'move'});
+			}
 			_.open();
 		};
 		init();

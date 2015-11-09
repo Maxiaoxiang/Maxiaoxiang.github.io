@@ -2,13 +2,15 @@
 <html lang="en-us">
     <head>
         <meta charset="UTF-8">
-        <title>Maxiaoxiang</title>
+        <title>Mxx-dialog</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../favicon.ico" rel="icon" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
         <link rel="stylesheet" type="text/css" href="./style/base.css" media="screen">
+        <link href="http://cdn.bootcss.com/prettify/r298/prettify.min.css" rel="stylesheet">
         <style>
             body{
-                height:3000px;
+                height:2000px;
             }
             .M-box{
                 display: none;
@@ -62,6 +64,9 @@
             .M-message .M-content{
                 padding:0;
             }
+            pre{
+                font-family:Monaco, Consolas, "Courier New";
+            }
         </style>
     </head>
     <body>
@@ -76,8 +81,14 @@
         <a href="javascript:;" class="test1">消息提示框B</a>
         <div class="M-box"></div>
         <div class="M-message"></div>
+<!-- <pre class="prettyprint lang-javascript">
+function foo(){
+    console.log('hhh...');
+}
+</pre> -->
         <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="./script/M-dialog.js"></script>
+        <script src="http://cdn.bootcss.com/prettify/r298/run_prettify.min.js"></script>
         <script>
             $(function(){
                 $('.no2').click(function(){
@@ -106,10 +117,10 @@
                         type:'message',
                         content:'这条消息2秒后关闭',
                         beforeShow:function(){
-                            alert('这是显示前的事件啊亲~');
+                            alert('显示前事件');
                         },
                         afterHide:function(){
-                            alert('这当然就是关闭后的事件啊');
+                            alert('关闭后事件');
                         }
                     });
                 });
@@ -117,7 +128,7 @@
                     $('.M-message').mDialog({
                         type:'message',
                         content:'这条半秒就关啦~',
-                        existence:500
+                        time:500
                     },function(callback){
                         console.log(callback.getType());
                     });
