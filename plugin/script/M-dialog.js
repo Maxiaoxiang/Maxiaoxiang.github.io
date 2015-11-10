@@ -110,7 +110,7 @@
 				$this.css({
 					'display':'none',
 					'position':'absolute',
-					'top':($window.height() - $this.outerHeight()) / 2 + 'px',
+					'top':($window.height() - $this.outerHeight()) / 2 + $(document).scrollTop() + 'px',
 					'left':($window.width() - $this.outerWidth()) / 2 + 'px',
 					'z-index':options.zIndex
 				}).empty().append($content);
@@ -118,7 +118,7 @@
 				$this.css({
 					'display':'none',
 					'position':'absolute',
-					'top':($window.height() - $this.outerHeight()) / 2 + 'px',
+					'top':($window.height() - $this.outerHeight()) / 2 + $(document).scrollTop() + 'px',
 					'left':($window.width() - $this.outerWidth()) / 2 + 'px',
 					'z-index':options.zIndex
 				}).empty().append($title).append($close).append($content);
