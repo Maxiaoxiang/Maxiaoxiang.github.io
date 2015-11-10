@@ -25,6 +25,7 @@
  * @authors Mxx
  * @date    2015-11-03
  * @version 0.2
+ * http://maxiaoxiang.com
  * （尚未完成：拖拽,按钮class,动画 ,多窗口）
  */
 ;(function($,window,document,undefined){
