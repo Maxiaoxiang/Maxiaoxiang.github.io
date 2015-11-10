@@ -25,7 +25,7 @@
  * @authors Mxx
  * @date    2015-11-03
  * @version 0.2
- * （拖拽,按钮class,动画 ,→BUG←,多窗口）
+ * （尚未完成：拖拽,按钮class,动画 ,多窗口）
  */
 ;(function($,window,document,undefined){
 
@@ -64,9 +64,10 @@
 				(func || function(){})();
 				$this.show();
 				if(options.isMask) $mask.show();
-				if(options.type == 'message'){
+				if(options.type == 'message'){//信息提示框自动关闭
 					setTimeout(_.close,options.time);
 				}
+				isOpen = true;
 			}
 		};
 		//关闭
@@ -76,6 +77,7 @@
 				$mask.remove();
 			}
 			options.afterHide();
+			isOpen = false;
 		};
 		//窗口变化居中
 		_.resize = function(){
@@ -93,6 +95,10 @@
 		//弹窗类型
 		_.getType = function(){
 			return options.type;
+		};
+		//打开状态
+		_.getOpen = function(){
+			return isOpen;
 		};
 		//拖动
 		var drag = function(){
