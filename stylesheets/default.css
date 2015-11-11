@@ -1,0 +1,34 @@
+@charset "UTF-8";
+body{
+    word-wrap: break-word;
+    background:#f9f9f9;
+    color:#757575;
+}
+.box{
+    position: absolute;
+    top: 50%;
+    margin-top: -100px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    z-index: 10;
+}
+.vedio{
+    position: fixed;
+    top:0;
+    left: 0;
+}
+.box h1{
+    font-size: 60px;
+}
+.nav li{
+    display: inline-block;
+    padding:0 20px;
+}
+.nav li a{
+    color:#fff;
+    font-size: 33px;
+}
+.nav li a:hover{
+    border-bottom:1px dashed #fff;
+}
