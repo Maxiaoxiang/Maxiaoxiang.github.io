@@ -1,7 +1,0 @@
-@charset "UTF-8";
-html,body{margin: 0;padding: 0;font-family:"Lucida Grande", "Microsoft JhengHei", "Microsoft YaHei";}
-ul,li{list-style: none;padding: 0;margin: 0;}
-/*清除浮动*/
-.clearfix:before, .clearfix:after {content:"";display:table;}
-.clearfix:after{clear:both;}
-.clearfix{ *zoom:1;}/*ie6,7*/

@@ -2,91 +2,19 @@
 <html lang="en-us">
     <head>
         <meta charset="UTF-8">
-        <title>Mxx-dialog</title>
+        <title>Mss。-dialog</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../favicon.ico" rel="icon" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="./style/base.css" media="screen">
-        <style>
-            body{
-                height:2000px;
-            }
-            .wrapper{
-                margin:0 auto;
-                width:960px;
-                height:100%;
-            }
-            .M-box{
-                display: none;
-                width:300px;
-                height:200px;
-                border:1px solid #ccc;
-                background:#fff;
-                text-align: center;
-            }
-            .M-title{
-                padding-left: 5px;
-                height: 45px;
-                line-height: 45px;
-                text-align: left;
-                border-bottom: 1px solid #ebebeb;
-            }
-            .M-content{
-                padding-top:50px;
-            }
-            .M-close{
-                position: absolute;
-                top:0;
-                right:0;
-                height:45px;
-                line-height: 2;
-                width:45px;
-                cursor: pointer;
-                font-size: 20px;
-            }
-            .M-button{
-                position: absolute;
-                right:20px;
-                bottom:0;
-                height: 45px;
-                line-height: 45px;
-                width:100%;
-                text-align: right;
-            }
-            .M-yes{
-                padding-right: 10px;
-            }
-            .M-message{
-                display: none;
-                width:200px;
-                height:100px;
-                line-height: 100px;
-                border:1px solid #ccc;
-                background:#fff;
-                text-align: center;
-            }
-            .M-message .M-content{
-                padding:0;
-            }
-            pre{
-                padding:10px;
-                font-family:Monaco, Consolas, "Courier New";
-            }
-            .method{
-                font-family:Monaco, Consolas, "Courier New";
-            }
-            .eg{
-                margin:10px 0;
-                padding:10px;
-                border:1px dashed #bdbdbd;
-                background:#f1f1f1;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="./style/dialog.css" media="screen">
+        <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     </head>
     <body>
         <div class="wrapper">
             <h1>弹出层-dialog</h1>
-            <p>需先引入jQuery，然后引入组件 <span class="method">src="./script/M-dialog.js"</span></p>
+            <p>需先引入jQuery，然后引入dialog组件</p>
+            <pre class="bad">&lt;script&nbsp;src="jquery.js"&gt;&lt;/script&gt;</pre>
+            <pre class="bad">&lt;script&nbsp;src="M-dialog.js"&gt;&lt;/script&gt;</pre>
             <p>组件样式与功能分离，自定义样式</p>
             <div class="eg">
                 <input type="button" class="dialog1" value="设置标题&内容&按钮回调&遮罩可点击&显示前置事件">
@@ -150,7 +78,7 @@
                     $('.M-message').mDialog({
                         type:'message',
                         content:'这条半秒就关啦~',
-                        time:50000
+                        time:500
                     },function(callback){
                         console.log(callback.getType());
                     });

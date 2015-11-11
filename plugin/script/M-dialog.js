@@ -18,15 +18,14 @@
 ======`-.____`-.___\_____/___.-`____.-'======
                    `=---='
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-         佛祖保佑       永无BUG
+            佛祖保佑       永无BUG
 */
 /**
  * Dialog弹出层插件
  * @authors Mxx
- * @date    2015-11-03
  * @version 0.2
- * http://maxiaoxiang.com
- * （尚未完成：拖拽,按钮class,动画 ,多窗口）
+ * @url http://www.maxiaoxiang.com
+ * @E-mail 251445460@qq.com
  */
 ;(function($,window,document,undefined){
 
