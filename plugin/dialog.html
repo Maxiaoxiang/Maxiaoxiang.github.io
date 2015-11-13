@@ -7,40 +7,171 @@
         <link href="../favicon.ico" rel="icon" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
         <link rel="stylesheet" type="text/css" href="./style/dialog.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./style/common.css" media="screen">
         <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     </head>
     <body>
         <div class="wrapper">
             <h1>弹出层-dialog</h1>
-            <p>需先引入jQuery，然后引入dialog组件</p>
+            <p>需先引入jQuery，再引入dialog组件</p>
             <pre class="bad">&lt;script&nbsp;src="jquery.js"&gt;&lt;/script&gt;</pre>
             <pre class="bad">&lt;script&nbsp;src="M-dialog.js"&gt;&lt;/script&gt;</pre>
             <p>组件样式与功能分离，自定义样式</p>
             <div class="eg">
                 <input type="button" class="dialog1" value="设置标题&内容&按钮回调&遮罩可点击&显示前置事件">
                 <p>HTML</p>
-<pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>               <p>Javascript</p>
-<pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog1'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-box'</span>).<span style="color:#89bdff">mDialog</span>({<br>        <span style="color:#000">title</span>:<span style="color:#a11">'标题'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'内容'</span>,<br>        <span style="color:#000">clickMask</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">button</span>:{<br>            <span style="color:#a11">'yes'</span>:<span style="color:#708">function</span>(<span style="color:#00f">callback</span>){<br>                <span style="color:#000">alert</span>(<span style="color:#a11">'确定前回调'</span>);<br>                <span style="color:#000-2">callback</span>.<span style="color:#000">close</span>();<br>            },<br>            <span style="color:#a11">'no'</span>:<span style="color:#708">function</span>(<span style="color:#00f">callback</span>){<br>                <span style="color:#000-2">callback</span>.<span style="color:#000">close</span>();<br>            }<br>        },<br>        <span style="color:#89bdff">beforeShow</span>:<span style="color:#708">function</span>(){<br>            <span style="color:#000">alert</span>(<span style="color:#a11">'显示前事件'</span>);<br>        }<br>    });<br>});</pre>
+<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
+                <p>Javascript</p>
+<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog1'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-box'</span>).<span style="color:#000">mDialog</span>({<br>        <span style="color:#000">title</span>:<span style="color:#a11">'标题'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'内容'</span>,<br>        <span style="color:#000">clickMask</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">isDraggable</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">button</span>:{<br>            <span style="color:#a11">'确定|ok'</span>:<span style="color:#708">function</span>(<span style="color:#00f">callback</span>){<br>                <span style="color:#000">alert</span>(<span style="color:#a11">'确定前回调'</span>);<br>                <span style="color:#000-2">callback</span>.<span style="color:#000">close</span>();<br>            },<br>            <span style="color:#a11">'取消|cancel'</span>:<span style="color:#708">function</span>(<span style="color:#00f">callback</span>){<br>                <span style="color:#000-2">callback</span>.<span style="color:#000">close</span>();<br>            }<br>        },<br>        <span style="color:#000">beforeShow</span>:<span style="color:#708">function</span>(){<br>            <span style="color:#000">alert</span>(<span style="color:#a11">'显示前事件'</span>);<br>        }<br>    });<br>});</pre>
             </div>
             <div class="eg">
                 <input type="button" class="dialog2" value="消息提示&显示前置事件&2秒后消失&关闭后回调">
                 <p>HTML</p>
-<pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-message"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
+<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-message"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
                 <p>Javascript</p>
-<pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog2'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-message'</span>).<span style="color:#000">mDialog</span>({<br>        <span style="color:#000">type</span>:<span style="color:#a11">'message'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'这条消息2秒后关闭'</span>,<br>        <span style="color:#000">beforeShow</span>:<span style="color:#708">function</span>(){<br>            <span style="color:#000">alert</span>(<span style="color:#a11">'显示前事件'</span>);<br>        },<br>        <span style="color:#000">afterHide</span>:<span style="color:#708">function</span>(){<br>            <span style="color:#000">alert</span>(<span style="color:#a11">'关闭后事件'</span>);<br>        }<br>    });<br>});</pre>  
+<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog2'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-message'</span>).<span style="color:#000">mDialog</span>({<br>        <span style="color:#000">type</span>:<span style="color:#a11">'message'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'这条消息2秒后关闭'</span>,<br>        <span style="color:#000">beforeShow</span>:<span style="color:#708">function</span>(){<br>            <span style="color:#000">alert</span>(<span style="color:#a11">'显示前事件'</span>);<br>        },<br>        <span style="color:#000">afterHide</span>:<span style="color:#708">function</span>(){<br>            <span style="color:#000">alert</span>(<span style="color:#a11">'关闭后事件'</span>);<br>        }<br>    });<br>});</pre> 
             </div>
             <div class="eg">
-                <input type="button" class="dialog3" value="半秒后消失&回调">
+                <input type="button" class="dialog3" value="组合&回调初始化一个弹窗">
                 <p>HTML</p>
-<pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-message"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
-                <p>Javascript</p> 
-<pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog3'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-message'</span>).<span style="color:#000">mDialog</span>({<br>        <span style="color:#000">type</span>:<span style="color:#a11">'message'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'这条半秒就关啦~'</span>,<br>        <span style="color:#000">time</span>:<span style="color:#164">500</span><br>    },<span style="color:#708">function</span>(<span style="color:#00f">callback</span>){<br>        <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#000-2">callback</span>.<span style="color:#000">getType</span>());<br>    });<br>});</pre>
+<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span><br><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-message"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
+                <p>Javascript</p>
+<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog3'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-box'</span>).<span style="color:#000">mDialog</span>({<br>        <span style="color:#000">title</span>:<span style="color:#a11">'标题'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'内容'</span>,<br>        <span style="color:#000">clickMask</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">isDraggable</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">button</span>:{<br>            <span style="color:#a11">'yes'</span>:<span style="color:#708">function</span>(<span style="color:#00f">callback</span>){<br>                <span style="color:#000-2">callback</span>.<span style="color:#000">close</span>();<br>                <span style="color:#000">$</span>(<span style="color:#a11">'.M-message'</span>).<span style="color:#000">mDialog</span>({<br>                    <span style="color:#000">type</span>:<span style="color:#a11">'message'</span>,<br>                    <span style="color:#000">content</span>:<span style="color:#a11">'选择了yes'</span><br>                });<br>            },<br>            <span style="color:#a11">'no'</span>:<span style="color:#708">function</span>(<span style="color:#00f">callback</span>){<br>                <span style="color:#000-2">callback</span>.<span style="color:#000">close</span>();<br>                <span style="color:#000">$</span>(<span style="color:#a11">'.M-message'</span>).<span style="color:#000">mDialog</span>({<br>                    <span style="color:#000">type</span>:<span style="color:#a11">'message'</span>,<br>                    <span style="color:#000">content</span>:<span style="color:#a11">'选择了no'</span><br>                });<br>            }<br>        }<br>    });<br>});</pre>
+            </div>
+            <div class="options">
+                <p>options(参数配置)</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>参数</td>
+                            <td>默认值</td>
+                            <td class="explain">说明</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>title</td>
+                            <td>''</td>
+                            <td class="explain">标题</td>
+                        </tr>
+                        <tr>
+                            <td>close</td>
+                            <td>'x'</td>
+                            <td class="explain">关闭按钮内容</td>
+                        </tr>
+                        <tr>
+                            <td>content</td>
+                            <td>''</td>
+                            <td class="explain">内容</td>
+                        </tr>
+                        <tr>
+                            <td>zIndexplain</td>
+                            <td>9999</td>
+                            <td class="explain">弹窗层级</td>
+                        </tr>
+                        <tr>
+                            <td>isMask</td>
+                            <td>true</td>
+                            <td class="explain">是否开启遮罩</td>
+                        </tr>
+                        <tr>
+                            <td>clickMask</td>
+                            <td>false</td>
+                            <td class="explain">是否可以点击遮罩关闭弹窗</td>
+                        </tr>
+                        <tr>
+                            <td>opacity</td>
+                            <td>0.5</td>
+                            <td class="explain">遮罩透明度</td>
+                        </tr>
+                        <tr>
+                            <td>button</td>
+                            <td>{}</td>
+                            <td class="explain">按钮配置，例：'确定|ok':function(){}，名字|样式名+回调，多个按钮用逗号隔开，如果没传样式默认样式为'M-btn'</td>
+                        </tr>
+                        <tr>
+                            <td>type</td>
+                            <td>''</td>
+                            <td class="explain">值为'message'时无title，button，close并且自动关闭</td>
+                        </tr>
+                        <tr>
+                            <td>time</td>
+                            <td>2000</td>
+                            <td class="explain">type为message时多少秒后自动关闭</td>
+                        </tr>
+                        <tr>
+                            <td>follow</td>
+                            <td>true</td>
+                            <td class="explain">弹窗是否跟随屏幕滚动</td>
+                        </tr>
+                        <tr>
+                            <td>isDraggable</td>
+                            <td>true</td>
+                            <td class="explain">是否能拖动</td>
+                        </tr>
+                        <tr>
+                            <td>handleCls</td>
+                            <td>'M-title'</td>
+                            <td class="explain">拖动把手的class，默认为标题class</td>
+                        </tr>
+                        <tr>
+                            <td>beforeShow</td>
+                            <td>function(){}</td>
+                            <td class="explain">显示前的事件</td>
+                        </tr>
+                        <tr>
+                            <td>afterHide</td>
+                            <td>function(){}</td>
+                            <td class="explain">关闭后的事件</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="callback">
+                <p>callback接口</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>方法</td>
+                            <td>说明</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>open</td>
+                            <td>打开弹窗</td>
+                        </tr>
+                        <tr>
+                            <td>close</td>
+                            <td>关闭弹窗</td>
+                        </tr>
+                        <tr>
+                            <td>getType</td>
+                            <td>获取弹窗类型</td>
+                        </tr>
+                        <tr>
+                            <td>getOpen</td>
+                            <td>获取弹窗状态是否打开</td>
+                        </tr>
+                        <tr>
+                            <td>scroll</td>
+                            <td>视图窗口滚动时居中</td>
+                        </tr>
+                        <tr>
+                            <td>resize</td>
+                            <td>窗口变化居中</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="M-box"></div>
             <div class="M-message"></div>
         </div>
-        <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="./script/M-dialog.js"></script>
+        <footer>
+            <p>&copy; <a href="http://maxiaoxiang.com">Mss。</a><span class="spe">/</span>Powered by <a href="http://maxiaoxiang.com">Maxiaoxiang</a></p>
+        </footer>
+        <script src="../public/jquery.min.js"></script>
+        <script src="./script/jquery.dialog.js"></script>
         <script>
             $(function(){
                 $('.dialog1').click(function(){
@@ -48,12 +179,13 @@
                         title:'标题',
                         content:'内容',
                         clickMask:true,
+                        isDraggable:true,
                         button:{
-                            'yes':function(callback){
+                            '确定|ok':function(callback){
                                 alert('确定前回调');
                                 callback.close();
                             },
-                            'no':function(callback){
+                            '取消|cancel':function(callback){
                                 callback.close();
                             }
                         },
@@ -75,12 +207,27 @@
                     });
                 });
                 $('.dialog3').click(function(){
-                    $('.M-message').mDialog({
-                        type:'message',
-                        content:'这条半秒就关啦~',
-                        time:500
-                    },function(callback){
-                        console.log(callback.getType());
+                    $('.M-box').mDialog({
+                        title:'标题',
+                        content:'内容',
+                        clickMask:true,
+                        isDraggable:true,
+                        button:{
+                            'yes':function(callback){
+                                callback.close();
+                                $('.M-message').mDialog({
+                                    type:'message',
+                                    content:'选择了yes'
+                                });
+                            },
+                            'no':function(callback){
+                                callback.close();
+                                $('.M-message').mDialog({
+                                    type:'message',
+                                    content:'选择了no'
+                                });
+                            }
+                        }
                     });
                 });
             });

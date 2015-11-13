@@ -38,15 +38,19 @@
 }
 .M-button{
     position: absolute;
-    right:20px;
+    padding-right: 20px;
+    right:0;
     bottom:0;
     height: 45px;
     line-height: 45px;
     width:100%;
     text-align: right;
 }
-.M-yes{
-    padding-right: 10px;
+.M-ok{
+    padding-right: 20px;
+}
+.M-btn{
+    padding-right: 20px;   
 }
 .M-message{
     display: none;

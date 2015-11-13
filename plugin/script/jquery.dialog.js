@@ -1,25 +1,3 @@
-/*
-                   _ooOoo_
-                  o8888888o
-                  88" . "88
-                  (| -_- |)
-                  O\  =  /O
-               ____/`---'\____
-             .'  \\|     |//  `.
-            /  \\|||  :  |||//  \
-           /  _||||| -:- |||||-  \
-           |   | \\\  -  /// |   |
-           | \_|  ''\---/''  |   |
-           \  .-\__  `-`  ___/-. /
-         ___`. .'  /--.--\  `. . __
-      ."" '<  `.___\_<|>_/___.'  >'"".
-     | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-     \  \ `-.   \_ __\ /__ _/   .-` /  /
-======`-.____`-.___\_____/___.-`____.-'======
-                   `=---='
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            佛祖保佑       永无BUG
-*/
 /**
  * Dialog弹出层插件
  * @authors Mxx
@@ -43,6 +21,7 @@
 		follow:true,//随屏幕滚动
 		time:2000,//显示时间
 		isDraggable:false,//拖动
+		handleCls:'M-title',//拖动把手
 		beforeShow:function(){},//显示前事件
 		afterHide:function(){}//关闭后事件
 	};
@@ -78,6 +57,7 @@
 			}
 			options.afterHide();
 			isOpen = false;
+			$(document).off('mousemove mouseup');
 		};
 		//窗口变化居中
 		_.resize = function(){
@@ -102,7 +82,28 @@
 		};
 		//拖动
 		var drag = function(){
-			//loading...
+			var isDraging = false;//是否正在拖动
+			var $handle = $('.' + options.handleCls);//拖动把手
+			var coordinate = {iX : '',iY : '',mX : '',mY : ''};//鼠标坐标
+			$handle.on('mousedown',function(e){
+				isDraging = true;
+				coordinate.iX = $.mouseCoords(e).x - $this.position().left;
+				coordinate.iY = $.mouseCoords(e).y - $this.position().top;
+			});
+			$(document).on({
+				'mousemove':function(e){
+					e.stopPropagation();
+					e.preventDefault();
+					if(isDraging){
+						coordinate.mX = $.mouseCoords(e).x - coordinate.iX;
+						coordinate.mY = $.mouseCoords(e).y - coordinate.iY;
+						$this.css({'left':coordinate.mX,'top':coordinate.mY});
+					}
+				},
+				'mouseup':function(){
+					isDraging = false;
+				}
+			});
 		};
 		//初始
 		var init = function(){
@@ -124,9 +125,11 @@
 				}).empty().append($title).append($close).append($content);
 				$button.appendTo($content);
 				$close.click(_.close);
-				for(name in options.button){
+				for(name in options.button){//遍历按钮插入弹窗
 					(function (name){
-						$('<a href="javascript:;" class="M-'+name+'">'+name+'</a>').appendTo($button).click(function(){
+						var mss = name.split('|');
+						var cls = mss[1] ? mss[1] : 'btn';
+						$('<a href="javascript:;" class="M-'+cls+'">'+mss[0]+'</a>').appendTo($button).click(function(){
 							options.button[name](_);
 						});
 					})(name);
@@ -148,16 +151,17 @@
 			$window.resize(_.resize);
 			if(options.follow) $window.scroll(_.scroll);
 			if(options.clickMask) $mask.click(_.close);
-			if(options.isDraggable) $title.css({'cursor':'move'});
+			if(options.isDraggable){
+				$('.' + options.handleCls).css({'cursor':'move'});
+				drag();
+			}	
 			_.open();
 		};
 		init();
 	};
 
-	Dialog.prototype = {};
-
 	$.fn.mDialog = function(parameter,callback){
-		if(typeof parameter == 'function'){
+		if(typeof parameter == 'function'){//重载
 			callback = parameter;
 			parameter = {};
 		}else{
@@ -169,7 +173,19 @@
 			var dialog = new Dialog(this,options);
 			callback(dialog);
 		});
-	};	
+	};
+
+	$.extend({
+		mouseCoords : function(e){//返回当前鼠标坐标
+			if(e.pageX || e.pageY){
+				return {x : e.pageX , y : e.pageY};
+			}
+			return {
+				x : e.clientX + document.body.scrollLeft - document.body.clientLeft,
+				y : e.clientY + document.body.scrollTop - document.body.clientTop
+			};
+		}
+	});
 
 	return $;
 
