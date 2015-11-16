@@ -1,6 +1,5 @@
 /**
- * Dialog弹出层插件
- * @authors Mxx
+ * dialog弹出层插件
  * @version 0.2
  * @url http://www.maxiaoxiang.com
  * @E-mail 251445460@qq.com
@@ -160,7 +159,7 @@
 		init();
 	};
 
-	$.fn.mDialog = function(parameter,callback){
+	$.fn.dialog = function(parameter,callback){
 		if(typeof parameter == 'function'){//重载
 			callback = parameter;
 			parameter = {};

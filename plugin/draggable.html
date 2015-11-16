@@ -5,15 +5,30 @@
         <title>Maxiaoxiang</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="./style/base.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./style/draggable.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./style/common.css" media="screen">
+        <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     </head>
     <body>
-        <div class="test" style="height:100px;width:100px;background:#ccc;position:absolute;left:50%;top:50%;margin-left:-50px;margin-top:-50px;"></div>
+        <div class="test"></div>
+        <div class="test1"><p class="handle">我是拖动把手</p></div>
         <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="./script/MxxUi-draggable.js"></script>
+        <script src="./script/jquery.draggable.js"></script>
         <script>
             $(function(){
-                $('.test').MxxDraggable();
+                $('.test').draggable();
+                $('.test1').draggable({
+                    handleCls:'handle',
+                    beforeDrag:function(){
+                        //移动前触发的事件
+                    },
+                    moveDrag:function(){
+                        // console.log($(window).width(),$(window).height());
+                    },
+                    stopDrag:function(){
+                        //停止拖动触发的事件
+                    }
+                });
             });
         </script>
     </body>
