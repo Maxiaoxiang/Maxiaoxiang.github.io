@@ -10,9 +10,9 @@
 		handleCls:'',//拖动把手
 		axis:'',//拖动方向
 		rangeCls:'',//拖动范围
-		beforeDrag:function(){},//开始拖动前事件
+		startDrag:function(){},//开始拖动事件
 		moveDrag:function(){},//拖动时事件
-		stopDrag:function(){}//停止拖动后事件
+		stopDrag:function(){}//停止拖动事件
 	};
 
 	var Draggable = function(element,options){
@@ -27,19 +27,21 @@
 		var $range = options.rangeCls ? $('.' + options.rangeCls) : $window;//拖动范围
 		//开始
 		_.start = function(e,func){
-			if(options.beforeDrag() != false){
+			if(options.startDrag(_,e) != false){
 				(func || function(){})();
 				isDraging = true;
-				coordinate.iX = mouseCoords(e).x - $this.position().left;
-				coordinate.iY = mouseCoords(e).y - $this.position().top;
+				coordinate.iX = _.getMouseCoords(e).x - $this.position().left;
+				coordinate.iY = _.getMouseCoords(e).y - $this.position().top;
 				$this.css({'position':'absolute'});
 			}
 		};
 		//拖动中
 		_.drap = function(e){
-			if(isDraging && options.moveDrag() != false){
-				coordinate.mX = mouseCoords(e).x - coordinate.iX;
-				coordinate.mY = mouseCoords(e).y - coordinate.iY;
+			if(isDraging && options.moveDrag(_,e) != false){
+				e.stopPropagation();
+				e.preventDefault();
+				coordinate.mX = _.getMouseCoords(e).x - coordinate.iX;
+				coordinate.mY = _.getMouseCoords(e).y - coordinate.iY;
 				switch (options.axis){//拖动方向
 					case 'x':
 						$this.css({'left':coordinate.mX});
@@ -50,19 +52,33 @@
 					default:
 						$this.css({'left':coordinate.mX,'top':coordinate.mY});	
 				}
+				if($this.position().left < 0){//左
+					$this.css({'left':'0'});
+				}
+				if($this.position().left > $range.width() - $this.width()){//右
+					$this.css({'left':$range.width() - $this.width()});
+				}
+				if($this.position().top < 0){//上
+					$this.css({'top':'0'});
+				}
+				if($this.position().top > $range.height() - $this.height()){//下
+					$this.css({'top': $range.height() - $this.height()});
+				}
 			}
 		};
 		//停止
-		_.stop = function(){
-			isDraging = false;
-			options.stopDrag();
+		_.stop = function(e){
+			if(isDraging){
+				isDraging = false;
+				options.stopDrag(_,e);	
+			}
 		};
 		//拖动状态
 		_.getDraging = function(){
 			return isDraging;
 		};
 		//返回当前鼠标坐标
-		var mouseCoords = function(e){
+		_.getMouseCoords = function(e){
 			if(e.pageX || e.pageY){
 				return {x : e.pageX , y : e.pageY};
 			}
@@ -78,12 +94,10 @@
 			});
 			$document.on({
 				'mousemove':function(e){
-					e.stopPropagation();
-					e.preventDefault();
 					_.drap(e);
 				},
-				'mouseup':function(){
-					_.stop();
+				'mouseup':function(e){
+					_.stop(e);
 				}
 			});
 		};

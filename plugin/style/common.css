@@ -1,5 +1,8 @@
 @charset "UTF-8";
-
+::selection {
+    background: #eb7350;
+    color: #fff;
+}
 footer{
 	margin:100px auto 50px;
 	width: 960px;
@@ -43,4 +46,23 @@ table .explain{
 }
 table tbody tr:nth-child(even){
 	background:#E7EFF9;
+}
+pre{
+    padding:10px;
+    font-family:Monaco, Consolas, "Courier New";
+}
+.method{
+    font-family:Monaco, Consolas, "Courier New";
+}
+.eg{
+    margin:20px 0;
+    padding:10px;
+    border:1px dashed #bdbdbd;
+    background:#f9f9f9;
+}
+.bad{
+    padding:0 0 0 10px;
+    border:1px dashed #bdbdbd;
+    color:#757575;
+    background:#f9f9f9;
 }

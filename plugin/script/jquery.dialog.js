@@ -16,7 +16,7 @@
 		clickMask:false,//遮罩关闭
 		opacity:'0.5',//透明度
 		button:{},//按钮
-		type:'',//弹窗类型('':默认,'message':提示消息)
+		type:'dialog',//弹窗类型('dialog':默认为对话框,'message':提示消息)
 		follow:true,//随屏幕滚动
 		time:2000,//显示时间
 		isDraggable:false,//拖动
