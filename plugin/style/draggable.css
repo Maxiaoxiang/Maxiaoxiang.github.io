@@ -6,6 +6,11 @@
 	background:#ccc;
 	z-index: 10;
 }
+.wrapper{
+    margin:0 auto;
+    width:960px;
+    height:100%;
+}
 .test1{
 	position: relative;
 	height:100px;
@@ -17,7 +22,7 @@
 }
 .tip1{
 	position: absolute;
-    left: 420px;
+    left: 900px;
     top: 650px;
 	color:#757575;
 }
@@ -39,6 +44,6 @@ strong{
 }
 .tip{
 	position: absolute;
-    left: 120px;
+    left: 600px;
     color: #757575;
 }

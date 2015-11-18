@@ -24,7 +24,7 @@
 		var $document = $(document);
 		var coordinate = {iX : '',iY : '',mX : '',mY : ''};//鼠标坐标
 		var $handle = options.handleCls ? $('.' + options.handleCls) : $this;//拖动把手
-		var $range = options.rangeCls ? $('.' + options.rangeCls) : $window;//拖动范围
+		var $range = options.rangeCls ? $('.' + options.rangeCls) : false;//拖动范围
 		//开始
 		_.start = function(e,func){
 			if(options.startDrag(_,e) != false){
@@ -38,6 +38,7 @@
 		//拖动中
 		_.drap = function(e){
 			if(isDraging && options.moveDrag(_,e) != false){
+				var domScrollTop = document.body.scrollTop;
 				e.stopPropagation();
 				e.preventDefault();
 				coordinate.mX = _.getMouseCoords(e).x - coordinate.iX;
@@ -52,17 +53,32 @@
 					default:
 						$this.css({'left':coordinate.mX,'top':coordinate.mY});	
 				}
-				if($this.position().left < 0){//左
-					$this.css({'left':'0'});
-				}
-				if($this.position().left > $range.width() - $this.width()){//右
-					$this.css({'left':$range.width() - $this.width()});
-				}
-				if($this.position().top < 0){//上
-					$this.css({'top':'0'});
-				}
-				if($this.position().top > $range.height() - $this.height()){//下
-					$this.css({'top': $range.height() - $this.height()});
+				if(options.rangeCls){
+					if($this.position().left < 0){
+						$this.css({'left':'0'});
+					}
+					if($this.position().left > $range.width() - $this.width()){
+						$this.css({'left':$range.width() - $this.width()});
+					}
+					if($this.position().top < 0){
+						$this.css({'top':'0'});
+					}
+					if($this.position().top > $range.height() - $this.height()){
+						$this.css({'top': $range.height() - $this.height()});
+					}
+				}else{
+					if($this.position().left < 0){
+						$this.css({'left':'0'});
+					}
+					if($this.position().left > $window.width() - $this.width()){
+						$this.css({'left':$window.width() - $this.width()});
+					}
+					if($this.position().top < domScrollTop){
+						$this.css({'top':domScrollTop});
+					}
+					if($this.position().top > $window.height() - $this.height() + domScrollTop){
+						$this.css({'top': $window.height() - $this.height() + domScrollTop});
+					}
 				}
 			}
 		};
