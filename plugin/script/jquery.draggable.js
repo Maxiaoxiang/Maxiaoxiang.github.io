@@ -10,6 +10,7 @@
 		handleCls:'',//拖动把手
 		axis:'',//拖动方向
 		rangeCls:'',//拖动范围
+		clone:false,//克隆拖动
 		startDrag:function(){},//开始拖动事件
 		moveDrag:function(){},//拖动时事件
 		stopDrag:function(){}//停止拖动事件
