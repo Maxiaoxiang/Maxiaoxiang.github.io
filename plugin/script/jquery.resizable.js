@@ -7,6 +7,7 @@
 ;(function($,window,document,undefined){
 
 	var defaults = {
+		rangeCls:'range',//最大范围
 		startResize:function(){},//开始缩放事件
 		resizeing:function(){},//缩放时事件
 		stopResize:function(){}//停止缩放事件
@@ -15,12 +16,15 @@
 	var Resizable = function(element,options){
 		var _ = this;
 		var $this = $(element);
-		var isReszeing = false;
+		var isReszeing = false;//标识
 		var $body = $('body');
+		var $window = $(window);
 		var $document = $(document);
 		var $e = $('<div class="e-resize" data-type="e-resize"></div>');
 		var $s = $('<div class="s-resize" data-type="s-resize"></div>');
-		var $se = $('<div class="se-resize" data-type="se-resize" style="background:#ccc;"></div>');
+		var $se = $('<div class="se-resize" data-type="se-resize"></div>');
+		var $range = options.rangeCls ? $('.' + options.rangeCls) : $window;
+		//开始
 		_.start = function(handle,e,func){
 			if(options.startResize(_) != false){
 				(func || function(){})();
@@ -35,6 +39,7 @@
 				});
 			}
 		};
+		//缩放
 		_.resizeing = function(handle,e){
 			if(isReszeing && options.resizeing(_) != false){
 				var type = handle.data('type');
@@ -55,10 +60,12 @@
 				}
 			}
 		};
-		_.stop = function(e){
+		//停止
+		_.stop = function(handle,e){
 			if(isReszeing){
 				isReszeing = false;
 				$body.css({'cursor':'auto'});
+				$document.off('mousemove',_.resizeing(handle,e));
 				options.stopResize(_);
 			}
 		};
@@ -106,7 +113,6 @@
 			var arr = [$e,$s,$se];
 			for(var i in arr){
 				arr[i].on('mousedown',function(e){
-					var that = $(this);
 					_.start($(this),e);
 				});
 			}

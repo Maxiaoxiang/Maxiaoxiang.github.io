@@ -17,7 +17,7 @@
 		opacity:'0.5',//透明度
 		button:{},//按钮
 		type:'dialog',//弹窗类型('dialog':默认为对话框,'message':提示消息)
-		follow:true,//随屏幕滚动
+		followScroll:true,//随屏幕滚动
 		time:2000,//显示时间
 		isDraggable:false,//拖动
 		handleCls:'M-title',//拖动把手
@@ -31,6 +31,7 @@
 		var isOpen = false;
 		var $body = $('body');
 		var $window = $(window);
+		var $document = $(document);
 		var $title = $('<div class="M-title">'+options.title+'</div>');//标题
 		var $close = $('<div class="M-close">'+options.close+'</div>');//关闭按钮
 		var $content = $('<div class="M-content">'+options.content+'</div>');//内容区域
@@ -56,7 +57,7 @@
 			}
 			options.afterHide();
 			isOpen = false;
-			$(document).off('mousemove mouseup');
+			$document.off('mousemove mouseup');
 		};
 		//窗口变化居中
 		_.resize = function(){
@@ -89,7 +90,7 @@
 				coordinate.iX = $.mouseCoords(e).x - $this.position().left;
 				coordinate.iY = $.mouseCoords(e).y - $this.position().top;
 			});
-			$(document).on({
+			$document.on({
 				'mousemove':function(e){
 					e.stopPropagation();
 					e.preventDefault();
@@ -134,7 +135,7 @@
 					})(name);
 				}
 			}
-			if(options.isMask && $mask.length == 0){
+			if(options.isMask && $mask.length == 0){//遮罩
 				$mask = $('<div class="M-mask"></div>').css({
 					'display':'none',
 					'position':'fixed',
@@ -148,7 +149,7 @@
 				}).appendTo($body).before($this);
 			}
 			$window.resize(_.resize);
-			if(options.follow) $window.scroll(_.scroll);
+			if(options.followScroll) $window.scroll(_.scroll);
 			if(options.clickMask) $mask.click(_.close);
 			if(options.isDraggable){
 				$('.' + options.handleCls).css({'cursor':'move'});

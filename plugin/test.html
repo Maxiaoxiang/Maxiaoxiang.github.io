@@ -15,10 +15,14 @@
             <div class="test"></div>
         </div>
         <script src="../public/jquery.min.js"></script>
-        <script src="./script/jquery.resizable.js"></script>
+        <script src="./script/jquery.prototype.dialog.js"></script>
         <script>
             $(function(){
-                $('.test').resizable();
+                $('.test').poplayer({
+                    beforeShow:function(api){
+                        api.close();
+                    }
+                });
             });
         </script>
     </body>
