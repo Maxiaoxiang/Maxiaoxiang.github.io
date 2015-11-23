@@ -49,7 +49,8 @@
     text-align: right;
 }
 .M-ok{
-    padding-right: 20px;
+    margin-right: 20px;
+    color:#ff0000;
 }
 .M-btn{
     padding-right: 20px;   

@@ -21,22 +21,52 @@
 		time:2000,//显示时间
 		isDraggable:false,//拖动
 		handleCls:'M-title',//拖动把手
+		axis:'',//拖动方向
+		rangeCls:'',//范围
+		clone:false,//克隆拖动
+		isResizable:true,//缩放
 		beforeShow:function(){},//显示前事件
-		afterHide:function(){}//关闭后事件
+		afterHide:function(){},//关闭后事件
+		startDrag:function(){},//开始拖动事件
+		moveDrag:function(){},//拖动时事件
+		stopDrag:function(){},//停止拖动事件
+		startResize:function(){},//开始缩放事件
+		resizeing:function(){},//缩放时事件
+		stopResize:function(){}//停止缩放事件
 	};
 
 	var Dialog = function(element,options){
 		var _ = this;
 		var $this = $(element);
-		var isOpen = false;
+		var isOpen = false;//弹窗状态
+		var isDraging = false;//拖动开关
 		var $body = $('body');
 		var $window = $(window);
 		var $document = $(document);
+		var coordinate = {iX : '',iY : '',mX : '',mY : ''};//鼠标坐标
 		var $title = $('<div class="M-title">'+options.title+'</div>');//标题
 		var $close = $('<div class="M-close">'+options.close+'</div>');//关闭按钮
 		var $content = $('<div class="M-content">'+options.content+'</div>');//内容区域
 		var $button = $('<div class="M-button"></div>');//按钮
 		var $mask = $('.M-mask');//遮罩
+		var $range = options.rangeCls ? $('.' + options.rangeCls) : $body;//拖动范围
+		var $clone = options.clone ? $('<div></div>') : '';//克隆对象
+		var $dragClone = options.clone ? $clone : $this;
+		var $e = $('<div class="e-resize" data-type="e-resize"></div>');
+		var $s = $('<div class="s-resize" data-type="s-resize"></div>');
+		var $se = $('<div class="se-resize" data-type="se-resize"></div>');
+		if(typeof $clone == 'object'){
+			$clone.css({
+				'position':'absolute',
+				'top':$this.position().top,
+				'left':$this.position().left,
+				'width':$this.outerWidth(),
+				'height':$this.outerHeight(),
+				'cursor':'move',
+				'z-index':$this.css('z-index'),
+				'border':'1px dashed #ccc'
+			});
+		}
 		//打开
 		_.open = function(func){
 			if(options.beforeShow(_) != false){
@@ -62,7 +92,7 @@
 		//窗口变化居中
 		_.resize = function(){
 			$this.css({
-				'top': ($window.height() - $this.outerHeight()) / 2 + 'px',
+				'top': ($window.height() - $this.outerHeight()) / 2 + $document.scrollTop() + 'px',
 				'left': ($window.width() - $this.outerWidth()) / 2 + 'px'
 			});
 		};
@@ -72,34 +102,101 @@
 				'top':($window.height() - $this.outerHeight()) / 2 + $document.scrollTop()
 			});
 		};
-		//打开状态
+		//弹窗状态
 		_.getOpen = function(){
 			return isOpen;
 		};
+		//返回当前鼠标坐标
+		_.mouseCoords = function(e){
+			if(e.pageX || e.pageY){
+				return {x : e.pageX , y : e.pageY};
+			}
+			return {
+				x : e.clientX + document.body.scrollLeft - document.body.clientLeft,
+				y : e.clientY + document.body.scrollTop - document.body.clientTop
+			};
+		};
 		//拖动
-		var drag = function(){
-			var isDraging = false;//是否正在拖动
-			var $handle = $('.' + options.handleCls);//拖动把手
-			var coordinate = {iX : '',iY : '',mX : '',mY : ''};//鼠标坐标
-			$handle.on('mousedown',function(e){
+		_.start = function(e,func){
+			if(options.startDrag(_,e) != false){
+				(func || function(){})();
 				isDraging = true;
-				coordinate.iX = $.mouseCoords(e).x - $this.position().left;
-				coordinate.iY = $.mouseCoords(e).y - $this.position().top;
-			});
-			$document.on({
-				'mousemove':function(e){
-					e.stopPropagation();
-					e.preventDefault();
-					if(isDraging){
-						coordinate.mX = $.mouseCoords(e).x - coordinate.iX;
-						coordinate.mY = $.mouseCoords(e).y - coordinate.iY;
-						$this.css({'left':coordinate.mX,'top':coordinate.mY});
-					}
-				},
-				'mouseup':function(){
-					isDraging = false;
+				coordinate.iX = _.mouseCoords(e).x - $this.position().left;
+				coordinate.iY = _.mouseCoords(e).y - $this.position().top;
+				$this.css({'position':'absolute'});
+				if(options.clone) $clone.appendTo($range);
+			}
+		};
+		_.drag = function(e,clone){
+			if(isDraging && options.moveDrag(_,e) != false){
+				e.stopPropagation();
+				e.preventDefault();
+				var domScrollTop = document.body.scrollTop;
+				coordinate.mX = _.mouseCoords(e).x - coordinate.iX;
+				coordinate.mY = _.mouseCoords(e).y - coordinate.iY;
+				switch (options.axis){//拖动方向
+					case 'x':
+						clone.css({'left':coordinate.mX});
+						break;
+					case 'y':
+						clone.css({'top':coordinate.mY});
+						break;
+					default:
+						clone.css({'left':coordinate.mX,'top':coordinate.mY});	
 				}
-			});
+				if(options.rangeCls){
+					if(clone.position().left < 0){
+						clone.css({'left':'0'});
+					}
+					if(clone.position().left > $range.width() - clone.width()){
+						clone.css({'left':$range.width() - clone.width()});
+					}
+					if(clone.position().top < 0){
+						clone.css({'top':'0'});
+					}
+					if(clone.position().top > $range.height() - clone.height()){
+						clone.css({'top': $range.height() - clone.height()});
+					}
+				}else{
+					if(clone.position().left < 0){
+						clone.css({'left':'0'});
+					}
+					if(clone.position().left > $window.width() - clone.width()){
+						clone.css({'left':$window.width() - clone.width()});
+					}
+					if(clone.position().top < domScrollTop){
+						clone.css({'top':domScrollTop});
+					}
+					if(clone.position().top > $window.height() - clone.height() + domScrollTop){
+						clone.css({'top': $window.height() - clone.height() + domScrollTop});
+					}
+				}
+			}
+		};
+		_.stop = function(e,clone){
+			if(isDraging || isReszeing){
+				if(options.clone){
+					$this.css({
+						'top':clone.position().top,
+						'left':clone.position().left,
+						'width':clone.outerWidth(),
+						'height':clone.outerHeight()
+					});
+					clone.remove();
+				}
+				isReszeing = false;
+				isDraging = false;
+				$body.css({'cursor':'auto'});
+				$document.off('mousemove',_.resizeing(handle,e));
+				options.stopResize(_);
+				options.stopDrag(_,e);	
+			}
+		};
+		_.resizeStart = function(){
+
+		};
+		_.resizeing = function(){
+
 		};
 		//初始
 		var init = function(){
@@ -148,9 +245,58 @@
 			if(options.followScroll) $window.scroll(_.scroll);
 			if(options.clickMask) $mask.click(_.close);
 			if(options.isDraggable){
-				$('.' + options.handleCls).css({'cursor':'move'});
-				drag();
-			}	
+				var $handle = options.handleCls ? $('.' + options.handleCls) : $this;//拖动把手
+				$handle.css({'cursor':'move'}).on('mousedown',function(e){
+					_.start(e);
+				});
+				$document.on({
+					'mousemove':function(e){
+						_.drag(e,$dragClone);
+					},
+					'mouseup':function(e){
+						_.stop(e,$dragClone);
+					}
+				});
+				_.drag();
+			}
+			if(options.isResizable){
+				var rb = parseInt($this.css('border-right-width')) || 0;
+				var bb = parseInt($this.css('border-bottom-width')) || 0;
+				var zIndex = $this.css('z-index') == 'auto' ? 'auto' : $this.css('z-index');
+				$e.css({
+					'position': 'absolute',
+					'top':0 - rb,
+					'right':'-4px',
+					'height': $this.outerHeight(),
+					'width':'8px',
+					'z-index': zIndex,
+					'cursor': 'e-resize'
+				}).appendTo($this);
+				$s.css({
+					'position': 'absolute',
+					'left':0 - bb,
+					'bottom':'-4px',
+					'height': '8px',
+					'width':$this.outerWidth(),
+					'z-index': zIndex,
+					'cursor': 's-resize'
+				}).appendTo($this);
+				$se.css({
+					'position': 'absolute',
+					'right':'-1px',
+					'bottom':'-1px',
+					'height': '16px',
+					'width': '16px',
+					'z-index': zIndex,
+					'cursor': 'se-resize'
+				}).appendTo($this);
+				var arr = [$e,$s,$se];
+				for(var i in arr){
+					arr[i].on('mousedown',function(e){
+						_.resizeStart($this,e);
+					});
+				}
+			}
 			_.open();
 		};
 		init();
@@ -170,18 +316,6 @@
 			callback(dialog);
 		});
 	};
-
-	$.extend({
-		mouseCoords : function(e){//返回当前鼠标坐标
-			if(e.pageX || e.pageY){
-				return {x : e.pageX , y : e.pageY};
-			}
-			return {
-				x : e.clientX + document.body.scrollLeft - document.body.clientLeft,
-				y : e.clientY + document.body.scrollTop - document.body.clientTop
-			};
-		}
-	});
 
 	return $;
 
