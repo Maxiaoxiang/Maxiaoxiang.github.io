@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.test{
+.test,.test3{
 	position: absolute;
 	height:100px;
 	width:100px;
@@ -21,10 +21,10 @@
 	margin:0;
 }
 .tip1{
-	position: absolute;
-    left: 900px;
-    top: 650px;
-	color:#757575;
+    position: absolute;
+    left: 500px;
+    top: 100px;
+    color: #757575;
 }
 strong{
 	color:#DD1E1E;
@@ -42,8 +42,10 @@ strong{
 .testmg{
 	padding-top:100px;
 }
-.tip{
-	position: absolute;
-    left: 600px;
+.tip,.tip2{
+	padding-left: 150px;
     color: #757575;
+}
+.drag{
+	position: relative;
 }

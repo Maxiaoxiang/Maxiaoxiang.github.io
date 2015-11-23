@@ -39,7 +39,7 @@
 		var $mask = $('.M-mask');//遮罩
 		//打开
 		_.open = function(func){
-			if(options.beforeShow() != false){
+			if(options.beforeShow(_) != false){
 				(func || function(){})();
 				$this.show();
 				if(options.isMask) $mask.show();
@@ -69,12 +69,8 @@
 		//滚动时居中
 		_.scroll = function(){
 			$this.css({
-				'top':($window.height() - $this.outerHeight()) / 2 + $(document).scrollTop()
+				'top':($window.height() - $this.outerHeight()) / 2 + $document.scrollTop()
 			});
-		};
-		//弹窗类型
-		_.getType = function(){
-			return options.type;
 		};
 		//打开状态
 		_.getOpen = function(){
@@ -111,7 +107,7 @@
 				$this.css({
 					'display':'none',
 					'position':'absolute',
-					'top':($window.height() - $this.outerHeight()) / 2 + $(document).scrollTop() + 'px',
+					'top':($window.height() - $this.outerHeight()) / 2 + $document.scrollTop() + 'px',
 					'left':($window.width() - $this.outerWidth()) / 2 + 'px',
 					'z-index':options.zIndex
 				}).empty().append($content);
@@ -119,7 +115,7 @@
 				$this.css({
 					'display':'none',
 					'position':'absolute',
-					'top':($window.height() - $this.outerHeight()) / 2 + $(document).scrollTop() + 'px',
+					'top':($window.height() - $this.outerHeight()) / 2 + $document.scrollTop() + 'px',
 					'left':($window.width() - $this.outerWidth()) / 2 + 'px',
 					'z-index':options.zIndex
 				}).empty().append($title).append($close).append($content);

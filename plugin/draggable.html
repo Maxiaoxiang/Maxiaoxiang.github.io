@@ -25,7 +25,7 @@
                 <p>Javascript</p>
 <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.test'</span>).<span style="color:#000">draggable</span>();</pre>
             </div>
-            <div class="eg">
+            <div class="eg drag">
                 <div class="range">
                     <div class="test1" onselectstart="return false;">
                         <p class="handle">我是拖动把手</p>
@@ -41,6 +41,16 @@
 <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"range"</span><span style="color:#170">&gt;</span><br>    <span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"test1"</span><span style="color:#170">&gt;</span><br>          <span style="color:#170">&lt;p</span> <span style="color:#00c">class</span>=<span style="color:#a11">"handle"</span><span style="color:#170">&gt;</span>我是拖动把手<span style="color:#170">&lt;/p</span><span style="color:#170">&gt;</span><br>    <span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span><br><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
                 <p>Javascript</p>
 <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#708">var</span> <span style="color:#000">i</span> = <span style="color:#164">1</span>;<br><span style="color:#708">var</span> <span style="color:#000">j</span> = <span style="color:#164">1</span>;<br><span style="color:#000">$</span>(<span style="color:#a11">'.test1'</span>).<span style="color:#000">draggable</span>({<br>    <span style="color:#000">handleCls</span>:<span style="color:#a11">'handle'</span>,<br>    <span style="color:#000">rangeCls</span>:<span style="color:#a11">'range'</span>,<br>    <span style="color:#000">startDrag</span>:<span style="color:#708">function</span>(){<br>        <span style="color:#000">$</span>(<span style="color:#a11">'.start'</span>).<span style="color:#000">find</span>(<span style="color:#a11">'strong'</span>).<span style="color:#000">html</span>(<span style="color:#000">i</span>++);<br>    },<br>    <span style="color:#000">moveDrag</span>:<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>        <span style="color:#000">$</span>(<span style="color:#a11">'.x'</span>).<span style="color:#000">html</span>(<span style="color:#000-2">api</span>.<span style="color:#000">getMouseCoords</span>(<span style="color:#000">e</span>).<span style="color:#000">x</span>);<br>        <span style="color:#000">$</span>(<span style="color:#a11">'.y'</span>).<span style="color:#000">html</span>(<span style="color:#000-2">api</span>.<span style="color:#000">getMouseCoords</span>(<span style="color:#000">e</span>).<span style="color:#000">y</span>);<br>    },<br>    <span style="color:#000">stopDrag</span>:<span style="color:#708">function</span>(){<br>        <span style="color:#000">$</span>(<span style="color:#a11">'.stop'</span>).<span style="color:#000">find</span>(<span style="color:#a11">'strong'</span>).<span style="color:#000">html</span>(<span style="color:#000">j</span>++);<br>    }<br>});</pre>
+            </div>
+            <div class="eg">
+                <div class="test3"></div>
+                <div class="tip2">
+                    <p>←我被克隆了</p>
+                </div>
+                <p class="testmg">HTML</p>
+<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"test3"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
+                <p>Javascript</p>
+<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.test3'</span>).<span style="color:#000">draggable</span>({<br>    <span style="color:#000">clone</span>:<span style="color:#a11">true</span><br>});</pre>
             </div>
             <div class="options">
                 <p>options(参数配置)</p>
@@ -67,6 +77,11 @@
                             <td>rangeCls</td>
                             <td>''</td>
                             <td class="explain">拖动范围，默认为视窗</td>
+                        </tr>
+                        <tr>
+                            <td>clone</td>
+                            <td>false</td>
+                            <td class="explain">克隆拖动</td>
                         </tr>
                         <tr>
                             <td>startDrag</td>
@@ -99,10 +114,6 @@
                         <tr>
                             <td>start</td>
                             <td>开始拖动，isDraging标识符将为true</td>
-                        </tr>
-                        <tr>
-                            <td>drap</td>
-                            <td>拖动中</td>
                         </tr>
                         <tr>
                             <td>stop</td>
@@ -145,6 +156,9 @@
                     stopDrag:function(){
                         $('.stop').find('strong').html(j++);
                     }
+                });
+                $('.test3').draggable({
+                    clone:true
                 });
             });
         </script>
