@@ -31,7 +31,6 @@
 		moveDrag:function(){},//拖动时事件
 		stopDrag:function(){},//停止拖动事件
 		startResize:function(){},//开始缩放事件
-		resizeing:function(){},//缩放时事件
 		stopResize:function(){}//停止缩放事件
 	};
 
@@ -40,6 +39,7 @@
 		var $this = $(element);
 		var isOpen = false;//弹窗状态
 		var isDraging = false;//拖动开关
+		var isReszeing = false;//缩放开关
 		var $body = $('body');
 		var $window = $(window);
 		var $document = $(document);
@@ -116,7 +116,7 @@
 				y : e.clientY + document.body.scrollTop - document.body.clientTop
 			};
 		};
-		//拖动
+		//拖动开始
 		_.start = function(e,func){
 			if(options.startDrag(_,e) != false){
 				(func || function(){})();
@@ -127,6 +127,7 @@
 				if(options.clone) $clone.appendTo($range);
 			}
 		};
+		//拖动中
 		_.drag = function(e,clone){
 			if(isDraging && options.moveDrag(_,e) != false){
 				e.stopPropagation();
@@ -173,8 +174,9 @@
 				}
 			}
 		};
+		//拖动结束
 		_.stop = function(e,clone){
-			if(isDraging || isReszeing){
+			if(isDraging){
 				if(options.clone){
 					$this.css({
 						'top':clone.position().top,
@@ -184,19 +186,54 @@
 					});
 					clone.remove();
 				}
-				isReszeing = false;
 				isDraging = false;
-				$body.css({'cursor':'auto'});
-				$document.off('mousemove',_.resizeing(handle,e));
-				options.stopResize(_);
 				options.stopDrag(_,e);	
 			}
 		};
-		_.resizeStart = function(){
-
+		//缩放开始
+		_.resizeStart = function(handle,e,func){
+			if(options.startResize(_) != false){
+				(func || function(){})();
+				isReszeing = true;
+				$document.on({
+					'mousemove':function(e){
+						_.resizeing(handle,e);
+					},
+					'mouseup':function(e){
+						_.resizeStop(handle,e);
+					}
+				});
+			}
 		};
-		_.resizeing = function(){
-
+		//缩放中
+		_.resizeing = function(handle,e){
+			if(isReszeing){
+				var type = handle.data('type');
+				console.log(type)
+				$body.css({'cursor':type});
+				switch (type){
+					case 'e-resize':
+						$this.css({'width':_.mouseCoords(e).x - $this.offset().left + 'px'});
+						$s.css({'width':$this.outerWidth()});
+						break;
+					case 's-resize':
+						$this.css({'height':_.mouseCoords(e).y - $this.offset().top + 'px'});
+						$e.css({'height':$this.outerHeight()});
+						break;
+					default:
+						$this.css({'width':_.mouseCoords(e).x - $this.offset().left + 'px','height':_.mouseCoords(e).y - $this.offset().top + 'px'});
+						$e.css({'height':$this.outerHeight()});
+						$s.css({'width':$this.outerWidth()});
+				}
+			}
+		};
+		//缩放结束
+		_.resizeStop = function(handle,e){
+			if(isReszeing){
+				isReszeing = false;
+				$body.css({'cursor':'auto'});
+				options.stopResize(_);
+			}
 		};
 		//初始
 		var init = function(){
@@ -290,12 +327,15 @@
 					'z-index': zIndex,
 					'cursor': 'se-resize'
 				}).appendTo($this);
-				var arr = [$e,$s,$se];
-				for(var i in arr){
-					arr[i].on('mousedown',function(e){
-						_.resizeStart($this,e);
-					});
-				}
+				var $arr = [$e,$s,$se];
+				// for(var i in arr){
+				// 	arr[i].mousedown(function(e){
+				// 		_.resizeStart($(this),e);
+				// 	});
+				// }
+				// $arr.each(function(i){
+				// 	console.log($(this))
+				// });
 			}
 			_.open();
 		};
