@@ -7,7 +7,7 @@
 ;(function($,window,document,undefined){
 
 	var defaults = {
-		rangeCls:'range',//最大范围
+		rangeCls:'',//最大范围
 		startResize:function(){},//开始缩放事件
 		resizeing:function(){},//缩放时事件
 		stopResize:function(){}//停止缩放事件
@@ -29,34 +29,49 @@
 			if(options.startResize(_) != false){
 				(func || function(){})();
 				isReszeing = true;
-				$document.on({
-					'mousemove':function(e){
-						_.resizeing(handle,e);
-					},
-					'mouseup':function(e){
-						_.stop(e);
-					}
-				});
+				this.handle = handle;
 			}
 		};
 		//缩放
 		_.resizeing = function(handle,e){
 			if(isReszeing && options.resizeing(_) != false){
-				var type = handle.data('type');
-				$body.css({'cursor':type});
+				var type = this.handle.data('type');//缩放方向
+				var m = _.getMouseCoords(e);//鼠标坐标
+				var offset = $this.offset();
+				$body.css({
+					'overflow':'hidden',
+					'cursor':type
+				});
 				switch (type){
 					case 'e-resize':
-						$this.css({'width':_.getMouseCoords(e).x - $this.offset().left + 'px'});
-						$s.css({'width':$this.outerWidth()});
+						if(m.x - offset.left < $range.width()){
+							$this.css({'width':m.x - offset.left + 'px'});
+						}else{
+							$this.css({'width':$range.width() + 'px'});
+						}
+						$s.css({'width':$this.width()});
 						break;
 					case 's-resize':
-						$this.css({'height':_.getMouseCoords(e).y - $this.offset().top + 'px'});
-						$e.css({'height':$this.outerHeight()});
+						if(m.y - offset.top < $range.height()){
+							$this.css({'height':m.y - offset.top + 'px'});
+						}else{
+							$this.css({'height':$range.height() + 'px'});
+						}
+						$e.css({'height':$this.height()});
 						break;
 					default:
-						$this.css({'width':_.getMouseCoords(e).x - $this.offset().left + 'px','height':_.getMouseCoords(e).y - $this.offset().top + 'px'});
-						$e.css({'height':$this.outerHeight()});
-						$s.css({'width':$this.outerWidth()});
+						if(m.y - offset.top < $range.height()){
+							$this.css({'height':m.y - offset.top + 'px'});
+						}else{
+							$this.css({'height':$range.height() + 'px'});
+						}
+						if(m.x - offset.left < $range.width()){
+							$this.css({'width':m.x - offset.left + 'px'});
+						}else{
+							$this.css({'width':$range.width() + 'px'});
+						}
+						$e.css({'height':$this.height()});
+						$s.css({'width':$this.width()});
 				}
 			}
 		};
@@ -64,10 +79,15 @@
 		_.stop = function(handle,e){
 			if(isReszeing){
 				isReszeing = false;
-				$body.css({'cursor':'auto'});
-				$document.off('mousemove',_.resizeing(handle,e));
+				$body.css({
+					'overflow':'auto',
+					'cursor':'auto'
+				});
 				options.stopResize(_);
 			}
+		};
+		_.getFlag = function(){
+			return isReszeing;
 		};
 		//返回当前鼠标坐标
 		_.getMouseCoords = function(e){
@@ -116,6 +136,14 @@
 					_.start($(this),e);
 				});
 			}
+			$document.on({
+				'mousemove':function(e){
+					_.resizeing(this.handle,e);
+				},
+				'mouseup':function(e){
+					_.stop(e);
+				}
+			});
 		};
 		init();
 	};

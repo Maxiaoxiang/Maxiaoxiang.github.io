@@ -24,14 +24,12 @@
 		axis:'',//拖动方向
 		rangeCls:'',//范围
 		clone:false,//克隆拖动
-		isResizable:true,//缩放
+		isResizable:false,//缩放
 		beforeShow:function(){},//显示前事件
 		afterHide:function(){},//关闭后事件
 		startDrag:function(){},//开始拖动事件
 		moveDrag:function(){},//拖动时事件
 		stopDrag:function(){},//停止拖动事件
-		startResize:function(){},//开始缩放事件
-		stopResize:function(){}//停止缩放事件
 	};
 
 	var Dialog = function(element,options){
@@ -190,40 +188,55 @@
 				options.stopDrag(_,e);	
 			}
 		};
+		//拖动状态
+		_.getDraging = function(){
+			return isDraging;
+		};
 		//缩放开始
-		_.resizeStart = function(handle,e,func){
-			if(options.startResize(_) != false){
-				(func || function(){})();
-				isReszeing = true;
-				$document.on({
-					'mousemove':function(e){
-						_.resizeing(handle,e);
-					},
-					'mouseup':function(e){
-						_.resizeStop(handle,e);
-					}
-				});
-			}
+		_.resizeStart = function(handle,e){
+			isReszeing = true;
+			this.handle = handle;
 		};
 		//缩放中
 		_.resizeing = function(handle,e){
 			if(isReszeing){
-				var type = handle.data('type');
-				console.log(type)
-				$body.css({'cursor':type});
+				var type = this.handle.data('type');//缩放方向
+				var m = _.mouseCoords(e);//鼠标坐标
+				var offset = $this.offset();
+				$body.css({
+					'overflow':'hidden',
+					'cursor':type
+				});
 				switch (type){
 					case 'e-resize':
-						$this.css({'width':_.mouseCoords(e).x - $this.offset().left + 'px'});
-						$s.css({'width':$this.outerWidth()});
+						if(m.x - offset.left < $range.width()){
+							$this.css({'width':m.x - offset.left + 'px'});
+						}else{
+							$this.css({'width':$range.width() + 'px'});
+						}
+						$s.css({'width':$this.width()});
 						break;
 					case 's-resize':
-						$this.css({'height':_.mouseCoords(e).y - $this.offset().top + 'px'});
-						$e.css({'height':$this.outerHeight()});
+						if(m.y - offset.top < $range.height()){
+							$this.css({'height':m.y - offset.top + 'px'});
+						}else{
+							$this.css({'height':$range.height() + 'px'});
+						}
+						$e.css({'height':$this.height()});
 						break;
 					default:
-						$this.css({'width':_.mouseCoords(e).x - $this.offset().left + 'px','height':_.mouseCoords(e).y - $this.offset().top + 'px'});
-						$e.css({'height':$this.outerHeight()});
-						$s.css({'width':$this.outerWidth()});
+						if(m.y - offset.top < $range.height()){
+							$this.css({'height':m.y - offset.top + 'px'});
+						}else{
+							$this.css({'height':$range.height() + 'px'});
+						}
+						if(m.x - offset.left < $range.width()){
+							$this.css({'width':m.x - offset.left + 'px'});
+						}else{
+							$this.css({'width':$range.width() + 'px'});
+						}
+						$e.css({'height':$this.height()});
+						$s.css({'width':$this.width()});
 				}
 			}
 		};
@@ -231,9 +244,20 @@
 		_.resizeStop = function(handle,e){
 			if(isReszeing){
 				isReszeing = false;
+				if(options.clone){
+					$clone.css({
+						'top':$this.position().top,
+						'left':$this.position().left,
+						'width':$this.outerWidth(),
+						'height':$this.outerHeight()
+					});
+				}
 				$body.css({'cursor':'auto'});
-				options.stopResize(_);
 			}
+		};
+		//缩放状态
+		_.getReszeing = function(){
+			return isReszeing;
 		};
 		//初始
 		var init = function(){
@@ -327,15 +351,20 @@
 					'z-index': zIndex,
 					'cursor': 'se-resize'
 				}).appendTo($this);
-				var $arr = [$e,$s,$se];
-				// for(var i in arr){
-				// 	arr[i].mousedown(function(e){
-				// 		_.resizeStart($(this),e);
-				// 	});
-				// }
-				// $arr.each(function(i){
-				// 	console.log($(this))
-				// });
+				var arr = [$e,$s,$se];
+				for(var i in arr){
+					arr[i].mousedown(function(e){
+						_.resizeStart($(this),e);
+					});
+				}
+				$document.on({
+					'mousemove':function(e){
+						_.resizeing(this.handle,e);
+					},
+					'mouseup':function(e){
+						_.resizeStop(this.handle,e);
+					}
+				});
 			}
 			_.open();
 		};
