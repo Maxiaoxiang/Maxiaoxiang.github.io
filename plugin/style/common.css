@@ -2,12 +2,12 @@
 body{
 	word-wrap: break-word;
 	background:#fff;
-	color:#757575;
 }
 ::selection {
     background: #000;
     color: #fff;
 }
+/*底部版权*/
 footer{
 	margin:100px auto 50px;
 	width: 960px;
@@ -26,6 +26,16 @@ footer p a{
 footer p .spe{
 	padding:0 5px;
 }
+.right-bg{
+	position: fixed;
+	right: 0;
+	top:50%;
+	margin-top:-215px;
+	width: 215px;
+	height: 430px;
+	background: url('../../image/right_bg.png') no-repeat;
+}
+/*组件样式*/
 table{
     width: 100%;
     border:1px solid #CAD3DA;
@@ -70,4 +80,42 @@ pre{
     border:1px dashed #bdbdbd;
     color:#757575;
     background:#f9f9f9;
+}
+/*侧栏导航*/
+.nav{
+	position: fixed;
+	left:0;
+	top:0;
+	width:300px;
+	height:100%;
+	background:#000;
+	color:#fff;
+}
+.nav .head{
+	padding:50px 0;
+}
+.nav .head a{
+	display: block;
+	margin:0 auto;
+	width: 170px;
+	height: 170px;
+	background:url('../../image/head.png') no-repeat;
+	text-indent: -999px;
+}
+.nav ul li{
+	width:300px;
+	text-align: center;
+}
+.nav ul li a{
+	display: block;
+	padding:20px 0;
+	color:#fff;
+}
+.nav ul li a:hover{
+	color:#000;
+	background:#fff;
+}
+.nav ul li .active{
+	color:#000;
+	background:#fff;
 }
