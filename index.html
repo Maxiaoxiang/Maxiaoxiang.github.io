@@ -11,7 +11,33 @@
 </head>
 <body>
     <div class="wrapper">
-        
+        <div class="main" id="main">
+        	<h1><strong>Mss。</strong></h1>
+        	<ul>
+        		<li>
+        			<a href="">组件库</a>
+        		</li>
+        		<li>
+        			<a href="">关于我</a>
+        		</li>
+        		<li>
+        			<a href="http://github.com/Maxiaoxiang">Github</a>
+        		</li>
+        		<li>
+        			<a href="">留言板</a>
+        		</li>
+        	</ul>
+        </div>
     </div>
+    <div class="footer">
+    	<p>&copy; <a href="http://github.com/Maxiaoxiang" target="_blank">Mss。</a><span class="spe">/</span>Powered by <a href="http://maxiaoxiang.com" target="_blank">Maxiaoxiang</a></p>
+    </div>
+    <script>
+    	window.onload = function(){
+    		var main = document.getElementById('main');
+    		main.style.marginLeft = - main.offsetWidth / 2 + 'px';
+    		main.style.marginTop = - main.offsetHeight / 2 + 'px';
+    	};
+    </script>
 </body>
 </html>

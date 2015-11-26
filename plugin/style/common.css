@@ -1,6 +1,11 @@
 @charset "UTF-8";
+body{
+	word-wrap: break-word;
+	background:#fff;
+	color:#757575;
+}
 ::selection {
-    background: #eb7350;
+    background: #000;
     color: #fff;
 }
 footer{
