@@ -11,6 +11,7 @@
 		axis:'',//拖动方向
 		rangeCls:'',//拖动范围
 		clone:false,//克隆拖动
+		cloneCls:'clone',//克隆元素样式名
 		startDrag:function(){},//开始拖动事件
 		moveDrag:function(){},//拖动时事件
 		stopDrag:function(){}//停止拖动事件
@@ -26,7 +27,7 @@
 		var coordinate = {iX : '',iY : '',mX : '',mY : ''};//鼠标坐标
 		var $handle = options.handleCls ? $('.' + options.handleCls) : $this;//拖动把手
 		var $range = options.rangeCls ? $('.' + options.rangeCls) : $body;//拖动范围
-		var $clone = options.clone ? $('<div></div>') : '';//克隆对象
+		var $clone = options.clone ? $('<div class="'+ options.cloneCls +'"></div>') : '';//克隆对象
 		var $dragClone = options.clone ? $clone : $this;
 		if(typeof $clone == 'object'){
 			$clone.css({
@@ -36,8 +37,7 @@
 				'width':$this.outerWidth(),
 				'height':$this.outerHeight(),
 				'cursor':'move',
-				'z-index':$this.css('z-index'),
-				'border':'1px dashed #ccc'
+				'z-index':$this.css('z-index')
 			});
 		}
 		//开始

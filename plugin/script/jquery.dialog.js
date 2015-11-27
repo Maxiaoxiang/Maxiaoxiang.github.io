@@ -24,6 +24,7 @@
 		axis:'',//拖动方向
 		rangeCls:'',//范围
 		clone:false,//克隆拖动
+		cloneCls:'clone',//克隆元素样式名
 		isResizable:false,//缩放
 		beforeShow:function(){},//显示前事件
 		afterHide:function(){},//关闭后事件
@@ -48,7 +49,7 @@
 		var $button = $('<div class="M-button"></div>');//按钮
 		var $mask = $('.M-mask');//遮罩
 		var $range = options.rangeCls ? $('.' + options.rangeCls) : $body;//拖动范围
-		var $clone = options.clone ? $('<div></div>') : '';//克隆对象
+		var $clone = options.clone ? $('<div class="'+ options.cloneCls +'"></div>') : '';//克隆对象
 		var $dragClone = options.clone ? $clone : $this;
 		var $e = $('<div class="e-resize" data-type="e-resize"></div>');
 		var $s = $('<div class="s-resize" data-type="s-resize"></div>');
@@ -61,8 +62,7 @@
 				'width':$this.outerWidth(),
 				'height':$this.outerHeight(),
 				'cursor':'move',
-				'z-index':$this.css('z-index'),
-				'border':'1px dashed #ccc'
+				'z-index':options.zIndex + 1
 			});
 		}
 		//打开
@@ -122,7 +122,7 @@
 				coordinate.iX = _.mouseCoords(e).x - $this.position().left;
 				coordinate.iY = _.mouseCoords(e).y - $this.position().top;
 				$this.css({'position':'absolute'});
-				if(options.clone) $clone.appendTo($range);
+				if(options.clone) $clone.css({'left':coordinate.mX,'top':coordinate.mY}).appendTo($range);
 			}
 		};
 		//拖动中

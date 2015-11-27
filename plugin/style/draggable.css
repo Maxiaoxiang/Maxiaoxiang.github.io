@@ -49,3 +49,7 @@ strong{
 .drag{
 	position: relative;
 }
+.clone{
+	border:2px dashed #000;
+	cursor: move;
+}

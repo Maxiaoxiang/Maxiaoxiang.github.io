@@ -86,3 +86,7 @@ pre{
     color:#757575;
     background:#f9f9f9;
 }
+.clone{
+    border:1px dashed #fff;
+    cursor: move;
+}
