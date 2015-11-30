@@ -37,7 +37,11 @@
     		var main = document.getElementById('main');
     		main.style.marginLeft = - main.offsetWidth / 2 + 'px';
     		main.style.marginTop = - main.offsetHeight / 2 + 'px';
+            main.style.top = document.documentElement.clientHeight * 0.382 + 'px';
     	};
+        window.onresize = function(){
+            main.style.top = document.documentElement.clientHeight * 0.382 + 'px';    
+        };
     </script>
 </body>
 </html>

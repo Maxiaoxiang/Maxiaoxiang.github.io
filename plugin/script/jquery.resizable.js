@@ -39,7 +39,6 @@
 				var m = _.getMouseCoords(e);//鼠标坐标
 				var offset = $this.offset();
 				$body.css({
-					'overflow':'hidden',
 					'cursor':type
 				});
 				switch (type){

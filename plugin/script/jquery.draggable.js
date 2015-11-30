@@ -12,6 +12,7 @@
 		rangeCls:'',//拖动范围
 		clone:false,//克隆拖动
 		cloneCls:'clone',//克隆元素样式名
+		animateTime:0,//动画
 		startDrag:function(){},//开始拖动事件
 		moveDrag:function(){},//拖动时事件
 		stopDrag:function(){}//停止拖动事件
