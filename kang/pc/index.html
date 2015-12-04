@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>康实力</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../style/reset.css" rel="stylesheet">
+<link href="../style/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="header clearfix">
+        <div class="logo"></div>
+        <div class="nav">
+            <ul>
+                <li>
+                    <a href="javascript:;" class="active top">首页</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="s">app介绍</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="s">谁需要它</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="s">为何选它</a>
+                </li>
+                <li>
+                    <a href="#">app下载</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="banner">
+            <ul>
+                <li><img src="../image/pc/banner1.png" alt=""></li>
+                <li><img src="../image/pc/banner1.png" alt=""></li>
+                <li><img src="../image/pc/banner1.png" alt=""></li>
+            </ul>
+        </div>
+        <div class="step step1">
+            <img src="../image/pc/main1.png" alt="">
+        </div>
+        <div class="step step2">
+            <img src="../image/pc/main2.png" alt="">
+        </div>
+        <div class="step step3">
+            <img src="../image/pc/main3.png" alt="">
+        </div>
+    </div>
+    <div class="footer"></div>
+    <script src="../script/jquery.js"></script>
+    <script src="../script/silder.js"></script>
+    <script>
+    $(function() {
+        $('.banner').unslider({
+            delay:3000,
+            dots: true
+        });
+        $('.dots').css({
+            'margin-left': - $('.dots').width() / 2
+        });
+        $('.top').click(function(){
+            if(!$(this).hasClass('actve')){
+                $('.s').removeClass('active');
+                $(this).addClass('active');
+            }
+            $('html,body').animate({
+                scrollTop:0
+            },800);
+        });
+        $('.s').each(function(i){
+            $(this).click(function(){
+                $('.top').removeClass('active');
+                $('.s').removeClass('active');
+                $(this).addClass('active');
+                $('html,body').animate({
+                    scrollTop:$('.step').eq(i).offset().top - 70
+                },800);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>detail</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../style/reset.css" rel="stylesheet">
+<link href="../style/product/detail.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <a href="javascript:;" class="back"></a>
+            <h1>服务详细</h1>
+            <a href="javascript:;" class="save">收藏</a>
+            <a href="javascript:;" class="share">分享</a>
+        </div>
+        <div class="container">
+            <div class="main-img">
+                <img src="../image/bg.png" alt="">
+            </div>
+            <div class="set-meal">
+                <div class="title clearfix">
+                    <span class="tit">足疗套餐</span>
+                    <p class="line"></p>
+                </div>
+                <p>脚在人体中距心脏最远，如果脚部末梢循环产生障碍，很容易导致血液循环不畅，进而导致新陈代谢不畅、全身组织器官功能下降。进行足部按摩，可使足部的血液循环顺畅，促进全身血液循环，加速机体新陈代谢、补充营养，使您的机体健康、正常地运转。</p>
+            </div>
+            <div class="set-meal">
+                <div class="title clearfix">
+                    <span class="tit">服务流程</span>
+                    <p class="line"></p>
+                </div>
+                <p class="text">
+                    <span>泡脚10分钟</span>
+                    <span>足疗80分钟</span>
+                </p>
+            </div>
+            <div class="step">
+                <div class="step-nav clearfix">
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="active">服务说明</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">禁忌症状</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">服务范围</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="step-main"></div>
+                <div class="step-main"></div>
+                <div class="step-main"></div>
+            </div>
+            <div class="order">
+                <div class="price">
+                    <span>价格：<b>180元</b></span>
+                </div>
+                <a href="javascript:;" class="order-btn">立即预约</a>
+            </div>
+        </div>
+        <div class="footer"></div>
+    </div>
+    <script src="../script/jquery.js"></script>
+    <script>
+        $(function(){
+            var $btn = $('.step-nav').find('a');
+            $('.step-main').eq(0).show();
+            $btn.click(function(){
+                $btn.removeClass('active');
+                $(this).addClass('active');
+                $('.step-main').hide();
+                $('.step-main').eq($(this).parent().index()).show();
+            });
+        });
+    </script>
+</body>
+</html>
