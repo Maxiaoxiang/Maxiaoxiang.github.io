@@ -138,7 +138,7 @@ body{
 .right .info .name{
     float: left;
     background: url('../../image/icon.png') no-repeat;
-    background-position: right -20.5rem;
+    background-position: right -20.6rem;
     background-size: 1.2rem auto;
     display: inline-block;
     padding-right: 1.35rem;
@@ -149,8 +149,8 @@ body{
     float: right;
     padding-left: 1rem;
     background: url('../../image/icon.png') no-repeat;
-    background-position: left -16.8rem;
-    background-size: 1.2rem auto;
+    background-position: left -15.3rem;
+    background-size: 1.1rem auto;
     font-size: .6rem;
     color:#999;
 }
@@ -192,12 +192,16 @@ body{
     width:100%;
     background:#f2f2f2;
 }
-.layer li a{
+.layer a{
+    margin-top:-.05rem;
     height: 2.5rem;
     line-height: 2.5rem;
     text-align: center;
     display: block;
     color:#999;
+    border-top:.05rem solid #ccc;
+    border-bottom:.05rem solid #ccc;
+    background:#fff;
 }
 @media screen and (min-width: 414px) {/*6plus*/
     .filter li a{
@@ -235,9 +239,6 @@ body{
     }
     .main li{
         padding:1rem .5rem;
-    }
-    .layer li{
-        padding:0;
     }
     .filter li .grade{
         color:#999;
