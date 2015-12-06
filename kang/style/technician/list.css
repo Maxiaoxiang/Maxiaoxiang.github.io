@@ -138,7 +138,7 @@ body{
 .right .info .name{
     float: left;
     background: url('../../image/icon.png') no-repeat;
-    background-position: right -17rem;
+    background-position: right -17.1rem;
     background-size: 1rem auto;
     display: inline-block;
     padding-right: 1.1rem;
