@@ -137,7 +137,7 @@ body{
 }
 .right .info .name{
     background: url('../../image/icon.png') no-repeat;
-    background-position: right -20.55rem;
+    background-position: right -20.6rem;
     background-size: 1.2rem auto;
     display: inline-block;
     padding-right: 1.35rem;
@@ -147,7 +147,7 @@ body{
     float: right;
     padding-left: 1rem;
     background: url('../../image/icon.png') no-repeat;
-    background-position: left -16.75rem;
+    background-position: left -16.8rem;
     background-size: 1.2rem auto;
     font-size: .5rem;
     color:#999;
@@ -221,26 +221,23 @@ body{
 }
 @media screen and (max-width: 320px) {/*5*/
     .filter li a{
-        background-position: 3.5rem -12.1rem;
+        background-position: 3.8rem -12.1rem;
     }
     .filter li .r,.filter li .l{
         top:.7rem;
         height: 1rem;
     }
     .up{
-        background-position: 3.5rem -10.2rem !important;
+        background-position: 3.8rem -10.2rem !important;
     }
     .down{
-        background-position: 3.5rem -14.1rem !important;
+        background-position: 3.8rem -14.1rem !important;
     }
     .main li{
         padding:1rem .5rem;
     }
     .layer li{
         padding:0;
-    }
-    .filter li .sum{
-        background-position: 4rem -12.1rem;
     }
     .filter li .grade{
         color:#999;

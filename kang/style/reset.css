@@ -39,6 +39,9 @@ display:table;
 }
 .clearfix:after { clear:both; }/* For IE 6/7 (trigger hasLayout) */
 .clearfix { zoom:1; }
+input,textarea{
+    -webkit-appearance: none;
+}
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
     font-family: Arial, Helvetica, 'Microsoft Yahei';
 color: #fff; 

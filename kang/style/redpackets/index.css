@@ -18,8 +18,8 @@ body{
 .phone,.get{
     display: block;
     width: 100%;
-    height: 2rem;
-    line-height: 2rem;
+    padding: 0.5rem 0;
+    line-height: 1rem;
     border: none;
     text-align: center;
     background: #fbdf51;
