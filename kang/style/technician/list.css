@@ -136,13 +136,14 @@ body{
     height: 100%;
 }
 .right .info .name{
+    float: left;
     background: url('../../image/icon.png') no-repeat;
     background-position: right -20.5rem;
     background-size: 1.2rem auto;
     display: inline-block;
     padding-right: 1.35rem;
     color:#666;
-    font-size: .8rem;
+    font-size: .7rem;
 }
 .right .info .distance{
     float: right;
