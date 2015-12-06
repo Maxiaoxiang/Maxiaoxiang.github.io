@@ -138,21 +138,21 @@ body{
 .right .info .name{
     float: left;
     background: url('../../image/icon.png') no-repeat;
-    background-position: right -20.6rem;
-    background-size: 1.2rem auto;
+    background-position: right -17rem;
+    background-size: 1rem auto;
     display: inline-block;
-    padding-right: 1.35rem;
-    color:#666;
+    padding-right: 1.1rem;
+    color: #666;
     font-size: .7rem;
 }
 .right .info .distance{
     float: right;
-    padding-left: 1rem;
+    padding-left: 0.8rem;
     background: url('../../image/icon.png') no-repeat;
-    background-position: left -15.3rem;
-    background-size: 1.1rem auto;
+    background-position: left -13.9rem;
+    background-size: 1rem auto;
     font-size: .6rem;
-    color:#999;
+    color: #999;
 }
 .right .info .job{
     font-size: .6rem;
