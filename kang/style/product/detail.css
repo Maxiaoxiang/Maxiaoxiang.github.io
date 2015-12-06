@@ -63,6 +63,7 @@ body{
 }
 .container{
     position: relative;
+    margin-bottom: 5rem;
 }
 .container .main-img{
     width:100%;
@@ -97,7 +98,6 @@ body{
 }
 .step{
     background: #fff;
-    margin-bottom: 5rem;
 }
 .step .step-nav{
     height:2.5rem;

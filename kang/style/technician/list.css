@@ -50,7 +50,7 @@ body{
 .header .search .search-btn{
     position: absolute;
     right: 0;
-    top: 11px;
+    top: 0.5rem;
     width: 2rem;
     height: 1.5rem;
     background: url('../../image/icon.png') no-repeat;
@@ -137,11 +137,12 @@ body{
 }
 .right .info .name{
     background: url('../../image/icon.png') no-repeat;
-    background-position: right -20.6rem;
+    background-position: right -20.5rem;
     background-size: 1.2rem auto;
     display: inline-block;
     padding-right: 1.35rem;
     color:#666;
+    font-size: .8rem;
 }
 .right .info .distance{
     float: right;
@@ -149,7 +150,7 @@ body{
     background: url('../../image/icon.png') no-repeat;
     background-position: left -16.8rem;
     background-size: 1.2rem auto;
-    font-size: .5rem;
+    font-size: .6rem;
     color:#999;
 }
 .right .info .job{
@@ -190,12 +191,10 @@ body{
     width:100%;
     background:#f2f2f2;
 }
-.layer li{
+.layer li a{
     height: 2.5rem;
     line-height: 2.5rem;
     text-align: center;
-}
-.layer li a{
     display: block;
     color:#999;
 }
