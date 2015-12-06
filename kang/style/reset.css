@@ -14,7 +14,7 @@ html {
 body {
     background: #fff;
     color: #666666;
-    font-size: .8rem;
+    font-size: .7rem;
 }
 body {
     height: 100%;
@@ -39,3 +39,19 @@ display:table;
 }
 .clearfix:after { clear:both; }/* For IE 6/7 (trigger hasLayout) */
 .clearfix { zoom:1; }
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+    font-family: Arial, Helvetica, 'Microsoft Yahei';
+color: #fff; 
+} 
+input:-moz-placeholder, textarea:-moz-placeholder { 
+    font-family: Arial, Helvetica, 'Microsoft Yahei';
+color: #fff; 
+} 
+input::-moz-placeholder, textarea::-moz-placeholder { 
+    font-family: Arial, Helvetica, 'Microsoft Yahei';
+color: #fff; 
+} 
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+    font-family: Arial, Helvetica, 'Microsoft Yahei';
+color: #fff; 
+} 

@@ -84,10 +84,10 @@ body{
     right: 0;
 }
 .up{
-    background-position: 4rem -10.2rem;
+    background-position: 4rem -10.2rem !important;
 }
 .down{
-    background-position: 4rem -14.1rem;
+    background-position: 4rem -14.1rem !important;
 }
 .main li{
     margin-top:0.5rem;
@@ -107,6 +107,15 @@ body{
 }
 .main li:after{
     clear: both;
+}
+.main .right .coupon{
+    padding:.1rem;
+    font-size: .6rem;
+    border:.05rem solid #1a8e5f;
+    color:#1a8e5f;
+    background:#fff;
+    border-radius: 3px;
+    text-align: center;
 }
 .main li .img img{
     width:100%;
@@ -148,6 +157,12 @@ body{
     .filter li a{
         background-position: 4.5rem -12.1rem;
     }
+    .up{
+        background-position: 4.5rem -10.2rem !important;
+    }
+    .down{
+        background-position: 4.5rem -14.1rem !important;
+    }
 }
 @media screen and (max-width: 320px) {/*5*/
     .filter li a{
@@ -156,5 +171,22 @@ body{
     .filter li .r,.filter li .l{
         top:.7rem;
         height: 1rem;
+    }
+    .main li .img{
+        width:4.5rem;
+        height:3.5rem;
+    }
+    .main .right .ex{
+        padding: .3rem 0;
+    }
+    .main .right .order{
+        height: 1.5rem;
+        line-height: 1.5rem;
+    }
+    .up{
+        background-position: 3.5rem -10.2rem !important;
+    }
+    .down{
+        background-position: 3.5rem -14.1rem !important;
     }
 }
