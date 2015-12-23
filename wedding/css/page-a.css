@@ -1,0 +1,227 @@
+@charset "UTF-8";
+/*页面A*/
+.container .page-a {
+    width  : 100%;
+    height : 100%;
+    background-image: url("../image/bg1.png");
+    position: absolute;
+    z-index: 5;
+}
+/*桃心*/
+.container .page-a .love{
+    position: absolute;
+    top: 66.5%;
+    left: 6.8rem;
+    width: 1rem;
+    height: 1rem;
+    background: url('../image/love1.png') no-repeat;
+    background-size: 100% 100%;
+    -webkit-animation:swinging 2s ease-in-out 0s infinite;
+    -moz-animation:swinging 2s ease-in-out 0s infinite;
+    animation:swinging 2s ease-in-out 0s infinite;
+    -webkit-transform-origin:50% 0;
+    -moz-transform-origin:50% 0;
+    transform-origin:50% 0;
+    animation-delay: 0;
+    -webkit-animation-delay: 0;
+    -moz-animation-delay: 0;
+}
+/*最上方树荫*/
+.container .page-a .tree{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8rem;
+    background: url('../image/tree.png');
+    background-size: 500% 100%;
+    animation:run 2000ms steps(5) infinite;
+}
+
+/*桂花*/
+.container .page-a .flowers{
+    position: absolute;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url('../image/flower_1.png') no-repeat;
+    background-size: 100% 100%;
+}
+.container .page-a .f1{
+    top:21%;
+    left:5rem;
+    animation: f1 3s linear infinite;
+}
+.container .page-a .f2{
+    top: 20%;
+    left: 4rem;
+    animation: f2 3s linear 1s infinite;
+}
+.container .page-a .f3{
+    top: 17%;
+    left: 3rem;
+    animation: f3 3s linear 1.5s infinite;
+}
+.container .page-a .f4{
+    top: 20%;
+    left: 3rem;
+    animation: f4 3s linear 3s infinite;
+    background: url('../image/flower_2.png') no-repeat;
+    background-size: 100% 100%;
+}
+.container .page-a .f5{
+    top: 11%;
+    left: 2rem;
+    animation: f5 4s linear 2s infinite;
+}
+.container .page-a .f6{
+    top: 10%;
+    left: 8rem;
+    animation: f6 3s linear 1s infinite;
+    background: url('../image/flower_2.png') no-repeat;
+    background-size: 100% 100%;
+}
+.container .page-a .f7{
+    top: 11%;
+    left: 9rem;
+    animation: f7 6s ease infinite;
+}
+.container .page-a .f8{
+    top: 20%;
+    left: 10rem;
+    animation: f8 3s linear 2s infinite;
+    background: url('../image/flower_2.png') no-repeat;
+    background-size: 100% 100%;
+}
+.container .page-a .f9{
+    top: 20%;
+    left: 9rem;
+    animation: f9 6s ease infinite;
+}
+.container .page-a .f10{
+    top: 21%;
+    left: 11rem;
+    animation: f10 6s ease infinite;
+}
+/*桃心摇摆运动*/
+@-webkit-keyframes swinging{
+    0% { -webkit-transform: rotate(10deg); }
+    50% {-webkit-transform: rotate(-10deg); }
+    100% { -webkit-transform: rotate(10deg); }
+}
+@keyframes swinging{
+    0% { -webkit-transform: rotate(10deg); }
+    50% {-webkit-transform: rotate(-10deg); }
+    100% { -webkit-transform: rotate(10deg); }
+}
+
+/*树荫摆动*/
+@-webkit-keyframes run {
+    0% {background-position: 500% 0%;}
+    100% {background-position: 0% 0%;}
+}
+@keyframes run {
+    0% {background-position: 500% 0%;}
+    100% {background-position: 0% 0%;}
+}
+
+/*桂花飘落*/
+/*@-webkit-keyframes float{
+    0% {
+        top:21%;
+        left:5rem;
+        transform:rotate(0deg);
+    }
+    100% {
+        top:40%;
+        left:-1rem;
+        transform:rotate(-360deg);
+    }
+}*/
+@keyframes f1{
+    0% {
+        top:21%;
+        left:5rem;
+        transform:rotate(0deg);
+    }
+    100% {
+        top:40%;
+        left:-0.4rem;
+        transform:rotate(-360deg);
+    }
+}
+@keyframes f2{
+    0% {
+        top: 20%;
+        left: 4rem;
+        transform:rotate(0deg);
+    }
+    100% {
+        top:50%;
+        left:-0.4rem;
+        transform:rotate(-180deg);
+    }
+}
+@keyframes f3{
+    0% {
+        top: 17%;
+        left: 3rem;
+        opacity: 1;
+        transform:rotate(0deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        top:50%;
+        left:1rem;
+        opacity:0;
+        transform:rotate(-360deg);
+    }
+}
+@keyframes f4{
+    0% {
+        top: 20%;
+        left: 3rem;
+        opacity: 1;
+        transform:rotate(0deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        top:50%;
+        left:0;
+        opacity:0;
+        transform:rotate(-360deg);
+    }
+}
+@keyframes f5{
+    0% {
+        top: 11%;
+        left: 2rem;
+        opacity: 1;
+        transform:rotate(0deg);
+    }
+    100% {
+        top:60%;
+        left:-1rem;
+        transform:rotate(-360deg);
+    }
+}
+@keyframes f6{
+    0% {
+        top: 10%;
+        left: 8rem;
+        opacity: 1;
+        transform:rotate(0deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        top:40%;
+        left:1rem;
+        opacity: 0;
+        transform:rotate(-360deg);
+    }
+}
