@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>wedding</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="./css/common.css" rel="stylesheet">
+<link href="./css/page-d.css" rel="stylesheet">
+<link href="./css/page-c.css" rel="stylesheet">
+<link href="./css/page-b.css" rel="stylesheet">
+<link href="./css/page-a.css" rel="stylesheet">
+</head>
+<body>
+    <section class="container">
+        <!-- 第一幅画面 -->
+        <section class="page-a bg">
+            <div class="tree"></div>
+            <i class="flowers f1"></i>
+            <i class="flowers f2"></i>
+            <i class="flowers f3"></i>
+            <i class="flowers f4"></i>
+            <i class="flowers f5"></i>
+            <i class="flowers f6"></i>
+            <i class="flowers f7"></i>
+            <i class="flowers f8"></i>
+            <i class="flowers f9"></i>
+            <i class="flowers f10"></i>
+            <i class="love hover"></i>
+            <i class="love-fly"></i>
+        </section>
+        <!-- 第二幅画面 -->
+        <section class="page-b bg">
+            <div class="b-tree"></div>
+            <div class="c-tree"></div>
+            <i class="loveb"></i>
+            <i class="bird-fly"></i>
+            <i class="halo halo1"></i>
+            <i class="halo halo2"></i>
+            <i class="halo halo3"></i>
+            <i class="halo halo4"></i>
+        </section>
+        <!-- 第三幅画面 -->
+        <section class="page-c bg">
+            <i class="lovec"></i>
+            <i class="maple maple1"></i>
+            <i class="maple maple2"></i>
+            <i class="maple maple3"></i>
+            <i class="hanger hanger1"></i>
+            <i class="hanger hanger1 h-gb1"></i>
+            <i class="hanger hanger2"></i>
+            <i class="hanger hanger2 h-gb2"></i>
+            <i class="hanger hanger3"></i>
+            <i class="hanger hanger3 h-gb3"></i>
+            <i class="hanger hanger4"></i>
+            <i class="hanger hanger4 h-gb4"></i>
+            <div class="curtain"></div>
+            <div class="window"></div>
+        </section>
+        <section class="page-d bg">
+            <div class="page-close"></div>
+            <div class="page-open"></div>
+            <i class="loved"></i>
+            <canvas id="canvas"></canvas>
+            <div class="text">
+                <p>萌发的春带着爱的悸动</p>
+                <p>盛夏的暑燃起爱的炙热</p>
+                <p>愁绪的秋争吵中也蔓延化不开的思念</p>
+                <p>所以在这个暖冬</p>
+                <p>我愿意</p>
+                <p>无论疾病健康，无论欢乐悲伤</p>
+                <p>余生有你</p>
+            </div>
+            <i class="flowerpot"></i>
+            <i class="sapling"></i>
+            <i class="leaves leaves1"></i>
+            <i class="leaves leaves2"></i>
+            <i class="leaves leaves3"></i>
+            <i class="leaves leaves4"></i>
+            <i class="leaves leaves5"></i>
+            <i class="leaves leaves6"></i>
+            <i class="leaves leaves7"></i>
+            <i class="leaves leaves8"></i>
+            <i class="leaves leaves9"></i>
+            <i class="leaves leaves10"></i>
+            <i class="leaves leaves11"></i>
+        </section>
+    </section>
+    <script src="./js/lib/jquery.js"></script>
+    <script src="./js/lib/jquery.transit.min.js"></script>
+    <script src="./js/lib/jquery.snow.js"></script>
+    <script src="./js/index.js"></script>
+    <script>
+        var docEl = document.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            //设置根字体大小
+            docEl.style.fontSize = 20 * (docEl.clientWidth / 320) + 'px';
+        };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+@charset "UTF-8";
+
+.container .page-b {
+    position: absolute;
+    top:100%;
+    /*top:0;*/
+    width  : 100%;
+    height : 100%;
+    background-image: url("../image/bg2.png");
+    background-size: 100% auto;
+}
+/*桃心*/
+.container .page-b .loveb{
+    display: none;
+    position: absolute;
+    top: 2rem;
+    left: 54%;
+    width: 1rem;
+    height: 1rem;
+    background: url('../image/love1.png') no-repeat;
+    background-size: 100% 100%;
+    z-index: 0;
+}
+/*光晕*/
+.container .page-b .halo{
+    position: absolute;
+    top: 20%;
+    left: 65%;
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.53;
+    background: url('../image/halo.png') no-repeat;
+    background-position: 0 0;
+    background-size: 100% auto;
+    -webkit-animation:halo 6s linear 0s infinite;
+    -moz-animation:halo 6s linear 0s infinite;
+    animation:halo 6s linear 0s infinite;
+    -webkit-transform-origin:50% 50%;
+    -moz-transform-origin:50% 50%;
+    transform-origin:50% 50%;
+    z-index: 10;
+}
+/*树荫*/
+.container .page-b .b-tree{
+    display: none;
+    position: absolute;
+    top: 19%;
+    left: 40%;
+    width:5rem;
+    height:5rem;
+    background: url('../image/tree1.png');
+    background-size: auto 600%;
+    z-index: 1;
+}
+.tree-down{
+    display: block !important;
+    animation:treeb 2s steps(6) 1;
+}
+/*树荫背景*/
+.container .page-b .c-tree{
+    position: absolute;
+    top: -11%;
+    left: 0;
+    width: 100%;
+    height: 11rem;
+    background: url('../image/tree_1.png');
+    z-index: 1;
+    background-size: 100% auto;
+}
+/*树荫上下摆动*/
+@-webkit-keyframes treeb {
+    0% {background-position: 0% 600%;}
+    100% {background-position: 0% 0%;}
+}
+@keyframes treeb {
+    0% {background-position: 0% 600%;}
+    100% {background-position: 0% 0%;}
+}
+.container .page-b .halo2{
+    top: 15%;
+    left: 74%;
+    width: 1.8rem;
+    height: 1.8rem;
+    background-position: 0 -3.5rem;
+}
+.container .page-b .halo3{
+    top: 9%;
+    left: 82%;
+    width: 1.8rem;
+    height: 1.8rem;
+    opacity: 0.68;
+    background-position: 0 -6.5rem;
+    -webkit-transform-origin:60% 40%;
+    -moz-transform-origin:60% 40%;
+    transform-origin:60% 40%;
+}
+.container .page-b .halo4{
+    top: 8%;
+    left: 84.5%;
+    width: 1.8rem;
+    height: 1.8rem;
+    opacity: 1;
+    background-position: 0 -9.5rem;
+    -webkit-transform-origin:50% 29%;
+    -moz-transform-origin:50% 29%;
+    transform-origin:50% 29%;
+}
+.container .page-b .begin-b{
+    -webkit-animation:beginb 6s ease-in-out 0s;
+    -moz-animation:beginb 6s ease-in-out 0s;
+    animation:beginb 6s ease-in-out 0s;
+}
+.container .page-b .begin-stop{
+    transform:rotate(410deg);
+}
+.container .page-b .go{
+    -webkit-animation:loves 6s ease-in-out 0s;
+    -moz-animation:loves 6s ease-in-out 0s;
+    animation:loves 6s ease-in-out 0s;
+}
+/*小鸟*/
+.bird-fly{
+    position: absolute;
+    top: 20%;
+    left: -3rem;
+    width: 3rem;
+    height: 3rem;
+    background: url('../image/bird_fly.png') no-repeat;
+    background-size: 400% auto;
+    animation:bird 1s steps(4) infinite;
+}
+/*小鸟落下*/
+.bird-stop{
+    background: url('../image/bird_stop.png') no-repeat;
+    background-size: 300% auto;
+    animation:birdstop 1s steps(3) infinite;
+}
+/*桃心掉落*/
+@keyframes beginb{
+    100%{
+        transform:rotate(410deg);
+    }
+}
+/*光晕转动*/
+@keyframes halo{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+/*小鸟落下*/
+@-webkit-keyframes bird {
+    from {background-position: 0% 0%;}
+    to {background-position: 100% 0%;}
+}
+@keyframes bird {
+    from {background-position: 0% 0%;}
+    to {background-position: 133% 0%;}
+}
+/*小鸟啄心*/
+@-webkit-keyframes birdstop {
+    from {background-position: 0% 0%;}
+    to {background-position: 100% 0%;}
+}
+@keyframes birdstop {
+    from {background-position: 0% 0%;}
+    to {background-position: 150% 0%;}
+}
+/*心落下*/
+@-webkit-keyframes loves {
+    0% {
+        transform:rotate(410deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform:rotate(1000deg);
+    }
+}
+@keyframes loves {
+    0% {
+        transform:rotate(410deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform:rotate(1000deg);
+    }
+}
