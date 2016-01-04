@@ -37,10 +37,10 @@
                 $('.b-tree').addClass('tree-down');
             },500);
             $('.loveb').fadeIn().addClass('begin-b').animate({
-                'top':'81%'
+                'top':'78%'
             },3000,function(){
                 $('.bird-fly').animate({
-                    'top':'77%',
+                    'top':'74%',
                     'left':'30%'
                 },3000,function(){
                     $('.bird-fly').addClass('bird-stop').animate({
