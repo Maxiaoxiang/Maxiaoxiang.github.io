@@ -12,7 +12,8 @@
 		prevCls:'prev',			//上一页class
 		nextCls:'next',			//下一页class
 		activeCls:'active',		//当前页选中状态
-		coping:true,			//首页和末页
+		coping:false,			//首页和末页
+		count:3,				//当前页前后分页个数
 		callback:function(){}	//回调
 	};
 
@@ -42,13 +43,13 @@
 			}else{
 				$obj.find('.'+opts.prevCls) && $obj.find('.'+opts.prevCls).remove();
 			}
-			if(current >= 5 && current != 1 && pageCount != 4){
+			if(current >= opts.count * 2 && current != 1 && pageCount != opts.count){
 				html += opts.coping ? '<a href="javascript:;">1</a><span>...</span>' : '';
 			}
-			var start = current - 2,
-				end = current + 3;
-			((start > 1 && current < 4) || current == 1) && end++;
-			(current > pageCount - 4 && current >= pageCount) && start++;
+			var start = current - opts.count,
+				end = current + opts.count;
+			((start > 1 && current < opts.count) || current == 1) && end++;
+			(current > pageCount - opts.count && current >= pageCount) && start++;
 			for (;start <= end; start++) {
 				if(start <= pageCount && start >= 1){
 					if(start != current){
@@ -57,6 +58,9 @@
 						html += '<span class="'+opts.activeCls+'">'+ start +'</span>';
 					}
 				}
+			}
+			if(current + opts.count < pageCount && current >= 1 && pageCount > opts.count){
+				html += opts.coping ? '<span>...</span><a href="javascript:;">'+pageCount+'</a>' : '';
 			}
 			if(current < pageCount){//下一页
 				html += '<a href="javascript:;" class="'+opts.nextCls+'">></a>'
