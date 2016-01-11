@@ -1,14 +1,4 @@
 @charset "UTF-8";
-/*@font-face {
-    font-family: 'SingleMaltaRegular';
-    src: url('../fonts/gbk-webfont.eot');
-    src: url('../fonts/gbk-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/gbk-webfont.woff') format('woff'),
-        url('../fonts/gbk-webfont.ttf') format('truetype'),
-        url('../fonts/gbk-webfont.svg#SingleMaltaRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}*/
 *{
     margin: 0;
     padding: 0;
@@ -58,6 +48,10 @@ body{
     position: absolute;
     top: -30px;
     left: 0;
+    -webkit-animation: load 1s linear infinite;
+    -moz-animation: load 1s linear infinite;
+    -ms-animation: load 1s linear infinite;
+    -o-animation: load 1s linear infinite;
     animation: load 1s linear infinite;
 }
 .heart:before,
@@ -96,6 +90,22 @@ body{
             transform-origin :100% 100%;
 }
 @-webkit-keyframes load{
+    0% { top: -30px; }
+    50% { top: -60px; }
+}
+@-moz-keyframes load{
+    0% { top: -30px; }
+    50% { top: -60px; }
+}
+@-ms-keyframes load{
+    0% { top: -30px; }
+    50% { top: -60px; }
+}
+@-o-keyframes load{
+    0% { top: -30px; }
+    50% { top: -60px; }
+}
+@keyframes load{
     0% { top: -30px; }
     50% { top: -60px; }
 }

@@ -33,9 +33,13 @@
     background-size: 100% auto;
     -webkit-animation:halo 6s linear 0s infinite;
     -moz-animation:halo 6s linear 0s infinite;
+    -ms-animation:halo 6s linear 0s infinite;
+    -o-animation:halo 6s linear 0s infinite;
     animation:halo 6s linear 0s infinite;
     -webkit-transform-origin:50% 50%;
     -moz-transform-origin:50% 50%;
+    -ms-transform-origin:50% 50%;
+    -o-transform-origin:50% 50%;
     transform-origin:50% 50%;
     z-index: 10;
 }
@@ -53,6 +57,10 @@
 }
 .tree-down{
     display: block !important;
+    -webkit-animation:treeb 800ms steps(6) 1;
+    -moz-animation:treeb 800ms steps(6) 1;
+    -ms-animation:treeb 800ms steps(6) 1;
+    -o-animation:treeb 800ms steps(6) 1;
     animation:treeb 800ms steps(6) 1;
 }
 /*树荫背景*/
@@ -68,6 +76,18 @@
 }
 /*树荫上下摆动*/
 @-webkit-keyframes treeb {
+    0% {background-position: 0% 600%;}
+    100% {background-position: 0% 0%;}
+}
+@-moz-keyframes treeb {
+    0% {background-position: 0% 600%;}
+    100% {background-position: 0% 0%;}
+}
+@-ms-keyframes treeb {
+    0% {background-position: 0% 600%;}
+    100% {background-position: 0% 0%;}
+}
+@-o-keyframes treeb {
     0% {background-position: 0% 600%;}
     100% {background-position: 0% 0%;}
 }
@@ -91,6 +111,8 @@
     background-position: 0 -6.5rem;
     -webkit-transform-origin:60% 40%;
     -moz-transform-origin:60% 40%;
+    -ms-transform-origin:60% 40%;
+    -o-transform-origin:60% 40%;
     transform-origin:60% 40%;
 }
 .container .page-b .halo4{
@@ -102,19 +124,29 @@
     background-position: 0 -9.5rem;
     -webkit-transform-origin:50% 29%;
     -moz-transform-origin:50% 29%;
+    -ms-transform-origin:50% 29%;
+    -o-transform-origin:50% 29%;
     transform-origin:50% 29%;
 }
 .container .page-b .begin-b{
     -webkit-animation:beginb 2.5s ease-in-out 0s;
     -moz-animation:beginb 2.5s ease-in-out 0s;
+    -ms-animation:beginb 2.5s ease-in-out 0s;
+    -o-animation:beginb 2.5s ease-in-out 0s;
     animation:beginb 2.5s ease-in-out 0s;
 }
 .container .page-b .begin-stop{
+    -webkit-transform:rotate(410deg);
+    -moz-transform:rotate(410deg);
+    -ms-transform:rotate(410deg);
+    -o-transform:rotate(410deg);
     transform:rotate(410deg);
 }
 .container .page-b .go{
     -webkit-animation:loves 6s ease-in-out 0s;
     -moz-animation:loves 6s ease-in-out 0s;
+    -ms-animation:loves 6s ease-in-out 0s;
+    -o-animation:loves 6s ease-in-out 0s;
     animation:loves 6s ease-in-out 0s;
 }
 /*小鸟*/
@@ -126,21 +158,69 @@
     height: 3rem;
     background: url('../image/bird_fly.png') no-repeat;
     background-size: 400% auto;
+    -webkit-animation:bird 1s steps(4) infinite;
+    -moz-animation:bird 1s steps(4) infinite;
+    -ms-animation:bird 1s steps(4) infinite;
+    -o-animation:bird 1s steps(4) infinite;
     animation:bird 1s steps(4) infinite;
 }
 /*小鸟落下*/
 .bird-stop{
     background: url('../image/bird_stop.png') no-repeat;
     background-size: 300% auto;
+    -webkit-animation:birdstop 1s steps(3) infinite;
+    -moz-animation:birdstop 1s steps(3) infinite;
+    -ms-animation:birdstop 1s steps(3) infinite;
+    -o-animation:birdstop 1s steps(3) infinite;
     animation:birdstop 1s steps(3) infinite;
 }
 /*桃心掉落*/
+@-webkit-keyframes beginb{
+    100%{
+        transform:rotate(410deg);
+    }
+}
+@-moz-keyframes beginb{
+    100%{
+        transform:rotate(410deg);
+    }
+}
+@-ms-keyframes beginb{
+    100%{
+        transform:rotate(410deg);
+    }
+}
+@-o-keyframes beginb{
+    100%{
+        transform:rotate(410deg);
+    }
+}
 @keyframes beginb{
     100%{
         transform:rotate(410deg);
     }
 }
 /*光晕转动*/
+@-webkit-keyframes halo{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+@-moz-keyframes halo{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+@-ms-keyframes halo{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+@-o-keyframes halo{
+    100%{
+        transform:rotate(360deg);
+    }
+}
 @keyframes halo{
     100%{
         transform:rotate(360deg);
@@ -148,6 +228,18 @@
 }
 /*小鸟落下*/
 @-webkit-keyframes bird {
+    from {background-position: 0% 0%;}
+    to {background-position: 100% 0%;}
+}
+@-moz-keyframes bird {
+    from {background-position: 0% 0%;}
+    to {background-position: 100% 0%;}
+}
+@-ms-keyframes bird {
+    from {background-position: 0% 0%;}
+    to {background-position: 100% 0%;}
+}
+@-o-keyframes bird {
     from {background-position: 0% 0%;}
     to {background-position: 100% 0%;}
 }
@@ -160,12 +252,60 @@
     from {background-position: 0% 0%;}
     to {background-position: 100% 0%;}
 }
+@-moz-keyframes birdstop {
+    from {background-position: 0% 0%;}
+    to {background-position: 100% 0%;}
+}
+@-ms-keyframes birdstop {
+    from {background-position: 0% 0%;}
+    to {background-position: 100% 0%;}
+}
+@-o-keyframes birdstop {
+    from {background-position: 0% 0%;}
+    to {background-position: 100% 0%;}
+}
 @keyframes birdstop {
     from {background-position: 0% 0%;}
     to {background-position: 150% 0%;}
 }
 /*心落下*/
 @-webkit-keyframes loves {
+    0% {
+        transform:rotate(410deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform:rotate(1000deg);
+    }
+}
+@-moz-keyframes loves {
+    0% {
+        transform:rotate(410deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform:rotate(1000deg);
+    }
+}
+@-ms-keyframes loves {
+    0% {
+        transform:rotate(410deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform:rotate(1000deg);
+    }
+}
+@-o-keyframes loves {
     0% {
         transform:rotate(410deg);
     }

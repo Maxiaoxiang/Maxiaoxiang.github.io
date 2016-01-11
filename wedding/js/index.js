@@ -40,7 +40,7 @@
             },700);
             $('.loveb').fadeIn().addClass('begin-b').animate({
                 'top':'78%'
-            },2000,function(){
+            },2200,function(){
                 $('.bird-fly').animate({
                     'top':'74%',
                     'left':'30%'
@@ -128,10 +128,10 @@
                             $('.over').addClass('over-go').on('webkitAnimationEnd',function(){
                                 window.location.reload();
                             });
-                        },8000);
-                    },5000);
+                        },10000);
+                    },8000);
                 });
-            },2000);
+            },4000);
         });
      }
 })();
