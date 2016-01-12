@@ -42,6 +42,17 @@
                 <p>Javascript</p>
 <pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.M-box1'</span>).<span style="color:#000">pagination</span>({<br>    <span style="color:#000">totalData</span>:<span style="color:#164">100</span>,<br>    <span style="color:#000">showData</span>:<span style="color:#164">5</span><br>    <span style="color:#000">coping</span>:<span style="color:#219">true</span><br>});</pre>
             </div>
+            <div class="eg">
+                <div class="M-box3"></div>
+                <p class="tips">
+                总数据<span class="count">100</span>条，每页显示<span class="count">5</span>条，总页数为<span class="count">20</span>页
+                </br>如果配置了数据总数和当前一页显示多少条数据，总页数会自动计算，这种情况下再配置总页数无效。
+                </br>（注：数据总数totalData和每页显示的条数showData必须同时配置，否则默认使用总页数pageCount。）</p>
+                <p>HTML</p>
+<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box1"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
+                <p>Javascript</p>
+<pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.M-box1'</span>).<span style="color:#000">pagination</span>({<br>    <span style="color:#000">totalData</span>:<span style="color:#164">100</span>,<br>    <span style="color:#000">showData</span>:<span style="color:#164">5</span><br>    <span style="color:#000">coping</span>:<span style="color:#219">true</span><br>});</pre>
+            </div>
             <div class="options">
                 <p>options(参数配置)</p>
                 <table>
@@ -119,6 +130,21 @@
                             <td class="explain">尾页节点内容，默认为空</td>
                         </tr>
                         <tr>
+                            <td>jump</td>
+                            <td>false</td>
+                            <td class="explain">是否开启跳转到指定页数，值为boolean类型</td>
+                        </tr>
+                        <tr>
+                            <td>jumpIptCls</td>
+                            <td>'jump-ipt'</td>
+                            <td class="explain">文本框内容</td>
+                        </tr>
+                        <tr>
+                            <td>jumpBtnCls</td>
+                            <td>'jump-btn'</td>
+                            <td class="explain">跳转按钮class</td>
+                        </tr>
+                        <tr>
                             <td>callback</td>
                             <td>function(){}</td>
                             <td class="explain">回调函数，参数"index"为当前页</td>
@@ -179,6 +205,16 @@
                     totalData:100,
                     showData:5,
                     coping:true
+                });
+
+                $('.M-box3').pagination({
+                    pageCount:50,
+                    coping:true,
+                    homePage:'首页',
+                    endPage:'末页',
+                    prevContent:'上页',
+                    nextContent:'下页',
+                    jump:true
                 });
             });
         </script>
