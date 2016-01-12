@@ -5,8 +5,8 @@
 
 	//配置参数
 	var defaults = {
-		totalData:null,			//数据总条数
-		showData:null,			//每页显示的条数
+		totalData:0,			//数据总条数
+		showData:0,				//每页显示的条数
 		pageCount:9,			//总页数,默认为9
 		current:1,				//当前第几页
 		prevCls:'prev',			//上一页class
