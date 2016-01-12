@@ -1,5 +1,8 @@
 /**
- * paging分页
+ * pagination分页插件
+ * @version 0.1
+ * @url http://www.maxiaoxiang.com
+ * @E-mail 251445460@qq.com
  */
 ;(function($,window,document,undefined){
 
