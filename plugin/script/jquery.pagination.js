@@ -24,6 +24,7 @@
 		jump:false,				//跳转到指定页数
 		jumpIptCls:'jump-ipt',	//文本框内容
 		jumpBtnCls:'jump-btn',	//跳转按钮
+		jumpBtn:'跳转',			//跳转按钮文本
 		callback:function(){}	//回调
 	};
 
@@ -81,7 +82,7 @@
 				$obj.find('.'+opts.nextCls) && $obj.find('.'+opts.nextCls).remove();
 			}
 
-			html += opts.jump ? '<input type="text" class="'+opts.jumpIptCls+'"><a href="javascript:;" class="'+opts.jumpBtnCls+'">跳转</a>' : '';
+			html += opts.jump ? '<input type="text" class="'+opts.jumpIptCls+'"><a href="javascript:;" class="'+opts.jumpBtnCls+'">'+opts.jumpBtn+'</a>' : '';
 
 			$obj.empty().html(html);
 		};
