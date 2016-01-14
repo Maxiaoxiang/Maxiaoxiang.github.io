@@ -2,6 +2,7 @@
  * 动画流程
  */
 (function(){
+
     var $love = $('.love');//桃心
     var $begin = $('.love-fly');//点击开始
 
@@ -108,30 +109,27 @@
         },1000,function(){
             $('.loved').fadeIn().addClass('loved-begin');
             setTimeout(function(){
-                $('.page-close').stop().animate({opacity: '1'},600,function(){
+                $('.page-close').stop().animate({opacity: '1'},1000,function(){
+                    $('#canvas').fadeIn('last');
                     snow();
-                    $('#canvas').fadeIn(3000);
                     setTimeout(function(){
                         foo();
-                    },1000);
+                    },2000);
                     setTimeout(function(){
-                        $('.page-open').stop().animate({opacity: '1'},2000,function(){
-                        });
                         $('.text').fadeOut('last');
-                        $('#canvas').fadeOut('last');
                         $('.sapling').addClass('saplinging').on('webkitAnimationEnd',function(){
-                            $(this).addClass('saplinged');
-                            $('.leaves').fadeIn('last');
+                            $('.sapling').addClass('saplinged');
                         });
-                        setTimeout(function(){
-                            $('.leaves').fadeOut();
-                            $('.over').addClass('over-go').on('webkitAnimationEnd',function(){
-                                window.location.reload();
-                            });
-                        },10000);
+                    },5000);
+                    setTimeout(function(){
+                        $('.sapling').remove();
+                        $('.page-open').stop().animate({opacity: '1'},2000,function(){
+                            $('#canvas').fadeOut('last');
+                        });
+                        $('.leaves').fadeIn('last');
                     },8000);
                 });
-            },4000);
+            },3000);
         });
      }
 })();

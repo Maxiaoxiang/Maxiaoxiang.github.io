@@ -17,14 +17,24 @@
 <body>
     <div class="loading">
         <div class="progress">
-            <div class="heart"></div>
-            <div class="bc"></div>
+            <div class="heart begin-heart"></div>
+            <div class="heart end-heart"></div>
+            <div class="a"></div>
+            <div class="b"></div>
+            <div class="c"></div>
+            <div class="d"></div>
+            <div class="e"></div>
+            <div class="f"></div>
+            <div class="g"></div>
+            <div class="h"></div>
+            <div class="i"></div>
         </div>
     </div>
     <audio id="audio" src="./music/a.mp3" autoplay="autoplay"></audio>
     <script>
-        $('.bc').animate({'width':'30%'},1000);
-        $('.heart').animate({'left':'20%'},1000);
+        $('.begin-heart').animate({'left':'8%'},1000,function(){
+            $('.a').hide();
+        });
     </script>
     <section class="container">
         <!-- 第一幅画面 -->
@@ -42,8 +52,9 @@
             <i class="love-fly"></i>
         </section>
         <script>
-            $('.bc').animate({'width':'40%'},1000);
-            $('.heart').animate({'left':'30%'},1000);
+            $('.begin-heart').animate({'left':'12%'},1000,function(){
+                $('.b').hide();
+            });
         </script>
         <!-- 第二幅画面 -->
         <section class="page-b bg">
@@ -57,8 +68,9 @@
             <i class="halo halo4"></i>
         </section>
         <script>
-            $('.bc').animate({'width':'50%'},1000);
-            $('.heart').animate({'left':'40%'},1000);
+            $('.begin-heart').animate({'left':'16%'},1000,function(){
+                $('.c').hide();
+            });
         </script>
         <!-- 第三幅画面 -->
         <section class="page-c bg">
@@ -78,8 +90,9 @@
             <div class="window"></div>
         </section>
         <script>
-            $('.bc').animate({'width':'60%'},1000);
-            $('.heart').animate({'left':'50%'},1000);
+            $('.begin-heart').animate({'left':'23%'},1000,function(){
+                $('.d').hide();
+            });
         </script>
         <section class="page-d bg">
             <div class="page-close bg"></div>
@@ -95,6 +108,11 @@
                 <p>无论疾病健康，无论欢乐悲伤</p>
                 <p>余生有你</p>
             </div>
+            <script>
+                $('.begin-heart').animate({'left':'30%'},1000,function(){
+                    $('.e').hide();
+                });
+            </script>
             <i class="sapling"></i>
             <div class="leaves leaves1">
                 <img src="./image/f1.png" alt="">
@@ -129,14 +147,28 @@
             <div class="leaves leaves11">
                 <img src="./image/f1.png" alt="">
             </div>
-            <div class="over"></div>
         </section>
     </section>
     <script>
-        $('.bc').animate({'width':'90%'},1000);
-        $('.heart').animate({'left':'80%'},1000);
+        $('.begin-heart').animate({'left':'48%'},1000,function(){
+            $('.f').hide();
+        });
     </script>
-    <script src="./js/lib/jquery.transit.min.js"></script>
+    <script>
+        $('.begin-heart').animate({'left':'56%'},1000,function(){
+            $('.g').hide();
+        });
+    </script>
+    <script>
+        $('.begin-heart').animate({'left':'62%'},1000,function(){
+            $('.h').hide();
+        });
+    </script>
+    <script>
+        $('.begin-heart').animate({'left':'65%'},1000,function(){
+            $('.i').hide();
+        });
+    </script>
     <script src="./js/lib/jquery.snow.js"></script>
     <script src="./js/index.js"></script>
     <script>
@@ -151,10 +183,9 @@
         document.addEventListener('DOMContentLoaded', recalc, false);
     </script>
     <script>
-        $('.bc').animate({'width':'100%'},1000,function(){
+        $('.begin-heart').animate({'left':'85%'},1000,function(){
             $('.loading').fadeOut();
         });
-        $('.heart').animate({'left':'90%'},1000);
     </script>
 </body>
 </html>

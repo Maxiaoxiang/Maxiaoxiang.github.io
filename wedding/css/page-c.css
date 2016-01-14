@@ -13,41 +13,55 @@
     display: none;
     position: absolute;
     top: -1rem;
-    left: 60%;
+    left: 70%;
     width: 1rem;
     height: 1rem;
     background: url('../image/love1.png') no-repeat;
     background-size: 100% 100%;
     z-index: 11;
+    -webkit-transform:rotate(-90deg);
+    -moz-transform:rotate(-90deg);
+    -o-transform:rotate(-90deg);
+    transform:rotate(-90deg);
 }
 .lovec-begin{
-    -webkit-animation: lovec 4s linear 0s 1;
-    -moz-animation: lovec 4s linear 0s 1;
-    -ms-animation: lovec 4s linear 0s 1;
-    -o-animation: lovec 4s linear 0s 1;
-    animation: lovec 4s linear 0s 1;
+    -webkit-animation: lovec 3.5s linear 0s 1;
+    -moz-animation: lovec 3.5s linear 0s 1;
+    -ms-animation: lovec 3.5s linear 0s 1;
+    -o-animation: lovec 3.5s linear 0s 1;
+    animation: lovec 3.5s linear 0s 1;
 }
 /*桃心运动轨迹*/
 @-webkit-keyframes lovec{
     0%{
         top: -1rem;
-        left: 65%;
+        left: 70%;
+    }
+    20%{
+        top:32%;
+        left:70%;
+        -webkit-transform:rotate(90deg);
+        -moz-transform:rotate(90deg);
+        -ms-transform:rotate(90deg);
+        -o-transform:rotate(90deg);
+        transform:rotate(90deg);
+    }
+    25%{
+        top:22%;
+        left:68%;
+        -webkit-transform:rotate(180deg);
+        -moz-transform:rotate(180deg);
+        -ms-transform:rotate(180deg);
+        -o-transform:rotate(180deg);
+        transform:rotate(180deg);
     }
     30%{
-        top:30%;
-        left:65%;
-    }
-    35%{
-        top:28%;
-        left:63%;
-    }
-    40%{
-        top:26%;
-        left:61%;
+        top:20%;
+        left:66%;
     }
     100%{
         top:100%;
-        left:60%;
+        left:65%;
         -webkit-transform:rotate(720deg);
         -moz-transform:rotate(720deg);
         -ms-transform:rotate(720deg);
@@ -58,23 +72,33 @@
 @-moz-keyframes lovec{
     0%{
         top: -1rem;
-        left: 65%;
+        left: 70%;
+    }
+    20%{
+        top:32%;
+        left:70%;
+        -webkit-transform:rotate(90deg);
+        -moz-transform:rotate(90deg);
+        -ms-transform:rotate(90deg);
+        -o-transform:rotate(90deg);
+        transform:rotate(90deg);
+    }
+    25%{
+        top:22%;
+        left:68%;
+        -webkit-transform:rotate(180deg);
+        -moz-transform:rotate(180deg);
+        -ms-transform:rotate(180deg);
+        -o-transform:rotate(180deg);
+        transform:rotate(180deg);
     }
     30%{
-        top:30%;
-        left:65%;
-    }
-    35%{
-        top:28%;
-        left:63%;
-    }
-    40%{
-        top:26%;
-        left:61%;
+        top:20%;
+        left:66%;
     }
     100%{
         top:100%;
-        left:60%;
+        left:65%;
         -webkit-transform:rotate(720deg);
         -moz-transform:rotate(720deg);
         -ms-transform:rotate(720deg);
@@ -85,23 +109,33 @@
 @-ms-keyframes lovec{
     0%{
         top: -1rem;
-        left: 65%;
+        left: 70%;
+    }
+    20%{
+        top:32%;
+        left:70%;
+        -webkit-transform:rotate(90deg);
+        -moz-transform:rotate(90deg);
+        -ms-transform:rotate(90deg);
+        -o-transform:rotate(90deg);
+        transform:rotate(90deg);
+    }
+    25%{
+        top:22%;
+        left:68%;
+        -webkit-transform:rotate(180deg);
+        -moz-transform:rotate(180deg);
+        -ms-transform:rotate(180deg);
+        -o-transform:rotate(180deg);
+        transform:rotate(180deg);
     }
     30%{
-        top:30%;
-        left:65%;
-    }
-    35%{
-        top:28%;
-        left:63%;
-    }
-    40%{
-        top:26%;
-        left:61%;
+        top:20%;
+        left:66%;
     }
     100%{
         top:100%;
-        left:60%;
+        left:65%;
         -webkit-transform:rotate(720deg);
         -moz-transform:rotate(720deg);
         -ms-transform:rotate(720deg);
@@ -112,23 +146,33 @@
 @-o-keyframes lovec{
     0%{
         top: -1rem;
-        left: 65%;
+        left: 70%;
+    }
+    20%{
+        top:32%;
+        left:70%;
+        -webkit-transform:rotate(90deg);
+        -moz-transform:rotate(90deg);
+        -ms-transform:rotate(90deg);
+        -o-transform:rotate(90deg);
+        transform:rotate(90deg);
+    }
+    25%{
+        top:22%;
+        left:68%;
+        -webkit-transform:rotate(180deg);
+        -moz-transform:rotate(180deg);
+        -ms-transform:rotate(180deg);
+        -o-transform:rotate(180deg);
+        transform:rotate(180deg);
     }
     30%{
-        top:30%;
-        left:65%;
-    }
-    35%{
-        top:28%;
-        left:63%;
-    }
-    40%{
-        top:26%;
-        left:61%;
+        top:20%;
+        left:66%;
     }
     100%{
         top:100%;
-        left:60%;
+        left:65%;
         -webkit-transform:rotate(720deg);
         -moz-transform:rotate(720deg);
         -ms-transform:rotate(720deg);
@@ -139,23 +183,33 @@
 @keyframes lovec{
     0%{
         top: -1rem;
-        left: 65%;
+        left: 70%;
+    }
+    20%{
+        top:32%;
+        left:70%;
+        -webkit-transform:rotate(90deg);
+        -moz-transform:rotate(90deg);
+        -ms-transform:rotate(90deg);
+        -o-transform:rotate(90deg);
+        transform:rotate(90deg);
+    }
+    25%{
+        top:22%;
+        left:68%;
+        -webkit-transform:rotate(180deg);
+        -moz-transform:rotate(180deg);
+        -ms-transform:rotate(180deg);
+        -o-transform:rotate(180deg);
+        transform:rotate(180deg);
     }
     30%{
-        top:30%;
-        left:65%;
-    }
-    35%{
-        top:28%;
-        left:63%;
-    }
-    40%{
-        top:26%;
-        left:61%;
+        top:20%;
+        left:66%;
     }
     100%{
         top:100%;
-        left:60%;
+        left:65%;
         -webkit-transform:rotate(720deg);
         -moz-transform:rotate(720deg);
         -ms-transform:rotate(720deg);

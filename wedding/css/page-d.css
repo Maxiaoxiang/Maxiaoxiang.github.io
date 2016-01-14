@@ -3,6 +3,7 @@
 .page-d {
     position: absolute;
     top:100%;
+    /*top:0;*/
     width  : 100%;
     height : 100%;
     background-image: url("../image/bg4.jpg");
@@ -66,25 +67,6 @@
 .leaves img{
     width:100%;
     height: auto;
-}
-/*结束花瓣*/
-.over{
-    opacity: 0;
-    position: absolute;
-    top: -100%;
-    right: -100%;
-    width: 100%;
-    height: 100%;
-    background: url('../image/over.png') no-repeat;
-    background-size: 100% auto;
-    z-index: 5;
-}
-.over-go{
-    -webkit-animation:overa 6s linear 1;
-    -moz-animation:overa 6s linear 1;
-    -ms-animation:overa 6s linear 1;
-    -o-animation:overa 6s linear 1;
-    animation:overa 6s linear 1;
 }
 .leaves1{
     top: 3rem;
@@ -186,107 +168,6 @@
     -ms-animation: leavesk 5s linear 4s infinite;
     -o-animation: leavesk 5s linear 4s infinite;
     animation: leavesk 5s linear 4s infinite;
-}
-/*最后结束花瓣*/
-@-webkit-keyframes overa{
-    0%{
-        opacity: 0;
-        top: -100%;
-        right: -100%;
-    }
-    5%{
-        opacity: 1;
-    }
-    100%{
-        top: 100%;
-        right: 100%;
-        opacity: 1;
-        -webkit-transform:rotate(360deg);
-        -moz-transform:rotate(360deg);
-        -ms-transform:rotate(360deg);
-        -o-transform:rotate(360deg);
-        transform:rotate(360deg);
-    }
-}
-@-moz-keyframes overa{
-    0%{
-        opacity: 0;
-        top: -100%;
-        right: -100%;
-    }
-    5%{
-        opacity: 1;
-    }
-    100%{
-        top: 100%;
-        right: 100%;
-        opacity: 1;
-        -webkit-transform:rotate(360deg);
-        -moz-transform:rotate(360deg);
-        -ms-transform:rotate(360deg);
-        -o-transform:rotate(360deg);
-        transform:rotate(360deg);
-    }
-}
-@-ms-keyframes overa{
-    0%{
-        opacity: 0;
-        top: -100%;
-        right: -100%;
-    }
-    5%{
-        opacity: 1;
-    }
-    100%{
-        top: 100%;
-        right: 100%;
-        opacity: 1;
-        -webkit-transform:rotate(360deg);
-        -moz-transform:rotate(360deg);
-        -ms-transform:rotate(360deg);
-        -o-transform:rotate(360deg);
-        transform:rotate(360deg);
-    }
-}
-@-o-keyframes overa{
-    0%{
-        opacity: 0;
-        top: -100%;
-        right: -100%;
-    }
-    5%{
-        opacity: 1;
-    }
-    100%{
-        top: 100%;
-        right: 100%;
-        opacity: 1;
-        -webkit-transform:rotate(360deg);
-        -moz-transform:rotate(360deg);
-        -ms-transform:rotate(360deg);
-        -o-transform:rotate(360deg);
-        transform:rotate(360deg);
-    }
-}
-@keyframes overa{
-    0%{
-        opacity: 0;
-        top: -100%;
-        right: -100%;
-    }
-    5%{
-        opacity: 1;
-    }
-    100%{
-        top: 100%;
-        right: 100%;
-        opacity: 1;
-        -webkit-transform:rotate(360deg);
-        -moz-transform:rotate(360deg);
-        -ms-transform:rotate(360deg);
-        -o-transform:rotate(360deg);
-        transform:rotate(360deg);
-    }
 }
 /*花瓣运动轨迹*/
 @-webkit-keyframes leavesa{
@@ -1210,14 +1091,14 @@
 }
 /*桃心运动轨迹*/
 .loved-begin{
-    -webkit-animation:loved 3s linear 0s;
-    -moz-animation:loved 3s linear 0s;
-    -ms-animation:loved 3s linear 0s;
-    -o-animation:loved 3s linear 0s;
-    animation:loved 3s linear 0s;
+    -webkit-animation:loved 2s linear 1;
+    -moz-animation:loved 2s linear 1;
+    -ms-animation:loved 2s linear 1;
+    -o-animation:loved 2s linear 1;
+    animation:loved 2s linear 1;
 }
 @-webkit-keyframes loved{
-    95%{
+    90%{
         opacity: 1;
     }
     100%{
@@ -1231,7 +1112,7 @@
     }
 }
 @-moz-keyframes loved{
-    95%{
+    90%{
         opacity: 1;
     }
     100%{
@@ -1245,7 +1126,7 @@
     }
 }
 @-ms-keyframes loved{
-    95%{
+    90%{
         opacity: 1;
     }
     100%{
@@ -1259,7 +1140,7 @@
     }
 }
 @-o-keyframes loved{
-    95%{
+    90%{
         opacity: 1;
     }
     100%{
@@ -1273,7 +1154,7 @@
     }
 }
 @keyframes loved{
-    95%{
+    90%{
         opacity: 1;
     }
     100%{

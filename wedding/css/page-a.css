@@ -45,6 +45,137 @@
     height: 2rem;
     z-index: 100;
 }
+/*点击提示*/
+.container .page-a .love-fly:after{
+    content:'';
+    position: absolute;
+    display: block;
+    top:1rem;
+    left:1rem;
+    width:2rem;
+    height:2rem;
+    opacity: 0;
+    border-radius: 50%;
+    border:0.1rem solid #ff3366;
+    -webkit-animation:bigs 2s ease-out infinite;
+    -moz-animation:bigs 2s ease-out infinite;
+    -ms-animation:bigs 2s ease-out infinite;
+    -o-animation:bigs 2s ease-out infinite;
+    animation:bigs 2s ease-out infinite;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+/*点击提示*/
+@-webkit-keyframes bigs{
+    0% {
+        opacity: 0;
+        width:2rem;
+        height:2rem;
+    }
+    55% {
+        opacity: 0;
+        width:2rem;
+        height:2rem;
+    }
+    56% {
+        opacity: 0.8;
+        width:2rem;
+        height:2rem;
+    }
+    100% {
+        opacity: 0;
+        width:3rem;
+        height:3rem;
+    }
+}
+@-moz-keyframes bigs{
+    0% {
+        opacity: 0;
+        width:2rem;
+        height:2rem;
+    }
+    55% {
+        opacity: 0;
+        width:2rem;
+        height:2rem;
+    }
+    56% {
+        opacity: 0.8;
+        width:2rem;
+        height:2rem;
+    }
+    100% {
+        opacity: 0;
+        width:3rem;
+        height:3rem;
+    }
+}
+@-ms-keyframes bigs{
+    0% {
+        opacity: 0;
+        width:2rem;
+        height:2rem;
+    }
+    55% {
+        opacity: 0;
+        width:2rem;
+        height:2rem;
+    }
+    56% {
+        opacity: 0.8;
+        width:2rem;
+        height:2rem;
+    }
+    100% {
+        opacity: 0;
+        width:3rem;
+        height:3rem;
+    }
+}
+@-o-keyframes bigs{
+    0% {
+        opacity: 0;
+        width:2rem;
+        height:2rem;
+    }
+    55% {
+        opacity: 0;
+        width:2rem;
+        height:2rem;
+    }
+    56% {
+        opacity: 0.8;
+        width:2rem;
+        height:2rem;
+    }
+    100% {
+        opacity: 0;
+        width:3rem;
+        height:3rem;
+    }
+}
+@keyframes bigs{
+    0% {
+        opacity: 0;
+        width:2rem;
+        height:2rem;
+    }
+    55% {
+        opacity: 0;
+        width:2rem;
+        height:2rem;
+    }
+    56% {
+        opacity: 0.8;
+        width:2rem;
+        height:2rem;
+    }
+    100% {
+        opacity: 0;
+        width:3rem;
+        height:3rem;
+    }
+}
 /*最上方树荫*/
 .container .page-a .tree{
     position: absolute;
