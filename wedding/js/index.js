@@ -92,7 +92,7 @@
      * 下雪，桃心掉进花盆里，雪越来越大，开灯，花盆树苗生长，飘落花瓣铺满屏幕结束
      */
      function pageD(){
-        var $p = $('.text').find('p');
+        var $p = $('.text');
         function foo(){
             $p.animate({
                 'opacity':'1',
@@ -110,24 +110,26 @@
             $('.loved').fadeIn().addClass('loved-begin');
             setTimeout(function(){
                 $('.page-close').stop().animate({opacity: '1'},1000,function(){
+                    $('.txt').fadeOut();
+                    $("canvas.snow").let_it_snow({
+                      speed: 1,
+                      count: 50,
+                      image: "./image/ParticleSmoke.png"
+                    });
                     $('#canvas').fadeIn('last');
-                    snow();
                     setTimeout(function(){
                         foo();
-                    },2000);
+                    },6000);
                     setTimeout(function(){
                         $('.text').fadeOut('last');
-                        $('.sapling').addClass('saplinging').on('webkitAnimationEnd',function(){
-                            $('.sapling').addClass('saplinged');
-                        });
-                    },5000);
-                    setTimeout(function(){
-                        $('.sapling').remove();
                         $('.page-open').stop().animate({opacity: '1'},2000,function(){
                             $('#canvas').fadeOut('last');
+                            $('.sapling').addClass('saplinging').on('webkitAnimationEnd',function(){
+                                $('.sapling').addClass('saplinged');
+                                $('.leaves').fadeIn('last');
+                            });
                         });
-                        $('.leaves').fadeIn('last');
-                    },8000);
+                    },12000);
                 });
             },3000);
         });

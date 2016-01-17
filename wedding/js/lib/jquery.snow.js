@@ -1,92 +1,209 @@
-function snow() {
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
+/* ===========================================================
+ * jquery-let_it_snow.js v1
+ * ===========================================================
+ * NOTE: This plugin is based on the work by Jason Brown (Loktar00)
+ * https://github.com/loktar00/JQuery-Snowfall
+ * http://www.thepetedesign.com
+ *
+ * As the end of the year approaches, let's add 
+ * some festive to your website!
+ *
+ * https://github.com/peachananr/let_it_snow
+ *
+ * ========================================================== */
 
-    //canvas dimensions
-    var W = window.innerWidth;
-    var H = window.innerHeight;
-    canvas.width = W;
-    canvas.height = H;
+!function($){
+  
+  var defaults = {
+    speed: 0,
+    interaction: true,
+    size: Math.floor(Math.random()*13+1),
+    count: 200,
+    opacity: 0,
+    color: "#ffffff",
+    windPower: 0,
+    image: false
+    };
+    
+  
+  $.fn.let_it_snow = function(options){
+    var settings = $.extend({}, defaults, options),
+        el = $(this),
+        flakes = [],
+        canvas = el.get(0),
+        ctx = canvas.getContext("2d"),
+        flakeCount = settings.count,
+        mX = -100,
+        mY = -100;
+    
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+    (function() {
+        var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame ||
+        function(callback) {
+            window.setTimeout(callback, 1000 / 60);
+        };
+        window.requestAnimationFrame = requestAnimationFrame;
+    })();
+    
+    function snow() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    //snowflake particles
-    var mp = 500; //max particles
-    var particles = [];
-    for (var i = 0; i < mp; i++) {
-        particles.push({
-            x: Math.random() * W,
-            //x-coordinate
-            y: Math.random() * H,
-            //y-coordinate
-            r: Math.random() * 2 + 1,
-            //radius
-            d: Math.random() * mp //density
-        })
-    }
+        for (var i = 0; i < flakeCount; i++) {
+            var flake = flakes[i],
+                x = mX,
+                y = mY,
+                minDist = 100,
+                x2 = flake.x,
+                y2 = flake.y;
 
-    //Lets draw the flakes
-    function draw() {
-        ctx.clearRect(0, 0, W, H);
+            var dist = Math.sqrt((x2 - x) * (x2 - x) + (y2 - y) * (y2 - y)),
+                dx = x2 - x,
+                dy = y2 - y;
 
-        ctx.fillStyle = "rgba(255, 255, 255, 0.3)";
-        ctx.beginPath();
-        for (var i = 0; i < mp; i++) {
-            var p = particles[i];
-            ctx.moveTo(p.x, p.y);
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
-        }
-        ctx.fill();
-        update();
-    }
+            if (dist < minDist) {
+                var force = minDist / (dist * dist),
+                    xcomp = (x - x2) / dist,
+                    ycomp = (y - y2) / dist,
+                    deltaV = force / 2;
 
-    //Function to move the snowflakes
-    //angle will be an ongoing incremental flag. Sin and Cos functions will be applied to it to create vertical and horizontal movements of the flakes
-    var angle = 0;
-    function update() {
-        angle += 0.01;
-        for (var i = 0; i < mp; i++) {
-            var p = particles[i];
-            //Updating X and Y coordinates
-            //We will add 1 to the cos function to prevent negative values which will lead flakes to move upwards
-            //Every particle has its own density which can be used to make the downward movement different for each flake
-            //Lets make it more random by adding in the radius
-            p.y += Math.cos(angle + p.d) + 1 + p.r / 2;
-            p.x += Math.sin(angle) / 10;
+                flake.velX -= deltaV * xcomp;
+                flake.velY -= deltaV * ycomp;
 
-            //Sending flakes back from the top when it exits
-            //Lets make it a bit more organic and let flakes enter from the left and right also.
-            if (p.x > W || p.x < 0 || p.y > H) {
-                if (i % 3 > 0) //66.67% of the flakes
-                {
-                    particles[i] = {
-                        x: Math.random() * W,
-                        y: -10,
-                        r: p.r,
-                        d: p.d
-                    };
-                } else {
-                    //If the flake is exitting from the right
-                    if (Math.sin(angle) > 0) {
-                        //Enter fromth
-                        particles[i] = {
-                            x: Math.random() * W,
-                            y: Math.random() * H,
-                            r: p.r,
-                            d: p.d
-                        };
-                    } else {
-                        //Enter from the right
-                        particles[i] = {
-                            x: Math.random() * W,
-                            y: Math.random() * H,
-                            r: p.r,
-                            d: p.d
-                        };
-                    }
+            } else {
+                flake.velX *= .98;
+                if (flake.velY <= flake.speed) {
+                    flake.velY = flake.speed
+                }
+                
+                switch (settings.windPower) { 
+                  case false:
+                    flake.velX += Math.cos(flake.step += .05) * flake.stepSize;
+                  break;
+                  
+                  case 0:
+                    flake.velX += Math.cos(flake.step += .05) * flake.stepSize;
+                  break;
+                  
+                  default: 
+                    flake.velX += 0.01 + (settings.windPower/100);
                 }
             }
-        }
-    }
 
-    //animation loop
-    setInterval(draw, 30);
-}
+            var s = settings.color;
+            var patt = /^#([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$/;
+            var matches = patt.exec(s);
+            var rgb = parseInt(matches[1], 16)+","+parseInt(matches[2], 16)+","+parseInt(matches[3], 16);
+
+            
+            flake.y += flake.velY;
+            flake.x += flake.velX;
+
+            if (flake.y >= canvas.height || flake.y <= 0) {
+                reset(flake);
+            }
+
+
+            if (flake.x >= canvas.width || flake.x <= 0) {
+                reset(flake);
+            }
+            if (settings.image == false) {
+              ctx.fillStyle = "rgba(" + rgb + "," + flake.opacity + ")"
+              ctx.beginPath();
+              ctx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
+              ctx.fill();
+            } else {
+              
+              ctx.drawImage($("img#lis_flake").get(0), flake.x, flake.y, flake.size * 2, flake.size * 2);
+            }
+            
+        }
+        requestAnimationFrame(snow);
+    };
+    
+    
+    function reset(flake) {
+        
+        if (settings.windPower == false || settings.windPower == 0) {
+          flake.x = Math.floor(Math.random() * canvas.width);
+          flake.y = 0;
+        } else {
+          if (settings.windPower > 0) {
+            var xarray = Array(Math.floor(Math.random() * canvas.width), 0);
+            var yarray = Array(0, Math.floor(Math.random() * canvas.height))
+            var allarray = Array(xarray, yarray)
+            
+            var selected_array = allarray[Math.floor(Math.random()*allarray.length)];
+            
+             flake.x = selected_array[0];
+             flake.y = selected_array[1];
+          } else {
+            var xarray = Array(Math.floor(Math.random() * canvas.width),0);
+            var yarray = Array(canvas.width, Math.floor(Math.random() * canvas.height))
+            var allarray = Array(xarray, yarray)
+            
+            var selected_array = allarray[Math.floor(Math.random()*allarray.length)];
+            
+             flake.x = selected_array[0];
+             flake.y = selected_array[1];
+          }
+        }
+        
+        flake.size = (Math.random() * 3) + settings.size;
+        flake.speed = (Math.random() * 1) + settings.speed;
+        flake.velY = flake.speed;
+        flake.velX = 0;
+        flake.opacity = (Math.random() * 0.5) + settings.opacity;
+    }
+     function init() {
+      for (var i = 0; i < flakeCount; i++) {
+          var x = Math.floor(Math.random() * canvas.width),
+              y = Math.floor(Math.random() * canvas.height),
+              size = (Math.random() * 3)  + settings.size,
+              speed = (Math.random() * 1) + settings.speed,
+              opacity = (Math.random() * 0.5) + settings.opacity;
+      
+          flakes.push({
+              speed: speed,
+              velY: speed,
+              velX: 0,
+              x: x,
+              y: y,
+              size: size,
+              stepSize: (Math.random()) / 30,
+              step: 0,
+              angle: 180,
+              opacity: opacity
+          });
+      }
+      
+      snow();
+    }
+    
+    if (settings.image != false) {
+      $("<img src='"+settings.image+"' style='display: none' id='lis_flake'>").prependTo("body")
+    }
+    
+    init();
+    
+    $(window).resize(function() {
+      if(this.resizeTO) clearTimeout(this.resizeTO);
+      this.resizeTO = setTimeout(function() {
+        el2 = el.clone();
+        el2.insertAfter(el);
+        el.remove();
+        
+        el2.let_it_snow(settings);
+      }, 200);
+    });
+    
+    if (settings.interaction == true) {
+      canvas.addEventListener("mousemove", function(e) {
+          mX = e.clientX,
+          mY = e.clientY
+      });
+    }
+  }
+}(window.jQuery);
+

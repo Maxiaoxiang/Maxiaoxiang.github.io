@@ -37,7 +37,7 @@
         top: -1rem;
         left: 70%;
     }
-    20%{
+    40%{
         top:32%;
         left:70%;
         -webkit-transform:rotate(90deg);
@@ -46,7 +46,7 @@
         -o-transform:rotate(90deg);
         transform:rotate(90deg);
     }
-    25%{
+    45%{
         top:22%;
         left:68%;
         -webkit-transform:rotate(180deg);
@@ -55,7 +55,7 @@
         -o-transform:rotate(180deg);
         transform:rotate(180deg);
     }
-    30%{
+    50%{
         top:20%;
         left:66%;
     }
