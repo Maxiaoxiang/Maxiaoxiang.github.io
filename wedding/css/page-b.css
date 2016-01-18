@@ -43,6 +43,17 @@
     transform-origin:50% 50%;
     z-index: 10;
 }
+/*文字*/
+.bg2txt{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+    background: url('../image/bg2txt.png') no-repeat;
+    background-size: 100% auto;
+    z-index: 100;
+}
 /*树荫*/
 .container .page-b .b-tree{
     display: none;
