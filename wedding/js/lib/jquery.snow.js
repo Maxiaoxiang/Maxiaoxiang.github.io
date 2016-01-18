@@ -17,7 +17,7 @@
   var defaults = {
     speed: 0,
     interaction: true,
-    size: Math.floor(Math.random()*13+1),
+    size: 10,
     count: 200,
     opacity: 0,
     color: "#ffffff",
@@ -58,38 +58,38 @@
                 x2 = flake.x,
                 y2 = flake.y;
 
-            var dist = Math.sqrt((x2 - x) * (x2 - x) + (y2 - y) * (y2 - y)),
-                dx = x2 - x,
-                dy = y2 - y;
+            // var dist = Math.sqrt((x2 - x) * (x2 - x) + (y2 - y) * (y2 - y)),
+            //     dx = x2 - x,
+            //     dy = y2 - y;
 
-            if (dist < minDist) {
-                var force = minDist / (dist * dist),
-                    xcomp = (x - x2) / dist,
-                    ycomp = (y - y2) / dist,
-                    deltaV = force / 2;
+            // if (dist < minDist) {
+            //     var force = minDist / (dist * dist),
+            //         xcomp = (x - x2) / dist,
+            //         ycomp = (y - y2) / dist,
+            //         deltaV = force / 2;
 
-                flake.velX -= deltaV * xcomp;
-                flake.velY -= deltaV * ycomp;
+            //     flake.velX -= deltaV * xcomp;
+            //     flake.velY -= deltaV * ycomp;
 
-            } else {
-                flake.velX *= .98;
-                if (flake.velY <= flake.speed) {
-                    flake.velY = flake.speed
-                }
+            // } else {
+            //     flake.velX *= .98;
+            //     if (flake.velY <= flake.speed) {
+            //         flake.velY = flake.speed
+            //     }
                 
-                switch (settings.windPower) { 
-                  case false:
-                    flake.velX += Math.cos(flake.step += .05) * flake.stepSize;
-                  break;
+            //     switch (settings.windPower) { 
+            //       case false:
+            //         flake.velX += Math.cos(flake.step += .05) * flake.stepSize;
+            //       break;
                   
-                  case 0:
-                    flake.velX += Math.cos(flake.step += .05) * flake.stepSize;
-                  break;
+            //       case 0:
+            //         flake.velX += Math.cos(flake.step += .05) * flake.stepSize;
+            //       break;
                   
-                  default: 
-                    flake.velX += 0.01 + (settings.windPower/100);
-                }
-            }
+            //       default: 
+            //         flake.velX += 0.01 + (settings.windPower/100);
+            //     }
+            // }
 
             var s = settings.color;
             var patt = /^#([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$/;
@@ -150,7 +150,7 @@
           }
         }
         
-        flake.size = (Math.random() * 3) + settings.size;
+        flake.size = (Math.random() * 15) + settings.size;
         flake.speed = (Math.random() * 1) + settings.speed;
         flake.velY = flake.speed;
         flake.velX = 0;
@@ -160,7 +160,7 @@
       for (var i = 0; i < flakeCount; i++) {
           var x = Math.floor(Math.random() * canvas.width),
               y = Math.floor(Math.random() * canvas.height),
-              size = (Math.random() * 3)  + settings.size,
+              size = (Math.random() * 15)  + settings.size,
               speed = (Math.random() * 1) + settings.speed,
               opacity = (Math.random() * 0.5) + settings.opacity;
       
@@ -198,12 +198,5 @@
       }, 200);
     });
     
-    if (settings.interaction == true) {
-      canvas.addEventListener("mousemove", function(e) {
-          mX = e.clientX,
-          mY = e.clientY
-      });
-    }
   }
 }(window.jQuery);
-

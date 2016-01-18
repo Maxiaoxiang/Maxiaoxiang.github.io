@@ -5,10 +5,23 @@
 
     var $love = $('.love');//桃心
     var $begin = $('.love-fly');//点击开始
+    var $music = $('.music');//音乐开关
 
     $begin.click(function(){//动画开始
         pageA();//页面A开始
         $('#audio').attr('src','./music/b.mp3');//改变音乐
+    });
+
+    $music.click(function(){
+        $(this).toggleClass('close');
+        var audio = document.getElementById('audio'); 
+        if(audio!==null){
+            if(audio.paused){                 
+                audio.play();
+            }else{
+                audio.pause();
+            }
+        } 
     });
 
     /**
@@ -110,16 +123,15 @@
             $('.loved').fadeIn().addClass('loved-begin');
             setTimeout(function(){
                 $('.page-close').stop().animate({opacity: '1'},1000,function(){
-                    $('.txt').fadeOut();
                     $("canvas.snow").let_it_snow({
                       speed: 1,
                       count: 50,
                       image: "./image/ParticleSmoke.png"
                     });
-                    $('#canvas').fadeIn('last');
+                    $('#canvas').fadeIn(6000);
                     setTimeout(function(){
                         foo();
-                    },6000);
+                    },3000);
                     setTimeout(function(){
                         $('.text').fadeOut('last');
                         $('.page-open').stop().animate({opacity: '1'},2000,function(){
@@ -131,6 +143,9 @@
                         });
                     },12000);
                 });
+            },3000);
+            setTimeout(function(){
+                $('.txt').fadeOut();
             },3000);
         });
      }

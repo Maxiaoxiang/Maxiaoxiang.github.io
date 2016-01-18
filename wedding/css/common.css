@@ -15,6 +15,20 @@ body{
 .bg {
     background-size: 100% 100%;
 }
+.music{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url('../image/music.png') no-repeat;
+    background-size: 100% 100%;
+    z-index: 1000;
+}
+.close{
+    background: url('../image/music_close.png') no-repeat;
+    background-size: 100% 100%;
+}
 .loading{
     display: block;
     position: absolute;
