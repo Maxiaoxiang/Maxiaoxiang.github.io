@@ -150,7 +150,7 @@
           }
         }
         
-        flake.size = (Math.random() * 15) + settings.size;
+        flake.size = (Math.random() * 10) + settings.size;
         flake.speed = (Math.random() * 1) + settings.speed;
         flake.velY = flake.speed;
         flake.velX = 0;
