@@ -28,8 +28,8 @@ body{
     position: absolute;
     top: .5rem;
     right: 2.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.6rem;
+    height: 1.6rem;
     background: url('../image/invitation.png') no-repeat;
     background-size: 100% 100%;
     z-index: 1000;
