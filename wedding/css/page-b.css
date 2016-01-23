@@ -179,6 +179,8 @@
 .bird-stop{
     background: url('../image/bird_stop.png') no-repeat;
     background-size: 300% auto;
+    width: 3.4rem;
+    height: 3.4rem;
     -webkit-animation:birdstop 1s steps(3) infinite;
     -moz-animation:birdstop 1s steps(3) infinite;
     -ms-animation:birdstop 1s steps(3) infinite;
@@ -240,19 +242,19 @@
 /*小鸟落下*/
 @-webkit-keyframes bird {
     from {background-position: 0% 0%;}
-    to {background-position: 100% 0%;}
+    to {background-position: 133% 0%;}
 }
 @-moz-keyframes bird {
     from {background-position: 0% 0%;}
-    to {background-position: 100% 0%;}
+    to {background-position: 133% 0%;}
 }
 @-ms-keyframes bird {
     from {background-position: 0% 0%;}
-    to {background-position: 100% 0%;}
+    to {background-position: 133% 0%;}
 }
 @-o-keyframes bird {
     from {background-position: 0% 0%;}
-    to {background-position: 100% 0%;}
+    to {background-position: 133% 0%;}
 }
 @keyframes bird {
     from {background-position: 0% 0%;}
@@ -261,19 +263,19 @@
 /*小鸟啄心*/
 @-webkit-keyframes birdstop {
     from {background-position: 0% 0%;}
-    to {background-position: 100% 0%;}
+    to {background-position: 150% 0%;}
 }
 @-moz-keyframes birdstop {
     from {background-position: 0% 0%;}
-    to {background-position: 100% 0%;}
+    to {background-position: 150% 0%;}
 }
 @-ms-keyframes birdstop {
     from {background-position: 0% 0%;}
-    to {background-position: 100% 0%;}
+    to {background-position: 150% 0%;}
 }
 @-o-keyframes birdstop {
     from {background-position: 0% 0%;}
-    to {background-position: 100% 0%;}
+    to {background-position: 150% 0%;}
 }
 @keyframes birdstop {
     from {background-position: 0% 0%;}
