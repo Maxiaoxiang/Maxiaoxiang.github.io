@@ -56,14 +56,14 @@
                 'top':'78%'
             },2200,function(){
                 $('.bird-fly').animate({
-                    'top':'74%',
+                    'top':'73%',
                     'left':'30%'
                 },3000,function(){
                     $('.bird-fly').addClass('bird-stop').animate({
                         'left':'38%'
                     },1000,function(){
                         $('.bird-fly').removeClass('bird-stop').animate({
-                            'top':'30%',
+                            'top':'31%',
                             'left':'100%'
                         },2000);
                         $('.loveb').removeClass('begin-stop').addClass('go').animate({
