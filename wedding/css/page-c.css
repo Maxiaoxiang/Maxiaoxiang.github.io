@@ -323,7 +323,7 @@
     height:10rem;
     background: url('../image/curtain.png');
     background-size: 300% auto;
-    z-index: 1;
+    z-index: 0;
     -webkit-animation: curtain 2s steps(3) infinite;
     -moz-animation: curtain 2s steps(3) infinite;
     -ms-animation: curtain 2s steps(3) infinite;
