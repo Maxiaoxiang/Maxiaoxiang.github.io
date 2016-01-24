@@ -3,8 +3,12 @@
     margin: 0;
     padding: 0;
 }
+html{
+    font-size: 20px;
+}
 body{
     overflow: hidden;
+    font-size: 100%;
 }
 .container {
     width: 100%;
@@ -270,28 +274,16 @@ body{
     }
 }
 @media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){
-    /*.sapling{
-        top: 59% !important;
-    }
-    .window{
-        height:14rem !important;
-    }*/
 }
 @media only screen and (max-device-width :480px){ }
 @media only screen and (min-device-width :481px){ }
 
 /*6*/
 @media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
-    .sapling{
-        top:73%;
-    }
 }
 
 /*6+*/
 @media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){
-    .sapling{
-        top:73%;
-    }
  }
 
 /*魅族*/
