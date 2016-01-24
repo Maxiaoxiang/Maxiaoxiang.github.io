@@ -270,12 +270,12 @@ body{
     }
 }
 @media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){
-    .sapling{
+    /*.sapling{
         top: 59% !important;
     }
     .window{
         height:14rem !important;
-    }
+    }*/
 }
 @media only screen and (max-device-width :480px){ }
 @media only screen and (min-device-width :481px){ }
@@ -303,6 +303,6 @@ body{
 /*4 4s*/
 @media only screen and (device-height :480px) and (-webkit-device-pixel-ratio:2){
     .sapling{
-        top: 70%;
+        
     }
 }

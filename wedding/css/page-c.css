@@ -323,7 +323,7 @@
     height:10rem;
     background: url('../image/curtain.png');
     background-size: 300% auto;
-    z-index: 0;
+    z-index: 1;
     -webkit-animation: curtain 2s steps(3) infinite;
     -moz-animation: curtain 2s steps(3) infinite;
     -ms-animation: curtain 2s steps(3) infinite;
@@ -336,10 +336,10 @@
     left: 0;
     top: 33%;
     width: 100%;
-    height: 13rem;
+    height: 12rem;
     background: url('../image/window.png');
     background-size: 300% 100%;
-    z-index: 1;
+    z-index: 9;
 }
 .window-begin{
     -webkit-animation: window 3s steps(1) infinite;
