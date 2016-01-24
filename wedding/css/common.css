@@ -281,7 +281,7 @@ body{
 /*6*/
 @media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
     .sapling{
-        top: 11% !important;
+        top: 9% !important;
     }
 }
 
