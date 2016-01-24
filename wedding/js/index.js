@@ -60,10 +60,10 @@
                     'left':'30%'
                 },3000,function(){
                     $('.bird-fly').addClass('bird-stop').animate({
-                        'left':'38%'
+                        'left':'36%'
                     },1000,function(){
                         $('.bird-fly').removeClass('bird-stop').animate({
-                            'top':'31%',
+                            'top':'30%',
                             'left':'100%'
                         },2000);
                         $('.loveb').removeClass('begin-stop').addClass('go').animate({
