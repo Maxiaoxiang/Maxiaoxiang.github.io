@@ -6,22 +6,22 @@
     var $love = $('.love');//桃心
     var $begin = $('.love-fly');//点击开始
     var $music = $('.music');//音乐开关
+    var $audio = $('#audio');
 
-    $begin.click(function(){//动画开始
+    $begin.on('touchstart click',function(){//动画开始
         pageA();//页面A开始
-        $('#audio').attr('src','./music/b.mp3');//改变音乐
+        $audio.attr('src','./music/b.mp3');//改变音乐
     });
 
     $music.click(function(){
-        $(this).toggleClass('close');
-        var audio = document.getElementById('audio'); 
-        if(audio!==null){
-            if(audio.paused){                 
-                audio.play();
+        if($audio!==null){
+            if($audio.paused){                 
+                $audio.play();
             }else{
-                audio.pause();
+                $audio.pause();
             }
         } 
+        $(this).toggleClass('close');
     });
 
     /**
