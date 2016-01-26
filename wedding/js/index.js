@@ -11,6 +11,13 @@
     $begin.on('touchstart click',function(){//动画开始
         pageA();//页面A开始
         $audio.attr('src','./music/b.mp3');//改变音乐
+        if($audio!==null){
+            if($audio.paused){                 
+                $audio.play();
+            }else{
+                $audio.pause();
+            }
+        } 
     });
 
     $music.click(function(){
@@ -74,7 +81,7 @@
                         });
                     });
                 });
-            }).on('webkitAnimationEnd',function(){
+            }).on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
                 $('.loveb').addClass('begin-stop');
             });
         });
