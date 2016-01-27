@@ -15,13 +15,16 @@ function Game(){
 	
 	_.opts = {
 		level: 1,				//关卡
-		blood: 3,				//生命
+		blood: 2,				//生命
 		isGameOver: false		//是否结束
 	};
 
 	var rope = new Rope(canvas,ctx, _.opts);
 	var ox = new Ox(canvas, ctx, _.opts);
 
+	/**
+	 * 渲染
+	 */
 	_.loop = function(){
 		ox.opts.x -= ox.opts.speed;
 		if(ox.opts.x + ox.opts.radius * 2 <= 0){
