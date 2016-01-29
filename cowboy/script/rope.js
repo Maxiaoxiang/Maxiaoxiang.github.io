@@ -13,6 +13,7 @@ function Rope(canvas, ctx, param){
 	 * 画绳子
 	 */
 	Rope.prototype.draw = function(){
+		var that = this;
 		ctx.beginPath();
 		ctx.moveTo(canvas.width / 2, canvas.height);
 		ctx.lineTo(canvas.width / 2, canvas.height - this.opts.len);
@@ -22,22 +23,6 @@ function Rope(canvas, ctx, param){
 		ctx.arc(canvas.width / 2,canvas.height - this.opts.len - this.opts.radius, this.opts.radius, 0, Math.PI * 2, false);
 		ctx.closePath();
 		ctx.stroke();
-		function doKeyDown(e) {
-		    var keyID = e.keyCode || '';  
-		    if(keyID == 32){
-		    	this.cast();
-		    }
-		} 
-	};
-
-	/**
-	 * 抛绳子
-	 */
-	Rope.prototype.cast = function(){
-		this.opts.len++;
 	};
 	
-	window.addEventListener('keydown', doKeyDown, true);  
-	 
-
 }

@@ -12,14 +12,14 @@ function Game(){
 	document.body.appendChild(canvas);
 	requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 	
-	this.opts = {
+	var opts = {
 		level: 1,				//关卡
 		blood: 2,				//生命
 		isGameOver: false		//是否结束
 	};
 
-	var rope = new Rope(canvas,ctx, this.opts);
-	var ox = new Ox(canvas, ctx, this.opts);
+	var rope = new Rope(canvas,ctx, opts);
+	var ox = new Ox(canvas, ctx, opts);
 
 	/**
 	 * 渲染
