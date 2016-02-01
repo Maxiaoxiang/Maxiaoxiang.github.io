@@ -1,0 +1,295 @@
+@charset "UTF-8";
+/*页面A*/
+.page-a {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 25%;
+}
+/*桃心*/
+.page-a .love{
+    position: absolute;
+    top: 66.5%;
+    left: 6.8rem;
+    width: 1rem;
+    height: 1rem;
+}
+.active .love{
+    background: url('../image/love1.png') no-repeat;
+    background-size: 100% 100%;
+    -webkit-animation:swinging 2s ease-in-out 0s infinite;
+    -webkit-transform-origin:50% 0;
+}
+.page-a .begin{
+    background: url('../image/love1.png') no-repeat;
+    background-size: 100% 100%;
+    -webkit-animation:begin 2s linear 0s infinite ,pages 0.8s linear 1;
+}
+/*运动->桃心*/
+.page-a .love-fly{
+    position: absolute;
+    top: 64.5%;
+    left: 6.3rem;
+    width: 2rem;
+    height: 2rem;
+    z-index: 100;
+}
+/*点击提示*/
+.page-a .love-fly:after{
+    content:'';
+    position: absolute;
+    display: block;
+    top:1rem;
+    left:1rem;
+    width:2rem;
+    height:2rem;
+    opacity: 0;
+    border-radius: 50%;
+    border:0.1rem solid #fff;
+}
+.active .love-fly:after{
+    -webkit-animation:bigs 2s ease-out infinite;
+    -webkit-transform: translate(-50%, -50%);
+}
+/*点击提示*/
+@-webkit-keyframes bigs{
+    0% {
+        opacity: 0;
+        width:2rem;
+        height:2rem;
+    }
+    55% {
+        opacity: 0;
+        width:2rem;
+        height:2rem;
+    }
+    56% {
+        opacity: 0.8;
+        width:2rem;
+        height:2rem;
+    }
+    100% {
+        opacity: 0;
+        width:3rem;
+        height:3rem;
+    }
+}
+/*最上方树荫*/
+.page-a .tree{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8rem;
+    background: url('../image/tree.png');
+    background-size: 500% auto;
+}
+.active .tree{
+    -webkit-animation:run 3s steps(5) reverse infinite;
+}
+/*桂花*/
+.page-a .flowers{
+    position: absolute;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url('../image/flower_1.png') no-repeat;
+    background-size: 100% 100%;
+}
+.active .f1{
+    top:21%;
+    left:5rem;
+    -webkit-animation: f1 3s linear infinite;
+}
+.active .f2{
+    top: 20%;
+    left: 4rem;
+    -webkit-animation: f2 3s linear 1s infinite;
+}
+.active .f3{
+    top: 17%;
+    left: 3rem;
+    -webkit-animation: f3 3s linear 1.5s infinite;
+}
+.active .f4{
+    top: 20%;
+    left: 3rem;
+    -webkit-animation: f4 3s linear 3s infinite;
+    background: url('../image/flower_2.png') no-repeat;
+}
+.active .f5{
+    top: 11%;
+    left: 2rem;
+    transform:scale(0.8);
+    -webkit-animation: f5 4s linear 2s infinite;
+}
+.active .f6{
+    top: 10%;
+    left: 8rem;
+    -webkit-animation: f6 3s linear 1s infinite;
+    background: url('../image/flower_2.png') no-repeat;
+}
+.active .f7{
+    top: 11%;
+    left: 9rem;
+    -webkit-animation: f7 4s linear 3s infinite;
+}
+.active .f8{
+    top: 20%;
+    left: 10rem;
+    -webkit-animation: f8 3s linear 2s infinite;
+    background: url('../image/flower_2.png') no-repeat;
+}
+/*桃心摇摆运动*/
+@-webkit-keyframes swinging{
+    0% { -webkit-transform: rotate(10deg); }
+    50% {-webkit-transform: rotate(-10deg); }
+    100% { -webkit-transform: rotate(10deg); }
+}
+/*桃心掉落*/
+@-webkit-keyframes begin{
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform:rotate(180deg);
+    }
+}
+@-webkit-keyframes pages{
+    100%{
+        top:95%;
+    }
+}
+/*树荫摆动*/
+@-webkit-keyframes run {
+    0% {background-position: 500% 0%;}
+    100% {background-position: 0% 0%;}
+}
+
+/*桂花飘落*/
+@-webkit-keyframes f1{
+    0% {
+        top:21%;
+        left:5rem;
+        transform:rotate(0deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        top:60%;
+        left:2rem;
+        opacity: 0;
+        transform:rotate(-360deg);
+    }
+}
+@-webkit-keyframes f2{
+    0% {
+        top: 20%;
+        left: 4rem;
+        transform:rotate(0deg);
+    }
+    100% {
+        top:50%;
+        left:1rem;
+        transform:rotate(-180deg);
+    }
+}
+@-webkit-keyframes f3{
+    0% {
+        top: 17%;
+        left: 3rem;
+        opacity: 1;
+        transform:rotate(0deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        top:50%;
+        left:0.8rem;
+        opacity:0;
+        transform:rotate(-360deg);
+    }
+}
+@-webkit-keyframes f4{
+    0% {
+        top: 20%;
+        left: 3rem;
+        opacity: 1;
+        transform:rotate(0deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        top:50%;
+        left:1.2;
+        opacity:0;
+        transform:rotate(-360deg);
+    }
+}
+@-webkit-keyframes f5{
+    0% {
+        top: 11%;
+        left: 2rem;
+        opacity: 1;
+        transform:rotate(0deg);
+    }
+    100% {
+        top:60%;
+        left:1rem;
+        transform:rotate(-360deg);
+    }
+}
+@-webkit-keyframes f6{
+    0% {
+        top: 10%;
+        left: 8rem;
+        opacity: 1;
+        transform:rotate(0deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        top:40%;
+        left:3rem;
+        opacity: 0;
+        transform:rotate(-360deg);
+    }
+}
+@-webkit-keyframes f7{
+    0% {
+        top: 11%;
+        left: 9rem;
+        opacity: 1;
+        transform:rotate(0deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        top:50%;
+        left:3.5rem;
+        opacity: 0;
+        transform:rotate(-720deg);
+    }
+}
+@-webkit-keyframes f8{
+    0% {
+        top: 20%;
+        left: 10rem;
+        opacity: 1;
+        transform:rotate(0deg);
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        top:50%;
+        left:4rem;
+        opacity: 0;
+        transform:rotate(-360deg);
+    }
+}
