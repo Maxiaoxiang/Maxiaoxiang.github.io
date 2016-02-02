@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cn-ZH">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mss。-album</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link href="../favicon.ico" rel="icon" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./style/album.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./style/common.css" media="screen">
+        <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="box"></div>
+        </div>
+        <script src="../public/jquery.min.js"></script>
+        <script src="./script/jquery.album.js"></script>
+        <script>
+            $(function(){
+                $('.box').album({
+                    imgUrl:['./image/1.jpg','./image/1.png']
+                });
+            });
+        </script>
+    </body>
+</html>
