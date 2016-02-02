@@ -9,17 +9,17 @@
     var $audiob = $('#audiob')[0];
     var $container = $('.container');
     
-    $begin.on('touchstart click',function(){//动画开始
+    $begin.on('click',function(){//动画开始
         pageA();//页面A开始
         $audioa.muted = 1;
         $audiob.play();
         if($music.hasClass('closed')){
             $audiob.muted = 1;
         }
-        $container.data('status',1);
+        $container.attr('data-status',1);
     });
 
-    $music.on('touchstart click',function(){
+    $music.on('click',function(){
         if($container.data('status')){
             if($audiob.muted){
                 $audiob.muted = 0;
@@ -102,6 +102,7 @@
             setTimeout(function(){
                 $('.txt').fadeOut('last');
                 $('.text').addClass('showdown');
+                console.log($('.page-open'))
                 $('.page-open').addClass('open').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
                     $('#canvas').fadeOut('last');
                     $('.sapling').addClass('saplinging').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
