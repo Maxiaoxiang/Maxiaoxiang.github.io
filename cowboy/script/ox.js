@@ -8,8 +8,7 @@ function Ox(canvas, ctx, param){
 		radius: 20,					//中心半径
 		speed:10*param.level, 		//速度
 		x:100,						//距离顶部距离
-		y:100,						//距离顶部距离
-		arr:[]						//牛
+		y:100						//距离顶部距离
 	};
 
 	/**
@@ -27,11 +26,10 @@ function Ox(canvas, ctx, param){
 	 */
 	Ox.prototype.create = function(canvas, ctx, param){
 		for(i = 0; i < this.opts.count; i++){
-			console.log(this.opts.arr)
-	    	this.opts.arr.push(new Ox(canvas, ctx, param));
+			console.log(this.opts.count)
 	    }
 	};
 
-	//this.create(canvas, ctx, param);
+	this.create(canvas, ctx, param);
 
 }

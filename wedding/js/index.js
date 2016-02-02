@@ -37,7 +37,7 @@
         $('.loveb').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
             $('.bird-fly').addClass('fly').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
                 $('.bird-fly').removeClass('fly').addClass('bird-stop').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
-                    $('.bird-fly').removeClass('bird-stop').addClass('flyup');
+                    $('.bird-fly').addClass('flyup').removeClass('bird-stop');
                     $('.loveb').addClass('go').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
                         pageC();
                     });
