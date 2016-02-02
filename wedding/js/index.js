@@ -5,14 +5,35 @@
     var $love = $('.love');//桃心
     var $begin = $('.love-fly');//点击开始
     var $music = $('.music');//音乐开关
-    var $audioa = $('#audioa');
-
+    var $audioa = $('#audioa')[0];
+    var $audiob = $('#audiob')[0];
+    var $container = $('.container');
+    
     $begin.on('touchstart click',function(){//动画开始
         pageA();//页面A开始
+        $audioa.muted = 1;
+        $audiob.play();
+        if($music.hasClass('closed')){
+            $audiob.muted = 1;
+        }
+        $container.data('status',1);
     });
 
     $music.on('touchstart click',function(){
-        $(this).toggleClass('close');
+        if($container.data('status')){
+            if($audiob.muted){
+                $audiob.muted = 0;
+            }else{
+                $audiob.muted = 1;
+            }
+        }else{
+            if($audioa.muted){
+                $audioa.muted = 0;
+            }else{
+                $audioa.muted = 1;
+            }
+        }
+        $(this).toggleClass('closed');
     });
 
     /**
@@ -81,7 +102,7 @@
             setTimeout(function(){
                 $('.txt').fadeOut('last');
                 $('.text').addClass('showdown');
-                $('.page-open').stop().animate({opacity: '1'},2000,function(){
+                $('.page-open').addClass('open').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
                     $('#canvas').fadeOut('last');
                     $('.sapling').addClass('saplinging').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
                         $('.sapling').addClass('saplinged');
