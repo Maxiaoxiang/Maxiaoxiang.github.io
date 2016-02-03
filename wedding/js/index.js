@@ -90,25 +90,26 @@
         $('.page-d').addClass('active');
         $('.page-a').remove();
         $('.page-b').remove();
-        $('.loved').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
-            $('.page-close').addClass('close');
+        $('.loved').on('nimationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
             $('.page-c').remove();
-            $('#canvas').fadeIn(6000).let_it_snow({
-                  speed: 1,
-                  count: 50,
-                  image: "./image/ParticleSmoke.png"
-                });
-            $('.text').addClass('showup');
+            $('#canvas').let_it_snow({
+              speed: 1,
+              count: 50,
+              image: "./image/ParticleSmoke.png"
+            });
+            $('#canvas').fadeIn(6000);
+            setTimeout(function(){
+                $('.page-close').addClass('close');
+                $('.text').addClass('showup');
+            },2000);
             setTimeout(function(){
                 $('.txt').fadeOut('last');
                 $('.text').addClass('showdown');
-                console.log($('.page-open'))
-                $('.page-open').addClass('open').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
-                    $('#canvas').fadeOut('last');
-                    $('.sapling').addClass('saplinging').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
-                        $('.sapling').addClass('saplinged');
-                        $('.leaves').fadeIn('last');
-                    });
+                $('.page-open').addClass('open');
+                $('#canvas').fadeOut('last');
+                $('.sapling').addClass('saplinging').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
+                    $('.sapling').addClass('saplinged');
+                    $('.leaves').fadeIn('last');
                 });
             },12000);
         });
