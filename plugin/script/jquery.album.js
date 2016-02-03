@@ -8,7 +8,6 @@
 
 	//配置参数
 	var defaults = {
-		imgUrl:[],				//图片路径
 		callback:function(){}	//回调
 	};
 
@@ -20,14 +19,7 @@
 
 		//初始化
 		this.init = function(){
-			var arr = '';
-			var html;
-			for(var i = 0,len = opts.imgUrl.length; i < len; i++){
-				arr += '<li><img src="'+opts.imgUrl[i]+'" alt></li>';
-			}
-			html = '<ul>'+arr+'</ul>';
-			$obj.html(html);
-			console.log(html)
+
 		};
 		this.init();
 	};

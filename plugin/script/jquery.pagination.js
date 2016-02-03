@@ -1,6 +1,6 @@
 /**
  * pagination分页插件
- * @version 0.2
+ * @version 0.3
  * @url http://www.maxiaoxiang.com
  * @E-mail 251445460@qq.com
  */
@@ -38,7 +38,6 @@
 		//获取总页数
 		this.getTotalPage = function(){
 			var p = opts.totalData || opts.showData ? Math.ceil(parseInt(opts.totalData) / opts.showData) : opts.pageCount;
-			p = p == 0 ? 1 : p;
 			return p;
 		};
 

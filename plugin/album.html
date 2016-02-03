@@ -13,15 +13,21 @@
     </head>
     <body>
         <div class="wrapper">
-            <div class="box"></div>
+            <div class="box">
+                <ul>
+                    <li><img src="./image/1.jpg" alt=""></li>
+                    <li><img src="./image/1.png" alt=""></li>
+                    <li><img src="./image/1.jpg" alt=""></li>
+                    <li><img src="./image/1.png" alt=""></li>
+                    <li><img src="./image/1.jpg" alt=""></li>
+                </ul>
+            </div>
         </div>
         <script src="../public/jquery.min.js"></script>
         <script src="./script/jquery.album.js"></script>
         <script>
             $(function(){
-                $('.box').album({
-                    imgUrl:['./image/1.jpg','./image/1.png']
-                });
+                $('.box').album();
             });
         </script>
     </body>

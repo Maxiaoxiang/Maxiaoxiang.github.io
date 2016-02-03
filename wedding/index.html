@@ -178,6 +178,11 @@
         //绑定浏览器缩放与加载时间
         window.addEventListener(resizeEvt, recalc, false);
         document.addEventListener('DOMContentLoaded', recalc, false);
+
+        //禁止滑动
+        document.addEventListener('touchmove', function(event) {
+            event.preventDefault();
+        });
     </script>
     <script>
         $('.begin-heart').animate({'left':'78%'},800,function(){
