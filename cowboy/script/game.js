@@ -1,40 +1,7 @@
 /**
  * 控制器
  */
-function Game(){
+function Game(canvas,options){
 
-	var w = window,
-		d = document,
-		canvas = d.createElement('canvas'),
-		ctx = canvas.getContext('2d');
-	canvas.width = 960;
-	canvas.height = 640;
-	document.body.appendChild(canvas);
-	requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 	
-	var opts = {
-		level: 1,				//关卡
-		blood: 2,				//生命
-		isGameOver: false		//是否结束
-	};
-
-	var rope = new Rope(canvas,ctx, opts);
-	var ox = new Ox(canvas, ctx, opts);
-
-	/**
-	 * 渲染
-	 */
-	Game.prototype.loop = function(){
-		ox.opts.x -= ox.opts.speed;
-		if(ox.opts.x + ox.opts.radius * 2 <= 0){
-			ox.opts.x = canvas.width + ox.opts.radius * 2;
-		}
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		rope.draw();
-		ox.draw();
-		requestAnimationFrame(Game.prototype.loop);
-	};
-
-	this.loop();
-
 }
