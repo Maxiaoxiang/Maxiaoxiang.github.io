@@ -28,13 +28,15 @@
             <div class="i"></div>
         </div>
     </div>
-    <audio id="audioa" preload>
-        <source src="./music/a.ogg" type="audio/ogg">
-        <source src="./music/a.mp3" type="audio/mpeg">
+    <audio controls="controls" preload  id="audioa">
+        <source src="./music/a.mp3" type="audio/mp3" />
+        <source src="./music/a.ogg" type="audio/ogg" />
+        <embed height="100" width="100" src="./music/a.mp3" />
     </audio>
-    <audio id="audiob" preload>
-        <source src="./music/b.ogg" type="audio/ogg">
-        <source src="./music/b.mp3" type="audio/mpeg">
+    <audio controls="controls"  id="audiob">
+        <source src="./music/b.mp3" type="audio/mp3" />
+        <source src="./music/b.ogg" type="audio/ogg" />
+        <embed height="100" width="100" src="./music/b.mp3" />
     </audio>
     <script>
         $('.begin-heart').animate({'left':'13%'},800,function(){

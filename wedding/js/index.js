@@ -19,7 +19,7 @@
         $container.attr('data-status',1);
     });
 
-    $music.on('click',function(){
+    $music.on('touchstart',function(){
         if($container.data('status')){
             if($audiob.muted){
                 $audiob.muted = 0;
@@ -101,7 +101,7 @@
             setTimeout(function(){
                 $('.page-close').addClass('close');
                 $('.text').addClass('showup');
-            },2000);
+            },5000);
             setTimeout(function(){
                 $('.txt').fadeOut('last');
                 $('.text').addClass('showdown');
