@@ -8,16 +8,16 @@
 
 	//配置参数
 	var defaults = {
-		liCls: 'item',			//排列元素
-		level: '10',			//间距
-		vertical: '10',			//垂直
+		liCls: 'item',			//排列元素样式名
+		level: '10',			//水平间距
+		vertical: '10',			//垂直间距
 		callback: function(){}	//回调
 	};
 
 	var Cascade = function(element,options){
 		//全局变量
 		var opts = options,//配置
-			$document = $(document),
+			$d = $(document),
 			$w = $(window),
 			$obj = $(element);//容器
 
@@ -30,7 +30,6 @@
 				len = $li.length,
 				first_arr = [],
 				li_arr = [];
-			// $obj.width(li_w * column - Number(opts.level));
 			$li.each(function(){
 				li_arr.push($(this).height());
 			});
@@ -74,10 +73,19 @@
 					});
 				},500);
 		};
+		//滚动加载
+		this.scroll = function(){
+			$w.scroll(function(){
+				if($d.scrollTop() + $w.height() >= $d.height()){
+
+				}
+			});
+		};
 		//初始化
 		this.init = function(){
 			this.arrangement();
 			this.resize();
+			this.scroll();
 		};
 		this.init();
 	};
