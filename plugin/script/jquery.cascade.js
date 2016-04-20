@@ -9,7 +9,7 @@
 	//配置参数
 	var defaults = {
 		liCls: 'item',			//排列元素样式名
-		level: '10',			//水平间距
+		horizontal: '10',		//水平间距
 		vertical: '10',			//垂直间距
 		callback: function(){}	//回调
 	};
@@ -25,22 +25,22 @@
 		this.arrangement = function(){
 			var box_w = $obj.width(),
 				$li = $('.'+opts.liCls),
-				li_w = $li.eq(0).width() + Number(opts.level),
+				li_w = $li.eq(0).width() + Number(opts.horizontal),
 				column = Math.floor(box_w / li_w),
 				len = $li.length,
 				first_arr = [],
 				li_arr = [];
-			$li.each(function(){
+			$li.each(function(i){
 				li_arr.push($(this).height());
+				if(i < column){
+					$li.eq(i).css({
+						'position': 'absolute',
+						'top': '0',
+						'left': li_w * i + 'px'
+					});
+					first_arr.push($li.eq(i).height());
+				}
 			});
-			for(var i = 0; i < column; i++){
-				$li.eq(i).css({
-					'position': 'absolute',
-					'top': '0',
-					'left': li_w * i + 'px'
-				});
-				first_arr.push($li.eq(i).height());
-			}
 			for(var i = column; i < len; i++){
 				var index = this.getMinIndex(first_arr);
 				$li.eq(i).css({	
@@ -77,7 +77,7 @@
 		this.scroll = function(){
 			$w.scroll(function(){
 				if($d.scrollTop() + $w.height() >= $d.height()){
-
+					console.log($d)
 				}
 			});
 		};

@@ -1,0 +1,283 @@
+@charset "utf-8";
+@import "compass";
+@import "public/common/method";
+
+.header{
+    @extend %fn-clear;
+    position: relative;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    background: #1c1c1c;
+    text-align: center;
+    h1{
+        margin: 0 50px;
+        font-size: 16px;
+        color: #fff;
+    }
+    .back, .share{
+        float: left;
+        width: 35px;
+        height: 100%;
+        background: url("../../../image/icon.png") no-repeat;
+        background-size: 25px auto;
+        background-position: 16px 15px;
+        &.share{
+            float: right;
+            margin-top: -48px;
+            margin-right: 6px;
+            background-position: 0 -24px;
+        }
+    }
+}
+
+//内容
+.mod-main{
+    position: relative;
+    padding: 12px 17px;
+    .title{
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #fff;
+    }
+    .info{
+        margin-bottom: 13px;
+        font-size: 12px;
+        color: #999;
+        .type{
+            padding-left: 5px;
+        }
+        .editor{
+            padding-left: 10px;
+        }
+        .like{
+            float: right;
+            background: url("../../../image/icon.png") no-repeat;
+            background-size: 25px auto;
+            padding-left: 20px;
+            background-position: 0 -79px;
+        }
+    }
+    .main{
+        padding-bottom: 36px;
+        img{
+            display: block;
+            margin: 10px auto;
+            width: 80%;
+            height: 100%;
+        }
+        p{
+            text-indent: 4em;
+            line-height: 1.8;
+            font-size: 14px;
+            color: #ccc;
+        }
+    }
+}
+
+//相关推荐
+.mod-recommend{
+    padding: 10px;
+    background: #32323a;
+    .title{
+        position: relative;
+        margin: 0 2%;
+        color: #fff;
+        text-align: center;
+        &:before{
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 40%;
+            height: 1px;
+            background: #fff;
+        }
+        &:after{
+            content: "";
+            position: absolute;
+            top: 10px;
+            right: 0;
+            width: 40%;
+            height: 1px;
+            background: #fff;
+        }
+    }
+    .main{
+        @extend %fn-clear;
+        position: relative;
+        li{
+            position: relative;
+            float: left;
+            margin-top: 10px;
+            margin-right: 3%;
+            width:30%;
+            &:nth-child(1){
+                margin-left: 2%;
+            }
+            &:nth-child(3){
+                margin-right: 0;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            a{
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding-top: 30%;
+                text-align: center;
+                width: 100%;
+                height: 100%;
+                line-height: 1;
+                color: #fff;
+                font-size: 11px;
+                text-decoration: underline;
+                background: rgba(0,0,0,0.54);
+            }
+        }
+    }
+}
+
+//评论
+.mod-comment{
+    position: relative;
+    padding: 13px 17px 60px 17px;
+    background: #1f1f1f;
+    .comment{
+        font-size: 12px;
+        color: #999;
+        .sum{
+            padding-left: 9px;
+            color: #ccc;
+        }
+    }
+    .hot,.new{
+        margin-top: 10px;
+        overflow: hidden;
+        .title{
+            position: relative;
+            margin-bottom: 10px;
+            color: #666;
+            text-align: center;
+            &:before{
+                content: "";
+                position: absolute;
+                top: 10px;
+                left: 0;
+                width: 40%;
+                height: 1px;
+                background: #32323a;
+            }
+            &:after{
+                content: "";
+                position: absolute;
+                top: 10px;
+                right: 0;
+                width: 40%;
+                height: 1px;
+                background: #32323a;
+            }
+        }
+        li{
+            @extend %fn-clear;
+            position: relative;
+            bottom: -1px;
+            padding: 10px 0;
+            border-bottom: 1px solid #32323a;
+            .avatar{
+                position: absolute;
+                top:10px;
+                left:0;
+                width: 45px;
+                height: 45px;
+                @include border-radius(50%);
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .main{
+                margin-left: 55px; 
+                .info{
+                    @extend %fn-clear;
+                    margin-bottom: 10px;
+                    color: #fff;
+                    font-size: 14px;
+                    .date{
+                        padding-left:10px;
+                        color: #666;
+                        font-size: 12px;
+                    }
+                    .praise{
+                        float: right;
+                        color: #999;
+                        font-size: 12px;
+                        background: url("../../../image/icon.png") no-repeat;
+                        background-size: 25px auto;
+                        padding-left: 20px;
+                        background-position: 0 -113px;
+                    }
+                }
+                .reply{
+                    font-size: 14px;
+                    color: #999;
+                }
+            }
+        }
+        &.new{
+            li{
+                bottom: 0;
+            }
+        }
+    }
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background:#32323a;
+    color: #fff;
+    .mod-reply{
+        width: 100%;
+        height: 100%;
+        .emoji{
+            float: left;
+            width: 50px;
+            height: 100%;
+            background: url("../../../image/icon.png") no-repeat;
+            background-size: 25px auto;
+            background-position: 12px -139px;
+        }
+        .entry{
+            margin: 0 50px;
+            padding-top: 7px;
+            height: 100%;
+            .discuss{
+                @include border-radius(15px);
+                width: 100%;
+                padding: 5px 15px;
+                outline: none;
+                border: none;
+                font-size: 14px;
+                color: #757575
+            }
+            input::-webkit-input-placeholder {
+                color:#999;
+                font-family: Arial, Helvetica, 'Microsoft Yahei';
+            }
+        }
+        .send{
+            float: right;
+            margin-top: -30px;
+            margin-right: 12px;
+            color: #fff;
+            font-size: 14px;
+        }
+    }
+}
