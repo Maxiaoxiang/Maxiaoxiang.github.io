@@ -1,0 +1,37 @@
+@charset "utf-8";
+html, body {
+  font-family: Arial, Helvetica, 'Microsoft Yahei';
+}
+
+html {
+  height: 100%;
+  font-size: 14px;
+}
+
+body { 
+  height: 100%;
+  background: #f1f1f1;
+  color: rgba(0, 0, 0, .87);
+  -webkit-text-size-adjust: none;
+}
+a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, .87);
+  &:visited {
+    color: rgba(0, 0, 0, .54);
+  }
+  &:hover, &:active {
+    text-decoration: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+}
+
+input {
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+.hide{
+  display: none;
+}
