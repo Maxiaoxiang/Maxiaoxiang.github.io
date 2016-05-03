@@ -1,0 +1,92 @@
+@charset "utf-8";
+/*清除浮动*/
+%fn-clear {
+  zoom: 1;
+  &:before {
+    content: "";
+    display: table;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+    overflow: hidden;
+  }
+}
+
+/* 弹性盒模型 */
+%box {
+  width: 100%;
+  display: -webkit-flex; /* 新版本语法： Chrome 21+ */
+  display: flex; /* 新版本语法： Opera 12.1, Firefox 22+ */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -o-box;
+  display: box;
+}
+
+/* 弹性盒子元素单位空间 */
+%box-flex {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: 1px;
+}
+
+/* 弹性盒 垂直居中（主轴x） */
+@mixin align-items($align: center) {
+  -webkit-box-align: $align; /*老版本语法*/
+  -moz-box-align: $align;
+  -ms-flex-align: $align; /*混合版本语法*/
+  -webkit-align-items: $align; /*新版本语法*/
+  align-items: $align;
+}
+
+/* 弹性盒 水平居中（主轴x） */
+@mixin justify-content($align: center) {
+  -webkit-box-pack: $align; /*老版本语法*/
+  -moz-box-pack: $align;
+  -ms-flex-pack: $align; /*混合版本语法*/
+  -webkit-justify-content: $align; /*新版本语法*/
+  justify-content: $align;
+}
+
+/*
+* 响应式宏
+* 调用方法：@include respond-to(4) { ... }
+*/
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == "4" {
+        @media only screen and (device-height :480px) and (-webkit-device-pixel-ratio:2) {
+            @content;
+        }
+    }
+    @else if $breakpoint == "5" {
+        @media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){
+            @content;
+        }
+    }
+    @else if $breakpoint == "6" {
+        @media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
+            @content;
+        }
+    }
+    @else if $breakpoint == "6s" {
+        @media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){
+            @content;
+        }
+    }
+    @else if $breakpoint == "meizu" {
+        @media only screen and (min-device-width :1080px) and (-webkit-min-device-pixel-ratio : 2.5){
+            @content;
+        }
+    }
+    @else if $breakpoint == "mate7" {
+        @media only screen and (min-device-width :1080px) and (-webkit-min-device-pixel-ratio : 3){
+            @content;
+        }
+    }
+}

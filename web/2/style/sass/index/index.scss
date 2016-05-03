@@ -1,0 +1,69 @@
+@charset "utf-8";
+@import "compass";
+
+@import "public/common/method";
+
+.wrapper{
+    height:100%;
+    background-color:#83bebb;
+}
+
+.content{
+    position:relative;
+    margin:150px auto 30px;
+    width:50%;
+    z-index: 2;
+    img{
+        width:100%;
+        height:100%;
+    }
+}
+.flower{
+    position: absolute;
+    top: 61px;
+    left: 49px;
+    width: 70%;
+    height: 42%;
+    background:url('../../../image/public/flower.png') no-repeat;
+    background-size:100% 100%;
+    z-index: 1;
+}
+.flower2{
+    position: absolute;
+    top: 41px;
+    left: 30px;
+    width: 83%;
+    height: 50%;
+    background:url('../../../image/public/flower2.png') no-repeat;
+    background-size:100% 100%;
+    z-index: 0;
+}
+.main{
+    padding:0 10%;
+    p{
+        padding-left:10%;
+        color:#ff7373;
+        line-height: 2;
+        span{
+            padding-right:20px;
+        }
+        &.love{
+            padding-left:0;
+            text-align: center;
+            span{
+                padding:0 20px;
+            }
+        }
+    }
+}
+
+@include respond-to('4'){
+    .content{
+        margin:80px auto 30px;
+    }
+}
+@include respond-to('5'){
+    .content{
+        margin:100px auto 30px;
+    }
+}

@@ -1,0 +1,76 @@
+@charset "utf-8";
+@import "compass";
+
+@import "public/common/method";
+
+.wrapper{
+    background-color:#000;
+}
+
+.slider{
+    position: relative;
+    margin: 50px auto 0;
+    width: 300px;
+    height: 350px;
+    .box{
+        width: 300px;
+        height: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+        li{
+            float: left;
+            width:300px;
+            background: #ccc;
+            img{
+                width:100%;
+                height:100%;
+            }
+        }
+    }
+}
+@include respond-to('4'){
+    .slider{
+        width:230px;
+        .box{ 
+            width:230px;
+        }
+    }
+}
+@include respond-to('5'){
+    .slider{
+        margin:80px auto 0;
+        width:230px;
+        height:350px;
+        .box{
+            width:230px;
+            height:350px;
+            li{
+                height:350px;
+            }
+        }
+    }
+}
+@include respond-to('6'){
+    .slider{
+        margin:100px auto 0;
+        height:430px;
+        .box{
+            height:430px;
+            li{
+                height:430px;
+            }
+        }
+    }
+}
+@include respond-to('6s'){
+    .slider{
+        margin:100px auto 0;
+        height:500px;
+        .box{
+            height:500px;
+            li{
+                height:500px;
+            }
+        }
+    }
+}
