@@ -53,20 +53,9 @@ img{
 #array{
     position:absolute;z-index:999;-webkit-animation: start 1.5s infinite ease-in-out;
 }
-.sunshine2{
-    opacity:0;
-}
-.sunshine-play{
-    opacity: 0;
-    -webkit-animation: sunshine 2s linear;
-}
 .roate{
-    display:none;
-}
-.roing{
-    display:block;
     -webkit-transform-origin: 50% 50%;
-    -webkit-animation: roate 3s linear infinite;
+    -webkit-animation: roate 3s linear 3s infinite;
 }
 @-webkit-keyframes start {
     0%,30% {opacity: 0;-webkit-transform: translate(0,10px);}
@@ -84,18 +73,6 @@ img{
     100% {opacity: 0;transform: translate(0,-8px);}
 }
 
-@keyframes sunshine{
-    0%{
-        opacity: 0;
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-    }
-}
-
 @keyframes roate{
     0%{
         transform:rotate(0deg);
@@ -105,23 +82,23 @@ img{
     }
 }
 
-.slider2{
-    background:url('../../../image/bg2.jpg') no-repeat;
-    background-size: 100% auto;
-}
+// .slider2{
+//     background:url('../../../image/bg2.jpg') no-repeat;
+//     background-size: 100% auto;
+// }
 
-.slider3{
-    background:url('../../../image/bg3.jpg') no-repeat;
-    background-size: 100% auto;
-}
-.slider4{
-    background:url('../../../image/bg4.jpg') no-repeat;
-    background-size: 100% auto;
-}
-.slider5{
-    background:url('../../../image/bg5.jpg') no-repeat;
-    background-size: 100% auto;
-}
+// .slider3{
+//     background:url('../../../image/bg3.jpg') no-repeat;
+//     background-size: 100% auto;
+// }
+// .slider4{
+//     background:url('../../../image/bg4.jpg') no-repeat;
+//     background-size: 100% auto;
+// }
+// .slider5{
+//     background:url('../../../image/bg5.jpg') no-repeat;
+//     background-size: 100% auto;
+// }
 
 .man{
     position: absolute;
@@ -132,18 +109,18 @@ img{
     background:url('../../../image/man1.png') no-repeat;
     background-size: 100% auto;
 }
-.slider6{
-    background:url('../../../image/balance.png') no-repeat;
-    background-size: 100% auto;
-}
-.slider7{
-    background:url('../../../image/bg7.jpg') no-repeat;
-    background-size: 100% auto;
-}
-.slider8{
-    background:url('../../../image/bg8.jpg') no-repeat;
-    background-size: 100% auto;
-}
+// .slider6{
+//     background:url('../../../image/balance.png') no-repeat;
+//     background-size: 100% auto;
+// }
+// .slider7{
+//     background:url('../../../image/bg7.jpg') no-repeat;
+//     background-size: 100% auto;
+// }
+// .slider8{
+//     background:url('../../../image/bg8.jpg') no-repeat;
+//     background-size: 100% auto;
+// }
 
 .hand-roate{
     -webkit-transform-origin: top right;
