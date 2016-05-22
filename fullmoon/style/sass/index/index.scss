@@ -52,9 +52,12 @@ img{
 #array{
     position:absolute;z-index:999;-webkit-animation: start 1.5s infinite ease-in-out;
 }
+.sun{
+    opacity: 0;
+}
 .roate{
     -webkit-transform-origin: 50% 50%;
-    -webkit-animation: roate 3s linear 3s infinite;
+    -webkit-animation: show 500ms linear 2s forwards, roate 3s linear 0s infinite;
 }
 @-webkit-keyframes start {
     0%,30% {opacity: 0;-webkit-transform: translate(0,10px);}
@@ -80,7 +83,14 @@ img{
         transform:rotate(-360deg);
     }
 }
-
+@keyframes show{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 .man{
     position: absolute;
     background:url('../../../image/man2.png') no-repeat;
@@ -93,20 +103,35 @@ img{
 
 .hand-roate{
     -webkit-transform-origin: top right;
-    -webkit-animation: handroate 2s linear forwards;
+    -webkit-animation: handroate 4s linear forwards;
+    transform-origin: top right;
+    animation: handroate 4s linear forwards;
 }
 
 @keyframes handroate{
     0%{
         transform:rotate(0deg);
+        -webkit-transform:rotate(0deg);
+    }
+    25%{
+        transform:rotate(-15deg);
+        -webkit-transform:rotate(-15deg);
+    }
+    50%{
+        transform:rotate(0);
+        -webkit-transform:rotate(0);
+    }
+    75%{
+        transform:rotate(-30deg);
+        -webkit-transform:rotate(-30deg);
     }
     100%{
         transform:rotate(-60deg);
+        -webkit-transform:rotate(-60deg);
     }
 }
-
 .clock-tans{
-    -webkit-animation: clocktans 1s linear 600ms forwards;
+    -webkit-animation: clocktans 1s linear 2.8s forwards;
 }
 @keyframes clocktans{
     0%{
