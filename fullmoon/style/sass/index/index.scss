@@ -148,7 +148,7 @@ img{
     position: absolute;
 }
 .face-begin{
-    -webkit-animation:face 1.8s steps(2) reverse infinite;
+    -webkit-animation:face 1.8s steps(2) infinite;
 }
 @keyframes face{
     0%{
@@ -170,9 +170,50 @@ img{
 .ball{
     opacity: 0;
 }
+
+.swing{
+    opacity: 0;
+    transform: translate3d(0,-100%,0);
+}
+.swing-go{
+    transform-origin: 50% 0 0;
+    -webkit-transform-origin: 50% 0 0;
+    animation:myfadein 1s linear 2s forwards, myroate 3s linear 4s infinite;
+    -webkit-animation:myfadein 1s linear 2s forwards, myroate 3s linear 4s infinite;
+}
+@keyframes myfadein{
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0,-100%,0);
+        transform: translate3d(0,-100%,0)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+@keyframes myroate{
+    0%{
+        transform:rotate(0deg);
+    }
+    25%{
+        transform:rotate(-5deg);
+    }
+    50%{
+        transform:rotate(0deg);
+    }
+    75%{
+        transform:rotate(5deg);
+    }
+    100%{
+        transform:rotate(0deg);
+    }
+}
 .ball-down{
     -webkit-animation: balldown 2s linear forwards;
 }
+
 @keyframes balldown{
     0%{
         opacity: 1;
@@ -210,16 +251,81 @@ img{
         transform:translateY(90px);
     }
 }
-
-.picture-roate{
-    -webkit-transform-origin: top left;
-    -webkit-animation: pictureroate 2s linear forwards;
+.ruler-roate{
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-animation: rulerroate 4s linear forwards;
+    animation: rulerroate 4s linear forwards;
 }
-@keyframes pictureroate{
+
+@keyframes rulerroate{
     0%{
         transform:rotate(0deg);
     }
+    50%{
+        transform:rotate(-125deg);
+    }
+    60%{
+        transform:rotate(-145deg);
+    }
+    70%{
+        transform:rotate(-145deg);
+    }
+    80%{
+        transform:rotate(-170deg);
+    }
+    90%{
+        transform:rotate(-170deg);
+    }
     100%{
-        transform:rotate(-360deg);
+        transform:rotate(-175deg);
+    }
+}
+.danmu{
+    position: relative;
+    width: 200%;
+    height: 100%;
+    transform: translateX(50%);
+}
+.danmu-go{
+    animation:mymove 8s linear forwards;
+    -webkit-animation:mymove 8s linear forwards;
+}
+@keyframes mymove{
+    from {transform: translateX(50%);}
+    to {transform: translateX(-100%);}
+}
+
+@-webkit-keyframes mymove{
+    from {transform: translateX(50%);}
+    to {transform: translateX(-100%);}
+}
+.danmu p{
+    position: absolute;
+    color: #fff;
+    font-size: 14px;
+}
+@include respond-to('Galaxys5'){
+    .ruler{
+        width: 550px !important;
+        height: 550px !important;
+        left: -94px !important;
+        top: 60px !important;
+    }
+}
+@include respond-to('6'){
+    .ruler{
+        width: 550px !important;
+        height: 550px !important;
+        left: -94px !important;
+        top: 60px !important;
+    }
+}
+@include respond-to('6s'){
+    .ruler{
+        width: 600px !important;
+        height: 600px !important;
+        left: -94px !important;
+        top: 60px !important;
     }
 }

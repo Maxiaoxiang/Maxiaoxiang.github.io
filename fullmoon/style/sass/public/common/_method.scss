@@ -89,4 +89,9 @@
             @content;
         }
     }
+    @else if $breakpoint == "Galaxys5" {
+        @media (min-device-width : 360px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 2){
+            @content;
+        }
+    }
 }
