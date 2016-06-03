@@ -37,22 +37,24 @@
         play.onclick = function(){
             fram.style.display = 'block';
             myVideo.play();  
-            myVideo.webkitRequestFullScreen();
+            setTimeout(function(){
+                launchFullScreen(myVideo);
+            },100);
         };
         myVideo.addEventListener('ended', function () {  
             fram.style.display = 'none';
             window.scrollTo(0,document.body.scrollHeight);
         }, false);
 
-        // function launchFullScreen(element) {
-        //     if(element.requestFullScreen) {
-        //         element.requestFullScreen();
-        //     } else if(element.mozRequestFullScreen) {
-        //         element.mozRequestFullScreen();
-        //     } else if(element.webkitRequestFullScreen) {
-        //         element.webkitRequestFullScreen();
-        //     }
-        // }
+        function launchFullScreen(element) {
+            if(element.requestFullScreen) {
+                element.requestFullScreen();
+            } else if(element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if(element.webkitRequestFullScreen) {
+                element.webkitRequestFullScreen();
+            }
+        }
 </script>
 </body>
 </html>
