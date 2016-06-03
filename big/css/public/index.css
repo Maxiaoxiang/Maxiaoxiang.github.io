@@ -19,6 +19,14 @@ body {
     position: relative;
     width: 100%;
 }
+.wrapper2{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+}
 .wrapper .item1 {
     height: 49vh;
 }
@@ -32,6 +40,13 @@ body {
     overflow: hidden;
 }
 .wrapper img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    width: 100%;
+}
+.wrapper2 img {
     display: block;
     max-width: 100%;
     max-height: 100%;
