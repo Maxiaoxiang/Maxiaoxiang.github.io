@@ -14,7 +14,7 @@
     <div class="container">
         <div class="wrapper">
             <div id="fram" class="frame">
-                <video id="my-video" class="video-js" preload="auto" width="640" src="./c0302zguqlo.mp4">
+                <video id="my-video" class="video-js" preload="auto" width="640" src="http://7xn0sp.com1.z0.glb.clouddn.com/pc1257070db1eb6ab.mp4">
                     <source src="" type='video/mp4'>
                 </video>
             </div>
@@ -37,22 +37,22 @@
         play.onclick = function(){
             fram.style.display = 'block';
             myVideo.play();  
-            launchFullScreen(myVideo);
+            myVideo.webkitRequestFullScreen();
         };
         myVideo.addEventListener('ended', function () {  
             fram.style.display = 'none';
             window.scrollTo(0,document.body.scrollHeight);
         }, false);
 
-        function launchFullScreen(element) {
-            if(element.requestFullScreen) {
-                element.requestFullScreen();
-            } else if(element.mozRequestFullScreen) {
-                element.mozRequestFullScreen();
-            } else if(element.webkitRequestFullScreen) {
-                element.webkitRequestFullScreen();
-            }
-        }
+        // function launchFullScreen(element) {
+        //     if(element.requestFullScreen) {
+        //         element.requestFullScreen();
+        //     } else if(element.mozRequestFullScreen) {
+        //         element.mozRequestFullScreen();
+        //     } else if(element.webkitRequestFullScreen) {
+        //         element.webkitRequestFullScreen();
+        //     }
+        // }
 </script>
 </body>
 </html>
