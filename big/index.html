@@ -42,7 +42,7 @@
         };
         myVideo.addEventListener('ended', function () {  
             fram.style.display = 'none';
-            myVideo.style.display = 'none';
+            this.remove();
             over.style.display = 'block';
         }, false);
 
@@ -50,7 +50,7 @@
             if(element.requestFullScreen) {
                 element.requestFullScreen();
             } else if(element.mozRequestFullScreen) {
-                element.mozRequestFullScreen();
+                element.mozReq uestFullScreen();
             } else if(element.webkitRequestFullScreen) {
                 element.webkitRequestFullScreen();
             }
