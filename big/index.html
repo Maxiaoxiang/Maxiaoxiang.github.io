@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>最强大脑</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="./css/public/common.css" rel="stylesheet">
+<link href="./css/public/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div id="fram" class="frame">
+                <video id="my-video" class="video-js" preload="auto" width="640" src="./c0302zguqlo.mp4">
+                    <source src="" type='video/mp4'>
+                </video>
+            </div>
+            <div class="item item1"><img src="./image/bg1.jpg" alt=""></div>
+            <div class="item item2"><img src="./image/bg2.jpg" alt=""></div>
+            <div class="item item3"><img src="./image/bg3.jpg" alt=""></div>
+            <a href="javascript:;" class="player vjs-big-play-button" id="play" aria-live="polite">
+                <img src="./image/finger.png" alt="">
+            </a>
+        </div>
+        <div class="wrapper">
+            <img src="./image/2.jpg" alt="">
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.scrollTo(0,0);
+        var play = document.getElementById('play');
+        var fram = document.getElementById('fram');
+        var myVideo = document.getElementById('my-video');
+        play.onclick = function(){
+            fram.style.display = 'block';
+            myVideo.play();  
+            launchFullScreen(myVideo);
+        };
+        myVideo.addEventListener('ended', function () {  
+            fram.style.display = 'none';
+            window.scrollTo(0,document.body.scrollHeight);
+        }, false);
+
+        function launchFullScreen(element) {
+            if(element.requestFullScreen) {
+                element.requestFullScreen();
+            } else if(element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if(element.webkitRequestFullScreen) {
+                element.webkitRequestFullScreen();
+            }
+        }
+</script>
+</body>
+</html>
