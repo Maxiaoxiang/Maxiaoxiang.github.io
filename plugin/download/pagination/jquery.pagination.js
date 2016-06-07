@@ -1,6 +1,6 @@
 /**
  * pagination分页插件
- * @version 0.2
+ * @version 0.3
  * @url http://www.maxiaoxiang.com
  * @E-mail 251445460@qq.com
  */
@@ -37,7 +37,8 @@
 
 		//获取总页数
 		this.getTotalPage = function(){
-			return opts.totalData && opts.showData ? Math.ceil(parseInt(opts.totalData) / opts.showData) : opts.pageCount;
+			var p = opts.totalData || opts.showData ? Math.ceil(parseInt(opts.totalData) / opts.showData) : opts.pageCount;
+			return p;
 		};
 
 		//获取当前页
@@ -109,14 +110,15 @@
 				typeof opts.callback === 'function' && opts.callback(index);
 			});
 			$obj.on('input propertychange','.'+opts.jumpIptCls,function(){
-				var val = $(this).val();
+				var $this = $(this);
+				var val = $this.val();
 				var reg = /[^\d]/g;
 	            if (reg.test(val)) {
-	                $(this).val(val.replace(reg, ''));
+	                $this.val(val.replace(reg, ''));
 	            }
-	            (parseInt(val) > pageCount) && $(this).val(pageCount);
+	            (parseInt(val) > pageCount) && $this.val(pageCount);
 	            if(parseInt(val) === 0){//最小值为1
-	            	$(this).val(1);
+	            	$this.val(1);
 	            }
 			});
 			$document.keydown(function(e){ 
