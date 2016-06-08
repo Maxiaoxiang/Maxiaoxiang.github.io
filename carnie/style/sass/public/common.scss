@@ -1,0 +1,66 @@
+@charset "utf-8";
+@import "compass";
+//全局方法
+@import "./common/method";
+//全局样式
+@import "./common/reset";
+@import "./common/layout"; 
+
+.footer{
+    position: relative;
+    height: 48px;
+    width: 100%;
+    .inner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 48px;
+        border-top: solid 1px #ccc;
+        background-color: #fff;
+        font-size: 14px;
+        overflow: hidden;
+        ul{
+            @extend %fn-clear;
+            li{
+                float: left;
+                width: 33%;
+                &.active{
+                    a{
+                        color: #ff5400;
+                        &.game{
+                            background-position: center 8px;
+                        }
+                        &.gift{
+                            background-position: center -29px;
+                        }
+                        &.mine{
+                            background-position: center -68px;
+                        }
+                    }
+                }
+                a{
+                    position: relative;
+                    display: block;
+                    padding-top: 25px;
+                    text-align: center;
+                    color: #666;
+                    font-size: 12px;
+                    background: url('../../../image/icon.png') no-repeat;
+                    background-size: 20px;
+                    background-position: center 8px;
+                    &.game{
+                        background-position: center -104px;
+                    }
+                    &.gift{
+                        background-position: center -141px;
+                    }
+                    &.mine{
+                        background-position: center -180px;
+                    }
+                }
+            }
+        }
+    }
+}

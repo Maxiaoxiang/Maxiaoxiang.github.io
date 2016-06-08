@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>礼包 - 疯狂游乐场</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="../style/dist/public/common.css" rel="stylesheet">
+    <link href="../style/dist/gift/index.css" rel="stylesheet"></head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="mod-avatar">
+                <div class="avatar">
+                    <img src="../image/avatar.jpg" alt=""></div>
+                <p class="name">sliver</p>
+            </div>
+            <div class="mod-list">
+                <div class="title">游戏礼包列表</div>
+                <div class="list">
+                    <ul>
+                        <li>
+                            <div class="img">
+                                <img src="" alt="">
+                            </div>
+                            <div class="main">
+                                <p class="name">天使挂机儿童节礼包</p>
+                                <p class="context">中级宝石袋*2，玛雅宝石*2，银币*50w</p>
+                                <p class="progress">
+                                    <span><i style="width:90%;"></i></span>
+                                </p>
+                                <p class="surplus">已领取：2123124324</p>
+                            </div>
+                            <div class="btn"><a href="javascript:;" class="receive">领取</a></div>
+                        </li>
+                        <li>
+                            <div class="img">
+                                <img src="" alt="">
+                            </div>
+                            <div class="main">
+                                <p class="name">天使挂机儿童节礼包</p>
+                                <p class="context">中级宝石袋*2，玛雅宝石*2，银币*50w</p>
+                                <p class="progress">
+                                    <span><i style="width:65%;"></i></span>
+                                </p>
+                                <p class="surplus">剩余：65%</p>
+                            </div>
+                            <div class="btn"><a href="javascript:;" class="receive">领取</a></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="inner">
+                <ul>
+                    <li>
+                        <a href="../view/game.html" class="game">
+                            <span>游戏</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="../view/gift.html" class="gift">
+                            <span>礼包</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../view/my.html" class="mine">
+                            <span>个人</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="../script/src/lib/jquery.min.js"></script>
+    <script src="../script/src/plugins/jquery.slider.js"></script>
+    <script>
+        $(function(){
+            $('.slider').slider({
+                duration:1000,
+                steps:'auto',
+                hasTriggers: false
+            });
+
+            var $tab = $('.mod-tab a');
+            var $tabs = $('.tab');
+            $tab.click(function(){
+                var index = $(this).index();
+                $(this).addClass('active').siblings('a').removeClass('active');
+                $tabs.eq(index).addClass('active').siblings('.tab').removeClass('active');
+            });
+        });
+    </script>
+</body>
+</html>
