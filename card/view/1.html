@@ -191,9 +191,10 @@
     <script src="../script/src/lib/jquery.min.js"></script>
     <script src="../script/src/lib/swiper-3.3.1.jquery.min.js"></script>
     <script src="../script/src/lib/swiper.animate1.0.2.min.js"></script>
+    <script src="../script/src/plugins/fastclick.js"></script>
     <script>
-
     $(function(){
+        FastClick.attach(document.body);
         scaleW=window.innerWidth/320;
         scaleH=window.innerHeight/480;
         var resizes = document.querySelectorAll('.resize');
