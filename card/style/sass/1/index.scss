@@ -239,6 +239,7 @@ body{
         font-weight: normal;
         position: absolute;
         top: -70px;
+        left: 15px;
     }
     img{
         width:100%;
@@ -282,6 +283,24 @@ body{
     li{
         margin-bottom: 20px;
     }
+    .more-text{
+        display: none;
+        position: absolute;
+        top: 26px;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        z-index: 999;
+        p{
+            bottom: 1px;
+            border-bottom: 1px solid #ccc;
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            color: #757575;
+            background: #fff;
+        }
+    }
     .more{
         position: absolute;
         bottom: 0;
@@ -321,8 +340,7 @@ body{
             background-size:100% auto;
             background-position: 0 -551px;
         }
-        &:after{
-            content: "";
+        .bless-more{
             position: absolute;
             right: -35px;
             top: 0;
@@ -331,6 +349,68 @@ body{
             background:url('../../../image/public/icon.png') no-repeat;
             background-size:100% auto;
             background-position: 0 -367px;
+        }
+    }
+    .speech{
+        position: relative;
+        &:before{
+            content: "";
+            position: absolute;
+            left: -35px;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background:url('../../../image/public/icon.png') no-repeat;
+            background-size:100% auto;
+            background-position: 0 -325px;
+        }
+        .longtime{
+            position: absolute;
+            top: 7px;
+            right: 0px;
+            font-size: 12px;
+            color: #757575;
+        }
+        .caret{
+            position: relative;
+            &:before {
+              content: '';
+              position: absolute;
+              top: 6px;
+              left: 3px;
+              border-top: 11px solid #b21b38;
+              border-left: 11px solid transparent;
+              border-right: 11px solid transparent;
+            }
+            &:after {
+              content: '';
+              position: absolute;
+              left: 4px;
+              top: 6px;
+              border-top: 10px solid #b21b38;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+            }
+        }
+        .speech-ipt{
+            display: inline-block;
+            margin-top: 6px;
+            margin-left: 10px;
+            position: relative;
+            width: 130px;
+            height: 16px;
+            background: #b21b38;
+            @include border-radius(5px);
+        }
+        .remove{
+            position: absolute;
+            right: -35px;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background:url('../../../image/public/icon.png') no-repeat;
+            background-size:100% auto;
+            background-position: 0 -415px;
         }
     }
     .choose{

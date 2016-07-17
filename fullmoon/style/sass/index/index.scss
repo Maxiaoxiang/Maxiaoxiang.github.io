@@ -93,9 +93,9 @@ img{
 
 .hand-roate{
     -webkit-transform-origin: top right;
-    -webkit-animation: handroate 4s linear forwards;
+    -webkit-animation: handroate 4s linear 2s forwards;
     transform-origin: top right;
-    animation: handroate 4s linear forwards;
+    animation: handroate 4s linear 2s forwards;
 }
 
 @-webkit-keyframes handroate{
@@ -121,7 +121,7 @@ img{
     }
 }
 .clock-tans{
-    -webkit-animation: clocktans 1s linear 2.8s forwards;
+    -webkit-animation: clocktans 1s linear 4.8s forwards;
 }
 @-webkit-keyframes clocktans{
     0%{
@@ -131,7 +131,30 @@ img{
         -webkit-transform:translate(50px, 20px);
     }
 }
-
+.music{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 3rem;
+    height: 3rem;
+    background: url('../../../image/music.png') no-repeat;
+    background-size: 100% 100%;
+    z-index: 1000;
+}
+.invitation{
+    position: absolute;
+    top: .5rem;
+    right: 3.5rem;
+    width: 3rem;
+    height: 3rem;
+    background: url('../../../image/invitation.png') no-repeat;
+    background-size: 100% 100%;
+    z-index: 1000;
+}
+.closed{
+    background: url('../../../image/music_close.png') no-repeat;
+    background-size: 100% 100%;
+}
 .face{
     background: url("../../../image/face1.png") no-repeat;
     background-size: 300% 100%;

@@ -138,7 +138,19 @@
                                 <input type="text" placeholder="您的姓名" class="input">
                             </li>
                             <li class="blessing resize">
-                                <input type="text" placeholder="您的祝福" class="input">
+                                <input type="text" placeholder="您的祝福" class="input" name="bless">
+                                <a href="javascript:;" class="bless-more"></a>
+                                <div class="more-text">
+                                    <p>文字文字文字</p>
+                                    <p>文字文字文字</p>
+                                    <p>文字文字文字</p>
+                                </div>
+                            </li>
+                            <li class="speech resize">
+                                <div class="caret"></div>
+                                <div class="speech-ipt"></div>
+                                <div class="longtime">12:11</div>
+                                <a href="javascript:;" class="remove"></a>
                             </li>
                         </ul>
                         <div class="ch">
@@ -172,13 +184,13 @@
         </div>
         <img src="../image/public/arrow.png" style="width:20px;height:15px;position:absolute;bottom:5px; left:150px;" id="array" class="resize"> 
     </div>
-    <div class="mask"></div>
+    <div class="mask" id="mask"></div>
     <div class="success">
         <a href="javascript:;" id="close" class="close resize"></a>
         <p class="send-success resize">发送完成</p>
         <div class="hand resize">
             <a href="javascript:;" class="">新人语</a>
-            <a href="javascript:;" class="downapp">下载app</a>
+            <a href="http://baidu.com" class="downapp">下载app</a>
         </div>
         <p class="down">下载后，可收到回复！</p>
     </div>
@@ -191,10 +203,9 @@
     <script src="../script/src/lib/jquery.min.js"></script>
     <script src="../script/src/lib/swiper-3.3.1.jquery.min.js"></script>
     <script src="../script/src/lib/swiper.animate1.0.2.min.js"></script>
-    <script src="../script/src/plugins/fastclick.js"></script>
     <script>
+
     $(function(){
-        FastClick.attach(document.body);
         scaleW=window.innerWidth/320;
         scaleH=window.innerHeight/480;
         var resizes = document.querySelectorAll('.resize');
@@ -300,6 +311,12 @@
             $('.swiper-container').show();
         });
 
+        $('.success').click(function(){
+            $('.mask').hide();
+            $('.success').hide();
+            $('.swiper-container').show();
+        });
+
         $('#down').click(function(){
             mySwiper.slideTo(6,1000,false);
         });
@@ -321,6 +338,15 @@
 
         $('.music').click(function(){
             $(this).toggleClass('close_music');
+        });
+
+        $('.bless-more').click(function(){
+            $('.more-text').show();
+        });
+
+        $('.more-text p').click(function(){
+            $('input[name="bless"]').val($(this).text());
+            $('.more-text').hide();
         });
     });
     </script>
