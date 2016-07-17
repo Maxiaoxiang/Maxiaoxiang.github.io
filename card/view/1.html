@@ -266,7 +266,7 @@
                 }
             }
         });
-        $(document).click(function(){
+        $(document).one('touchstart',function(){
             $('.middle').addClass('begin-middle').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
                 $('.top').addClass('begin-top');
                 $('.down').addClass('begin-down').on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',function(){
