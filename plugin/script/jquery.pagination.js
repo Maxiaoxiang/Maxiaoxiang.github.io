@@ -1,7 +1,7 @@
 /**
  * pagination分页插件
- * @version 0.3
- * @url http://www.maxiaoxiang.com
+ * @version 1.1.1
+ * @url http://maxiaoxiang.com/plugin/pagination.html
  * @E-mail 251445460@qq.com
  */
 ;(function($,window,document,undefined){
@@ -34,6 +34,11 @@
 			current,//当前页
 			$document = $(document),
 			$obj = $(element);//容器
+
+		//设置总页数
+		this.setTotalPage = function(page){
+			return opts.pageCount = page;
+		};
 
 		//获取总页数
 		this.getTotalPage = function(){
@@ -107,7 +112,7 @@
 					var index = parseInt($(this).data('page'));
 				}
 				self.filling(index);
-				typeof opts.callback === 'function' && opts.callback(index);
+				typeof opts.callback === 'function' && opts.callback(self);
 			});
 			$obj.on('input propertychange','.'+opts.jumpIptCls,function(){
 				var $this = $(this);
@@ -121,11 +126,13 @@
 	            	$this.val(1);
 	            }
 			});
-			$document.keydown(function(e){ 
+			//回车跳转指定页码
+			$document.keydown(function(e){
+				var self = this;
 		        if(e.keyCode == 13 && $obj.find('.'+opts.jumpIptCls).val()){
 		        	var index = parseInt($obj.find('.'+opts.jumpIptCls).val());
 		            self.filling(index);
-					typeof opts.callback === 'function' && opts.callback(index);
+					typeof opts.callback === 'function' && opts.callback(self);
 		        }
 		    });
 		};
@@ -148,11 +155,9 @@
 		}
 		var options = $.extend({},defaults,parameter);
 		return this.each(function(){
-			var pagination = new Pagination(this,options);
+			var pagination = new Pagination(this, options);
 			callback(pagination);
 		});
 	};
-
-	return $;
 
 })(jQuery,window,document);

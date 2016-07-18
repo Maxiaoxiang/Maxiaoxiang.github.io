@@ -9,15 +9,6 @@
         <link rel="stylesheet" type="text/css" href="./style/pagination.css" media="screen">
         <link rel="stylesheet" type="text/css" href="./style/common.css" media="screen">
         <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-        <script>
-            var _hmt = _hmt || [];
-            (function() {
-              var hm = document.createElement("script");
-              hm.src = "//hm.baidu.com/hm.js?77f152d415d0c3677b63c725bd7b60d8";
-              var s = document.getElementsByTagName("script")[0]; 
-              s.parentNode.insertBefore(hm, s);
-            })();
-        </script>
     </head>
     <body>
         <div class="wrapper">
@@ -33,7 +24,7 @@
                 <p>HTML</p>
 <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
                 <p>Javascript</p>
-<pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.M-box'</span>).<span style="color:#000">pagination</span>({<br>    <span style="color:#000">callback</span>:<span style="color:#708">function</span>(<span style="color:#00f">index</span>){<br>        <span style="color:#000">$</span>(<span style="color:#a11">'.now'</span>).<span style="color:#000">text</span>(<span style="color:#000-2">index</span>);<br>    }<br>},<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.now'</span>).<span style="color:#000">text</span>(<span style="color:#000-2">api</span>.<span style="color:#000">getCurrent</span>());<br>});</pre>
+<pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.M-box'</span>).<span style="color:#000">pagination</span>({<br>    <span style="color:#000">callback</span>:<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>        <span style="color:#000">$</span>(<span style="color:#a11">'.now'</span>).<span style="color:#000">text</span>(<span style="color:#000-2">api</span>.<span style="color:#000">getCurrent</span>());<br>    }<br>},<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.now'</span>).<span style="color:#000">text</span>(<span style="color:#000-2">api</span>.<span style="color:#000">getCurrent</span>());<br>});</pre>
             </div>
             <div class="eg">
                 <div class="M-box2"></div>
@@ -59,6 +50,22 @@
 <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box3"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
                 <p>Javascript</p>
 <pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.M-box3'</span>).<span style="color:#000">pagination</span>({<br>    <span style="color:#000">pageCount</span>:<span style="color:#164">50</span>,<br>    <span style="color:#000">jump</span>:<span style="color:#219">true</span>,<br>    <span style="color:#000">coping</span>:<span style="color:#219">true</span>,<br>    <span style="color:#000">homePage</span>:<span style="color:#a11">'首页'</span>,<br>    <span style="color:#000">endPage</span>:<span style="color:#a11">'末页'</span>,<br>    <span style="color:#000">prevContent</span>:<span style="color:#a11">'上页'</span>,<br>    <span style="color:#000">nextContent</span>:<span style="color:#a11">'下页'</span><br>});</pre>
+            </div>
+            <div class="eg">
+                <div class="M-box4"></div>
+                <p class="tips">动态修改总页数，初始化时3页，动态修改为20页</p>
+                <p>HTML</p>
+<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box4"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
+                <p>Javascript</p>
+<pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.M-box4'</span>).<span style="color:#000">pagination</span>({<br>    <span style="color:#000">pageCount</span>: <span style="color:#164">3</span>, <span style="color:#a50">//初始化时总页数3页</span><br>    <span style="color:#000">callback</span>:<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>        <span style="color:#000-2">api</span>.<span style="color:#000">setTotalPage</span>(<span style="color:#164">20</span>);<span style="color:#a50">//动态修改总页数为20页</span><br>    }<br>});</pre>
+            </div>
+            <div class="eg">
+                <img src="./image/demo/demo.gif" alt="带参数分页示例">
+                <p class="tips">有朋友对ajax请求带参数分页有疑问，因为不是服务器环境，所以就用图做个示例。</p>
+                <p>HTML</p>
+<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box4"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
+                <p>Javascript</p>
+<pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.M-box5'</span>).<span style="color:#000">pagination</span>({<br>    <span style="color:#000">pageCount</span>: <span style="color:#164">50</span>,<br>    <span style="color:#000">jump</span>: <span style="color:#219">true</span>,<br>    <span style="color:#000">callback</span>:<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>        <span style="color:#708">var</span> <span style="color:#00f">data</span> = {<br>            <span style="color:#000">page</span>: <span style="color:#000-2">api</span>.<span style="color:#000">getCurrent</span>(),<br>            <span style="color:#000">name</span>: <span style="color:#a11">'mss'</span>,<br>            <span style="color:#000">say</span>: <span style="color:#a11">'oh'</span><br>        };<br>        <span style="color:#000">$</span>.<span style="color:#000">getJSON</span>(<span style="color:#a11">'http://localhost:3000/data.json'</span>,<span style="color:#000-2">data</span>,<span style="color:#708">function</span>(<span style="color:#00f">json</span>){<br>            <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#000-2">json</span>);<br>        });<br>    }<br>});</pre>
             </div>
             <div class="options">
                 <p>options(参数配置)</p>
@@ -170,20 +177,29 @@
                     <thead>
                         <tr>
                             <td>方法</td>
+                            <td>参数</td>
                             <td>说明</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>getTotalPage()</td>
+                            <td>无</td>
                             <td>获取总页数</td>
                         </tr>
                         <tr>
+                            <td>setTotalPage(page)</td>
+                            <td>page：页数</td>
+                            <td>设置总页数</td>
+                        </tr>
+                        <tr>
                             <td>getCurrent()</td>
+                            <td>无</td>
                             <td>获取当前页</td>
                         </tr>
                         <tr>
                             <td>filling()</td>
+                            <td>无</td>
                             <td>填充数据，参数为页数</td>
                         </tr>
                     </tbody>
@@ -198,8 +214,8 @@
         <script>
             $(function(){
                 $('.M-box').pagination({
-                    callback:function(index){
-                        $('.now').text(index);
+                    callback:function(api){
+                        $('.now').text(api.getCurrent());
                     }
                 },function(api){
                     $('.now').text(api.getCurrent());
@@ -228,7 +244,29 @@
                     prevContent:'上页',
                     nextContent:'下页'
                 });
+
+                $('.M-box4').pagination({
+                    pageCount: 3, //初始化时总页数3页
+                    callback:function(api){
+                        api.setTotalPage(20);//动态修改总页数为20页
+                    }
+                });
+
+                $('.M-box5').pagination({
+                    pageCount: 50,
+                    jump: true,
+                    callback:function(api){
+                        var data = {
+                            page: api.getCurrent(),
+                            name: 'mss',
+                            say: 'oh'
+                        };
+                        $.getJSON('http://localhost:3000/data.json',data,function(json){
+                            console.log(json);
+                        });
+                    }
+                });
             });
-        </script>
+        </script> 
     </body>
 </html>
