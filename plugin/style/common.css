@@ -7,17 +7,31 @@ body{
     background: #000;
     color: #fff;
 }
+.wrapper{
+	margin-left: 320px;
+    padding-right: 20px;
+    height: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
 /*底部版权*/
 footer{
-	margin:100px auto 50px;
-	width: 960px;
-	border-top:1px solid #ebebeb;
+	margin:100px 0 50px 300px;
+	padding: 0 20px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
 }
 footer p{
+	border-top:1px solid #ebebeb;
 	opacity: .5;
     filter: alpha(opacity=50);
 	text-align: right;
 	font-size: 12px;
+	line-height: 3;
 	font-family: "Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",tahoma,arial,simsun,"\5B8B\4F53";
 }
 footer p a{
@@ -119,4 +133,31 @@ pre{
 .nav ul li .active{
 	color:#000;
 	background:#fff;
+}
+img{
+	width: 100%;
+}
+@media screen and (max-width: 1024px) {
+	.nav{
+		position: relative;
+		width: 100%;
+		height: auto;
+	}
+	.nav .head{
+		padding: 0;
+	}
+	.nav ul li{
+		width: 100%;
+	}
+	.nav ul li a{
+		padding: 10px 0;
+	}
+	.wrapper{
+		margin: 0;
+		width: 100% !important;
+		padding: 0 20px !important;
+	}
+	.right-bg{
+		display: none;
+	}
 }

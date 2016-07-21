@@ -1,10 +1,4 @@
 @charset "UTF-8";
-
-.wrapper{
-    margin:0 auto;
-    width:960px;
-    height:100%;
-}
 .M-box,.M-box1,.M-box2,.M-box3,.M-box4{
 	position: relative;
     text-align: center;

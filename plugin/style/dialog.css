@@ -3,11 +3,6 @@
 .clearfix:before, .clearfix:after {content:"";display:table;}
 .clearfix:after{clear:both;}
 .clearfix{ *zoom:1;}/*ie6,7*/
-.wrapper{
-    margin:0 auto;
-    width:960px;
-    height:100%;
-}
 .M-box{
     display: none;
     width:300px;
