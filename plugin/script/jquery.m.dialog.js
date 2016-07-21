@@ -19,7 +19,7 @@
 		clickShadeHide: false //是否可以点击遮罩关闭
 	};
 
-	var dialog = {
+	window.dialog = {
 		//打开
 		open: function(options){
 			new Dialog(options);

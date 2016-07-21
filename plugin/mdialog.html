@@ -12,50 +12,52 @@
     </head>
     <body>
         <div class="wrapper">
-        
+            <button>打开</button>
         </div>
         <script src="../public/jquery.min.js"></script>
         <script src="./script/jquery.m.dialog.js"></script>
         <script>
-            dialog.open({
+            $('button').click(function(){
+                dialog.open({
                 title: '标题',
                 content: '内容',
                 clickShadeHide: false,
                 button: {
-                    '取消|cancel': function(){
-                        dialog.close();
-                    },
-                    '确定|yes': function(){
-                        dialog.close();
-                        var $body = $('body');
-                        var html = '<div id="tip" class="mod-tip">\
-                                        <div class="tip-inner">\
-                                            <div class="tip-main">\
-                                                <div class="tip_loading">\
-                                                    <div class="tip_loading_leaf tip_loading_leaf_0"></div>\
-                                                    <div class="tip_loading_leaf tip_loading_leaf_1"></div>\
-                                                    <div class="tip_loading_leaf tip_loading_leaf_2"></div>\
-                                                    <div class="tip_loading_leaf tip_loading_leaf_3"></div>\
-                                                    <div class="tip_loading_leaf tip_loading_leaf_4"></div>\
-                                                    <div class="tip_loading_leaf tip_loading_leaf_5"></div>\
-                                                    <div class="tip_loading_leaf tip_loading_leaf_6"></div>\
-                                                    <div class="tip_loading_leaf tip_loading_leaf_7"></div>\
-                                                    <div class="tip_loading_leaf tip_loading_leaf_8"></div>\
-                                                    <div class="tip_loading_leaf tip_loading_leaf_9"></div>\
-                                                    <div class="tip_loading_leaf tip_loading_leaf_10"></div>\
-                                                    <div class="tip_loading_leaf tip_loading_leaf_11"></div>\
-                                                </div>\
-                                                <p class="msg">点击了确定</p>\
-                                            </div>\
-                                        </div>\
-                                    </div>';
-                        $body.append(html);
-                        setTimeout(function(){
-                            if($('#tip').length < 1) return;
-                            $('#tip').remove();
-                        }, 2000);
-                    }
+                  '取消|cancel': function(){
+                    dialog.close();
+                  },
+                  '确定|yes': function(){
+                    dialog.close();
+                    var $body = $('body');
+                    var html = '<div id="tip" class="mod-tip">\
+              <div class="tip-inner">\
+              <div class="tip-main">\
+              <div class="tip_loading">\
+              <div class="tip_loading_leaf tip_loading_leaf_0"></div>\
+              <div class="tip_loading_leaf tip_loading_leaf_1"></div>\
+              <div class="tip_loading_leaf tip_loading_leaf_2"></div>\
+              <div class="tip_loading_leaf tip_loading_leaf_3"></div>\
+              <div class="tip_loading_leaf tip_loading_leaf_4"></div>\
+              <div class="tip_loading_leaf tip_loading_leaf_5"></div>\
+              <div class="tip_loading_leaf tip_loading_leaf_6"></div>\
+              <div class="tip_loading_leaf tip_loading_leaf_7"></div>\
+              <div class="tip_loading_leaf tip_loading_leaf_8"></div>\
+              <div class="tip_loading_leaf tip_loading_leaf_9"></div>\
+              <div class="tip_loading_leaf tip_loading_leaf_10"></div>\
+              <div class="tip_loading_leaf tip_loading_leaf_11"></div>\
+              </div>\
+              <p class="msg">点击了确定</p>\
+              </div>\
+              </div>\
+              </div>';
+                    $body.append(html);
+                    setTimeout(function(){
+                      if($('#tip').length < 1) return;
+                      $('#tip').remove();
+                    }, 2000);
+                  }
                 }
+              });
             });
         </script>
     </body>
