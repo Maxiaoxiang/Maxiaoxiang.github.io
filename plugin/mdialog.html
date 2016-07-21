@@ -6,59 +6,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../favicon.ico" rel="icon" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="./style/m.dialog.css" media="screen">
         <link rel="stylesheet" type="text/css" href="./style/common.css" media="screen">
         <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     </head>
     <body>
-        <div class="wrapper">
-            <button>打开</button>
+        <div class="nav">
+            <div class="head">
+                <a href="http://maxiaoxiang.com">Mss。</a>
+            </div>
+            <ul>
+                <li>
+                    <a href="./index.html" class="active">组件库</a>
+                </li>
+                <li>
+                    <a href="../blog/">博客</a>
+                </li>
+                <li>
+                    <a href="../about.html">关于我</a>
+                </li>
+                <li>
+                    <a href="../message.html">留言板</a>
+                </li>
+            </ul>
         </div>
-        <script src="../public/jquery.min.js"></script>
-        <script src="./script/jquery.m.dialog.js"></script>
-        <script>
-            $('button').click(function(){
-                dialog.open({
-                title: '标题',
-                content: '内容',
-                clickShadeHide: false,
-                button: {
-                  '取消|cancel': function(){
-                    dialog.close();
-                  },
-                  '确定|yes': function(){
-                    dialog.close();
-                    var $body = $('body');
-                    var html = '<div id="tip" class="mod-tip">\
-              <div class="tip-inner">\
-              <div class="tip-main">\
-              <div class="tip_loading">\
-              <div class="tip_loading_leaf tip_loading_leaf_0"></div>\
-              <div class="tip_loading_leaf tip_loading_leaf_1"></div>\
-              <div class="tip_loading_leaf tip_loading_leaf_2"></div>\
-              <div class="tip_loading_leaf tip_loading_leaf_3"></div>\
-              <div class="tip_loading_leaf tip_loading_leaf_4"></div>\
-              <div class="tip_loading_leaf tip_loading_leaf_5"></div>\
-              <div class="tip_loading_leaf tip_loading_leaf_6"></div>\
-              <div class="tip_loading_leaf tip_loading_leaf_7"></div>\
-              <div class="tip_loading_leaf tip_loading_leaf_8"></div>\
-              <div class="tip_loading_leaf tip_loading_leaf_9"></div>\
-              <div class="tip_loading_leaf tip_loading_leaf_10"></div>\
-              <div class="tip_loading_leaf tip_loading_leaf_11"></div>\
-              </div>\
-              <p class="msg">点击了确定</p>\
-              </div>\
-              </div>\
-              </div>';
-                    $body.append(html);
-                    setTimeout(function(){
-                      if($('#tip').length < 1) return;
-                      $('#tip').remove();
-                    }, 2000);
-                  }
-                }
-              });
-            });
-        </script>
+        <div class="wrapper">
+            <h1>弹出层-dialog</h1>
+            <a style="float:right;" href="./download/dialog/dialog.zip" target="_self">下载该插件</a>
+            <p>需先引入jQuery，再引入dialog组件</p>
+            <pre class="bad">&lt;script&nbsp;src="jquery.js"&gt;&lt;/script&gt;</pre>
+            <pre class="bad">&lt;script&nbsp;src="jquery.dialog.js"&gt;&lt;/script&gt;</pre>
+            <p>组件样式与功能分离，自定义样式</p>
+            <div class="eg"><script async src="//jsrun.net/Z9KKp/embed/all/light/"></script></div>
+        </div>
     </body>
 </html>
