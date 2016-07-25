@@ -1,8 +1,15 @@
 /**
  * pagination分页插件
- * @version 1.1.1
+ * @version 1.1.2
+ * @author mss
  * @url http://maxiaoxiang.com/plugin/pagination.html
  * @E-mail 251445460@qq.com
+ *
+ * @调用方法
+ * $(selector).pagination();
+ * 
+ * @更新日志
+ * 2016-07-25：修复click重复事件
  */
 ;(function($,window,document,undefined){
 
@@ -35,12 +42,19 @@
 			$document = $(document),
 			$obj = $(element);//容器
 
-		//设置总页数
+		/**
+		 * 设置总页数
+		 * @param int page 页码
+		 * @return opts.pageCount 总页数配置
+		 */
 		this.setTotalPage = function(page){
 			return opts.pageCount = page;
 		};
 
-		//获取总页数
+		/**
+		 * 获取总页数
+		 * @return int p 总页数
+		 */
 		this.getTotalPage = function(){
 			var p = opts.totalData || opts.showData ? Math.ceil(parseInt(opts.totalData) / opts.showData) : opts.pageCount;
 			return p;
@@ -51,7 +65,10 @@
 			return current;
 		};
 
-		//填充数据
+		/**
+		 * 填充数据
+		 * @param int index 页码
+		 */
 		this.filling = function(index){
 			var html = '';
 			current = index || opts.current;//当前页码
@@ -97,7 +114,7 @@
 		this.eventBind = function(){
 			var self = this;
 			var pageCount = this.getTotalPage();//总页数
-			$obj.on('click','a',function(){
+			$obj.off().on('click','a',function(){
 				if($(this).hasClass(opts.nextCls)){
 					var index = parseInt($obj.find('.'+opts.activeCls).text()) + 1;
 				}else if($(this).hasClass(opts.prevCls)){
@@ -114,6 +131,7 @@
 				self.filling(index);
 				typeof opts.callback === 'function' && opts.callback(self);
 			});
+			//输入跳转的页码
 			$obj.on('input propertychange','.'+opts.jumpIptCls,function(){
 				var $this = $(this);
 				var val = $this.val();
@@ -146,7 +164,7 @@
 	};
 
 	$.fn.pagination = function(parameter,callback){
-		if(typeof parameter == 'function'){
+		if(typeof parameter == 'function'){//重载
 			callback = parameter;
 			parameter = {};
 		}else{
