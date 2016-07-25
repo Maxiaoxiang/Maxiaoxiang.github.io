@@ -97,7 +97,7 @@
 		this.eventBind = function(){
 			var self = this;
 			var pageCount = this.getTotalPage();//总页数
-			$obj.on('click','a',function(){
+			$obj.off().on('click','a',function(){
 				if($(this).hasClass(opts.nextCls)){
 					var index = parseInt($obj.find('.'+opts.activeCls).text()) + 1;
 				}else if($(this).hasClass(opts.prevCls)){
