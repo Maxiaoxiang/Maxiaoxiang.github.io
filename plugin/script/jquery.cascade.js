@@ -1,8 +1,12 @@
 /**
  * cascade瀑布流插件
- * @version 0.0.1
- * @url http://www.maxiaoxiang.com
+ * @version 1.1.1
+ * @author mss
+ * @url http://maxiaoxiang.com/plugin/cascade.html
  * @E-mail 251445460@qq.com
+ *
+ * @调用方法
+ * $(selector).cascade();
  */
 ;(function($,window,document,undefined){
 
@@ -11,6 +15,7 @@
 		liCls: 'item',			//排列元素样式名
 		horizontal: '10',		//水平间距
 		vertical: '10',			//垂直间距
+		ajaxMore: function(){},	//加载更多
 		callback: function(){}	//回调
 	};
 
@@ -43,7 +48,7 @@
 			});
 			for(var i = column; i < len; i++){
 				var index = this.getMinIndex(first_arr);
-				$li.eq(i).css({	
+				$li.eq(i).css({
 					'position': 'absolute',
 					'top': first_arr[index] + Number(opts.vertical) + 'px',
 					'left': li_w * index + 'px'
@@ -63,7 +68,7 @@
 			}
 			return index;
 		};
-		//窗口变化
+		//防止窗口变动过快损耗性能
 		this.resize = function(){
 			clearTimeout(time);
 			var self = this,
@@ -74,10 +79,10 @@
 				},500);
 		};
 		//滚动加载
-		this.scroll = function(){
+		this.scroll = function(options){
 			$w.scroll(function(){
 				if($d.scrollTop() + $w.height() >= $d.height()){
-					console.log($d)
+					console.log(options)
 				}
 			});
 		};
@@ -85,13 +90,13 @@
 		this.init = function(){
 			this.arrangement();
 			this.resize();
-			this.scroll();
+			this.scroll(options);
 		};
 		this.init();
 	};
 
 	$.fn.cascade = function(parameter,callback){
-		if(typeof parameter == 'function'){
+		if(typeof parameter == 'function'){//重载
 			callback = parameter;
 			parameter = {};
 		}else{

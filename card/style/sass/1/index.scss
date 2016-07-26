@@ -287,12 +287,14 @@ body{
         display: none;
         position: absolute;
         top: 26px;
-        left: 0;
-        width: 100%;
+        left: -15%;
+        width: 130%;
         overflow: hidden;
         z-index: 999;
         p{
-            bottom: 1px;
+            bottom: -1px;
+            position: relative;
+            padding-left: 28px;
             border-bottom: 1px solid #ccc;
             height: 30px;
             line-height: 30px;
@@ -300,6 +302,18 @@ body{
             color: #757575;
             background: #fff;
         }
+    }
+    .touch{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #b21b38;
+        text-align: center;
+        color: #fff;
+        @include border-radius(5px);
+        line-height: 25px;
     }
     .more{
         position: absolute;
@@ -403,6 +417,7 @@ body{
             @include border-radius(5px);
         }
         .remove{
+            display: none;
             position: absolute;
             right: -35px;
             top: 0;
@@ -537,7 +552,8 @@ body{
     .friends{
         display: none;
         position: relative;
-        padding: 20px 0 40px 0;
+        padding: 40px 0;
+        min-height: 380px;
         li{
             position:relative;
             margin-bottom: 30px;

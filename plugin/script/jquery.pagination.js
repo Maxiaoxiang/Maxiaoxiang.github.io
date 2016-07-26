@@ -9,7 +9,7 @@
  * $(selector).pagination();
  * 
  * @更新日志
- * 2016-07-25：修复click重复事件
+ * 2016-07-25：修复click重复事件  --version:1.1.2
  */
 ;(function($,window,document,undefined){
 

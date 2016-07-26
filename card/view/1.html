@@ -11,11 +11,11 @@
 <link href="../style/dist/1/index.css" rel="stylesheet">
 </head>
 <body>
-    <div class="welcome">
+<!--     <div class="welcome">
         <div class="top resize"></div>
         <div class="middle resize"></div>
         <div class="down resize"></div>
-    </div>
+    </div> -->
     <div class="swiper-container swiper-container-vertical">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -151,6 +151,7 @@
                                 <div class="speech-ipt"></div>
                                 <div class="longtime">12:11</div>
                                 <a href="javascript:;" class="remove"></a>
+                                <a href="javascript:;" class="touch">按住说话</a>
                             </li>
                         </ul>
                         <div class="ch">
@@ -347,6 +348,16 @@
         $('.more-text p').click(function(){
             $('input[name="bless"]').val($(this).text());
             $('.more-text').hide();
+        });
+
+        $('.touch').on('touchend', function(){
+            $(this).hide();
+            $('.remove').show();
+        });
+
+        $('.remove').click(function(){
+            $('.touch').show();
+            $(this).hide();
         });
     });
     </script>
