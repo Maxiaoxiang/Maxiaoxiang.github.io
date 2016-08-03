@@ -81,7 +81,7 @@
 		//滚动加载
 		this.scroll = function(options){
 			$w.scroll(function(){
-				if($d.scrollTop() + $w.height() >= $d.height()){
+				if($d.scrollTop() + $w.height() >= $d.height()){//滚动到底部
 					console.log(options)
 				}
 			});
