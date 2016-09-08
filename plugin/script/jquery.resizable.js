@@ -1,6 +1,6 @@
 /**
  * resizable缩放插件
- * @version 0.1
+ * @version 1.0.1
  * @url http://maxiaoxiang.com
  * @E-mail 251445460@qq.com
  */

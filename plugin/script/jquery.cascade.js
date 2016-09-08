@@ -6,7 +6,7 @@
  * @E-mail 251445460@qq.com
  *
  * @调用方法
- * $(selector).cascade();
+ * $(selector).cascade(option, callback);
  */
 ;(function($,window,document,undefined){
 
@@ -82,7 +82,7 @@
 		this.scroll = function(options){
 			$w.scroll(function(){
 				if($d.scrollTop() + $w.height() >= $d.height()){//滚动到底部
-					console.log(options)
+					console.log(options);
 				}
 			});
 		};
