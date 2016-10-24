@@ -53,8 +53,7 @@
 		 * @return int p 总页数
 		 */
 		this.getPageCount = function(){
-			var p = opts.totalData || opts.showData ? Math.ceil(parseInt(opts.totalData) / opts.showData) : opts.pageCount;
-			return p;
+			return opts.totalData || opts.showData ? Math.ceil(parseInt(opts.totalData) / opts.showData) : opts.pageCount;
 		};
 
 		/**
@@ -72,7 +71,7 @@
 		this.filling = function(index){
 			var html = '';
 			current = index || opts.current;//当前页码
-			var pageCount = this.getTotalPage();
+			var pageCount = this.getPageCount();
 			if(current > 1){//上一页
 				html += '<a href="javascript:;" class="'+opts.prevCls+'">'+opts.prevContent+'</a>';
 			}else{
@@ -118,7 +117,7 @@
 		//绑定事件
 		this.eventBind = function(){
 			var self = this;
-			var pageCount = this.getTotalPage();//总页数
+			var pageCount = this.getPageCount();//总页数
 			$obj.off().on('click','a',function(){
 				if($(this).hasClass(opts.nextCls)){
 					var index = parseInt($obj.find('.'+opts.activeCls).text()) + 1;
