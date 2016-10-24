@@ -1,6 +1,6 @@
 /**
  * pagination分页插件
- * @version 1.1.3
+ * @version 1.1.4
  * @author mss
  * @url http://maxiaoxiang.com/plugin/pagination.html
  * @E-mail 251445460@qq.com
@@ -12,24 +12,24 @@
 
 	//配置参数
 	var defaults = {
-		totalData:0,			//数据总条数
-		showData:0,				//每页显示的条数
-		pageCount:9,			//总页数,默认为9
-		current:1,				//当前第几页
-		prevCls:'prev',			//上一页class
-		nextCls:'next',			//下一页class
-		prevContent:'<',		//上一页内容
-		nextContent:'>',		//下一页内容
-		activeCls:'active',		//当前页选中状态
-		coping:false,			//首页和尾页
-		homePage:'',			//首页节点内容
-		endPage:'',				//尾页节点内容
-		count:3,				//当前页前后分页个数
-		jump:false,				//跳转到指定页数
-		jumpIptCls:'jump-ipt',	//文本框内容
-		jumpBtnCls:'jump-btn',	//跳转按钮
-		jumpBtn:'跳转',			//跳转按钮文本
-		callback:function(){}	//回调
+		totalData: 0,			//数据总条数
+		showData: 0,			//每页显示的条数
+		pageCount: 9,			//总页数,默认为9
+		current: 1,				//当前第几页
+		prevCls: 'prev',		//上一页class
+		nextCls: 'next',		//下一页class
+		prevContent: '<',		//上一页内容
+		nextContent: '>',		//下一页内容
+		activeCls: 'active',	//当前页选中状态
+		coping: false,			//首页和尾页
+		homePage: '',			//首页节点内容
+		endPage: '',			//尾页节点内容
+		count: 3,				//当前页前后分页个数
+		jump: false,			//跳转到指定页数
+		jumpIptCls: 'jump-ipt',	//文本框内容
+		jumpBtnCls: 'jump-btn',	//跳转按钮
+		jumpBtn: '跳转',		//跳转按钮文本
+		callback: function(){}	//回调
 	};
 
 	var Pagination = function(element,options){
@@ -44,7 +44,7 @@
 		 * @param int page 页码
 		 * @return opts.pageCount 总页数配置
 		 */
-		this.setTotalPage = function(page){
+		this.setPageCount = function(page){
 			return opts.pageCount = page;
 		};
 
@@ -52,7 +52,7 @@
 		 * 获取总页数
 		 * @return int p 总页数
 		 */
-		this.getTotalPage = function(){
+		this.getPageCount = function(){
 			var p = opts.totalData || opts.showData ? Math.ceil(parseInt(opts.totalData) / opts.showData) : opts.pageCount;
 			return p;
 		};
