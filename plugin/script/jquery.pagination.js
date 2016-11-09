@@ -1,6 +1,6 @@
 /**
  * pagination分页插件
- * @version 1.1.4
+ * @version 1.1.5
  * @author mss
  * @url http://maxiaoxiang.com/plugin/pagination.html
  * @E-mail 251445460@qq.com
@@ -150,7 +150,6 @@
 			});
 			//回车跳转指定页码
 			$document.keydown(function(e){
-				var self = this;
 		        if(e.keyCode == 13 && $obj.find('.'+opts.jumpIptCls).val()){
 		        	var index = parseInt($obj.find('.'+opts.jumpIptCls).val());
 		            self.filling(index);
