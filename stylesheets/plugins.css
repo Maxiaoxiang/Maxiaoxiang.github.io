@@ -1,0 +1,74 @@
+body{
+	font-size: 14px;
+	background-color: #f5f7f9;
+}
+.wrapper{
+	border-top: 3px solid #222;
+}
+.container{
+	position: relative;
+	margin: 0 auto;
+	width: 960px;
+}
+.container:before, .container:after{
+	content: "";
+	display: table;
+}
+.container:after{
+	clear: both;
+	overflow: hidden;
+}
+.sidebar{
+	position: static;
+	float: left;
+	width: 240px;
+	background: #fff;
+}
+.sidebar .site-meta{
+	margin: 0;
+	padding: 20px 0;
+	color: #fff;
+	background: #222;
+	text-align: center;
+}
+.sidebar .brand{
+	position: relative;
+	color: #fff;
+}
+.sidebar .site-title{
+	display: inline-block;
+	vertical-align: top;
+	line-height: 36px;
+	font-size: 20px;
+	font-weight: normal;
+	font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+.content{
+	float: right;
+	padding: 40px;
+	width: 700px;
+	box-sizing: border-box;
+	background: #fff;
+	min-height: 700px;
+}
+.footer{
+	position: relative;
+	width: 100%;
+	bottom: 0;
+	height: 40px;
+	line-height: 40px;
+}
+.footer p{
+	padding-right: 30px;
+	text-align: right;
+	opacity: .5;
+    filter: alpha(opacity=50);
+	font-size: 12px;
+	font-family: "Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",tahoma,arial,simsun,"\5B8B\4F53";
+}
+.footer p a{
+	color:#000;
+}
+.footer p .spe{
+	padding:0 5px;
+}
