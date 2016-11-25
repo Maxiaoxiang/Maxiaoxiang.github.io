@@ -24,7 +24,7 @@ body{
 	position: static;
 	float: left;
 	width: 240px;
-	background: #fff;
+	line-height: 2;
 }
 .sidebar .site-meta{
 	margin: 0;
@@ -45,9 +45,76 @@ body{
 	font-weight: normal;
 	font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
-.sidebar .menu{
-	margin: 20px 0 16px;
+.sidebar .ft{
+	margin-top: 10px;
+	background: #fff;
+}
+.sidebar .ft .site-info{
+	position: relative;
+	padding: 20px 10px;
+	box-sizing: border-box;
 	text-align: center;
+	width: 240px;
+	color: #555;
+}
+.sidebar .site-info .avatar{
+	display: block;
+	margin: 0 auto;
+	padding: 2px;
+	max-width: 120px;
+	height: auto;
+	border: 1px solid #eee;
+}
+.sidebar .site-info .name{
+	margin: 0;
+	text-align: center;
+	color: #222;
+	font-weight: 600;
+}
+.sidebar .site-info .description{
+	margin-top: 0;
+	text-align: center;
+	font-size: 13px;
+	color: #999;
+}
+.sidebar .site-info .links{
+	margin-top: 20px;
+}
+.sidebar .site-info .links:before,.sidebar .site-info .links:after{
+	content: "";
+	display: table;
+}
+.sidebar .site-info .links:after{
+	clear: both;
+	overflow: hidden;
+}
+.sidebar .links .links-item{
+	float: left;
+	margin: 5px 0 0;
+	width: 50%;
+}
+.sidebar .links .links-item a{
+    display: block;
+	box-sizing: border-box;
+    text-decoration: none;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding: 0 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: url('http://maxiaoxiang.com/image/small_icon.png') no-repeat;
+    background-position: 10px 6px;
+}
+.sidebar .links .links-item a:hover{
+	border-radius: 4px;
+    background: url('http://maxiaoxiang.com/image/small_icon.png') #eee no-repeat;
+    background-position: 10px 6px;
+}
+.sidebar .menu{
+	padding: 20px 0 16px;
+	text-align: center;
+	background: #fff;
 }
 .sidebar .menu-item{
 	display: block;
@@ -57,19 +124,37 @@ body{
 .sidebar .menu-item a{
 	display: block;
 	position: relative;
-    padding: 5px 20px;
+    padding: 5px 20px 5px 40px;
 	font-size: 13px;
 	line-height: 2;
 	text-transform: capitalize;
     box-sizing: border-box;
     text-align: left;
+    background: url('http://maxiaoxiang.com/image/small_icon.png') no-repeat;
+}
+.sidebar .menu-item a.repertory{
+    background-position: 20px -33px;
+}
+.sidebar .menu-item a.repertory:hover{
+    background-position: 20px -33px;
+}
+.sidebar .menu-item a.blog{
+    background-position: 20px -78px;
+}
+.sidebar .menu-item a.blog:hover{
+    background-position: 20px -78px;
+}
+.sidebar .menu-item a.message{
+    background-position: 20px -121px;
+}
+.sidebar .menu-item a.message:hover{
+    background-position: 20px -121px;
 }
 .sidebar .menu-item a:hover{
-	background: #f9f9f9;
-    border-bottom-color: #fff;
+	background: url('http://maxiaoxiang.com/image/small_icon.png') #f9f9f9 no-repeat;
 }
 .sidebar .menu-item-active a{
-	background: #f9f9f9;
+	background: url('http://maxiaoxiang.com/image/small_icon.png') #f9f9f9 no-repeat;
 }
 .sidebar .menu-item-active a:after{
 	content: " ";
