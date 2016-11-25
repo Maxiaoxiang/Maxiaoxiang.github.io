@@ -1,45 +1,42 @@
-@charset "UTF-8";
-body{
-	word-wrap: break-word;
-	background:#fff;
-	color:#757575;
+.content .item{
+	padding-top: 40px;
 }
-::selection {
-    background: #000;
-    color: #fff;
+.content .item .hd a{
+	display: inline-block;
+	position: relative;
+	color: #555;
+	font-size: 26px;
+	border-bottom: none;
+	line-height: 1.2;
+	vertical-align: top;
 }
-.main{
+.content .item .hd a:before{
+	content: "";
 	position: absolute;
-	left:50%;
-	top:50%;
-	text-align: center;
+	width: 100%;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #000;
+	visibility: hidden;
+	-webkit-transform: scaleX(0);
+	-moz-transform: scaleX(0);
+	-ms-transform: scaleX(0);
+	-o-transform: scaleX(0);
+	transform: scaleX(0);
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+	transition-delay: 0s;
 }
-.main h1{
-	font-size: 60px;
+.content .item .hd a:hover:before{
+	visibility: visible;
+	-webkit-transform: scaleX(1);
+	-moz-transform: scaleX(1);
+	-ms-transform: scaleX(1);
+	-o-transform: scaleX(1);
+	transform: scaleX(1);
 }
-.main h1 strong{
-	font-weight: 700;
-}
-.main ul li{
-	float: left;
-	padding:0 20px;
-}
-.footer{
-	position: absolute;
-	width:100%;
-	bottom:20px;
-}
-.footer p{
-	padding-right: 30px;
-	text-align: right;
-	opacity: .5;
-    filter: alpha(opacity=50);
-	font-size: 12px;
-	font-family: "Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",tahoma,arial,simsun,"\5B8B\4F53";
-}
-.footer p a{
-	color:#000;
-}
-.footer p .spe{
-	padding:0 5px;
+.content .item .hd .info{
+	color: #666;
+	font-size: 14px;
 }

@@ -6,63 +6,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="./favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/common.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
     <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <style>
-        html,body{
-            overflow: hidden;
-        }
-    </style>
     <script>
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "//hm.baidu.com/hm.js?77f152d415d0c3677b63c725bd7b60d8";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
+        // var _hmt = _hmt || [];
+        // (function() {
+        //   var hm = document.createElement("script");
+        //   hm.src = "//hm.baidu.com/hm.js?77f152d415d0c3677b63c725bd7b60d8";
+        //   var s = document.getElementsByTagName("script")[0];
+        //   s.parentNode.insertBefore(hm, s);
+        // })();
     </script>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-    <p style="position:fixed;top:50%;left:50%;font-size:50px;color:#000;">网站改版中...</p>
-<!--     <div class="wrapper">
-        <div class="main" id="main">
-        	<h1><strong>Mss。</strong></h1>
-        	<ul>
-        		<li>
-        			<a href="./plugin.html">插件库</a>
-        		</li>
-                <li>
-                    <a href="/blog/" target="_blank">博客</a>
-                </li>
-        		<li>
-        			<a href="./about.html">关于我</a>
-        		</li>
-        		<li>
-        			<a href="http://github.com/Maxiaoxiang">Github</a>
-        		</li>
-        		<li>
-        			<a href="./message.html">留言板</a>
-        		</li>
-        	</ul>
-        </div> -->
+    <div class="wrapper">
+        <div class="container">
+            <div class="sidebar">
+                <div class="hd">
+                    <div class="site-meta">
+                        <a href="http://maxiaoxiang.com" class="brand">
+                            <span class="site-title">Mss。</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="bd">
+                    <div class="stie-nav">
+                        <ul class="menu">
+                            <li class="menu-item menu-item-active">
+                                <a href="./plugins.html">插件库</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="./about.html">关于我</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="./message.html">留言板</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="item">
+                    <div class="hd">
+                        <a href="http://maxiaoxiang.com/jQuery-plugins/plugins/pagination.html">
+                            pagination.js - 分页
+                        </a>
+                        <p class="info">更新时间：2016-11-25</p>
+                        <p class="info">最新版本：1.1.5</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="hd">
+                        <a href="http://maxiaoxiang.com/jQuery-plugins/plugins/m.dialog.html">
+                            m.dialog.js - 移动端对话框
+                        </a>
+                        <p class="info">更新时间：2016-09-13</p>
+                        <p class="info">最新版本：1.0.0</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="hd">
+                        <a href="http://maxiaoxiang.com/jQuery-plugins/plugins/cascade.html">
+                            cascade.js - 瀑布流
+                        </a>
+                        <p class="info">更新时间：2016-10-09</p>
+                        <p class="info">最新版本：1.1.1</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="hd">
+                        <a href="http://maxiaoxiang.com/jQuery-plugins/plugins/dialog.html">
+                            dialog.js - 弹框
+                        </a>
+                        <p class="info">更新时间：2015-12-11</p>
+                        <p class="info">最新版本：1.0.5</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="hd">
+                        <a href="http://maxiaoxiang.com/jQuery-plugins/plugins/resizable.html">
+                            resizable.js - 缩放
+                        </a>
+                        <p class="info">更新时间：2016-05-11</p>
+                        <p class="info">最新版本：1.0.1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; <a href="http://github.com/Maxiaoxiang" target="_blank">Mss。</a><span class="spe">/</span>Powered by <a href="http://maxiaoxiang.com" target="_blank">Maxiaoxiang</a></p>
+        </div>
     </div>
-    <div class="footer">
-    	<p>&copy; <a href="http://github.com/Maxiaoxiang" target="_blank">Mss。</a><span class="spe">/</span>Powered by <a href="http://maxiaoxiang.com" target="_blank">Maxiaoxiang</a></p>
-    </div>
-    <script src="./public/jquery.min.js"></script>
-    <script src="./public/canvas.js"></script>
-    <script>
-    	window.onload = function(){
-    		var main = document.getElementById('main');
-    		main.style.marginLeft = - main.offsetWidth / 2 + 'px';
-    		main.style.marginTop = - main.offsetHeight / 2 + 'px';
-            main.style.top = document.documentElement.clientHeight * 0.382 + 'px';
-    	};
-        window.onresize = function(){
-            main.style.top = document.documentElement.clientHeight * 0.382 + 'px';    
-        };
-    </script>
 </body>
 </html>

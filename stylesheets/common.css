@@ -43,6 +43,43 @@ body{
 	font-weight: normal;
 	font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
+.sidebar .menu{
+	margin: 20px 0 16px;
+	text-align: center;
+}
+.sidebar .menu-item{
+	display: block;
+    margin: 0;
+    list-style: none;
+}
+.sidebar .menu-item a{
+	display: block;
+	position: relative;
+    padding: 5px 20px;
+	font-size: 13px;
+	line-height: 2;
+	text-transform: capitalize;
+    box-sizing: border-box;
+    text-align: left;
+}
+.sidebar .menu-item a:hover{
+	background: #f9f9f9;
+    border-bottom-color: #fff;
+}
+.sidebar .menu-item-active a{
+	background: #f9f9f9;
+}
+.sidebar .menu-item-active a:after{
+	content: " ";
+	position: absolute;
+	top: 50%;
+	margin-top: -3px;
+	right: 15px;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background-color: #bbb;
+}
 .content{
 	float: right;
 	padding: 40px;
@@ -51,6 +88,7 @@ body{
 	background: #fff;
 	min-height: 700px;
 }
+
 .footer{
 	position: relative;
 	width: 100%;
