@@ -6,48 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="./favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="./stylesheets/normalize.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="./plugin/style/common.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/public.css?v=201611151108">
     <link rel="stylesheet" type="text/css" href="./stylesheets/message.css" media="screen">
     <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
-    <div class="nav">
-        <div class="head">
-            <a href="http://maxiaoxiang.com">Mss。</a>
-        </div>
-        <ul>
-            <li>
-                <a href="./plugin/index.html">组件库</a>
-            </li>
-            <li>
-                <a href="../blog/">博客</a>
-            </li>
-            <li>
-                <a href="./about.html">关于我</a>
-            </li>
-            <li>
-                <a href="./message.html" class="active">留言板</a>
-            </li>
-        </ul>
-    </div>
     <div class="wrapper">
-        <div class="category">
-            <div class="ds-thread" data-thread-key="index" data-title="" data-url=""></div>
-            <script type="text/javascript">
-            var duoshuoQuery = {
-                short_name:"maxiaoxiang"
-            };
-            (function() {
-                var ds = document.createElement('script');
-                ds.type = 'text/javascript';ds.async = true;
-                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-                ds.charset = 'UTF-8';
-                (document.getElementsByTagName('head')[0] 
-                 || document.getElementsByTagName('body')[0]).appendChild(ds);
-            })();
-            </script>
+        <div class="container">
+            <div class="sidebar">
+                <div class="hd">
+                    <div class="site-meta">
+                        <a href="http://maxiaoxiang.com" class="brand">
+                            <span class="site-title">Mss。</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="bd">
+                    <div class="stie-nav">
+                        <ul class="menu">
+                            <li class="menu-item">
+                                <a href="./index.html">插件库</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="http://maxiaoxiang.com/blog/" target="_blank">博客</a>
+                            </li>
+                            <li class="menu-item menu-item-active">
+                                <a href="./message.html">留言板</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="category">
+                    <div class="ds-thread" data-thread-key="index" data-title="" data-url=""></div>
+                    <script type="text/javascript">
+                    var duoshuoQuery = {
+                        short_name:"maxiaoxiang"
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';ds.async = true;
+                        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] 
+                         || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; <a href="http://github.com/Maxiaoxiang" target="_blank">Mss。</a><span class="spe">/</span>Powered by <a href="http://maxiaoxiang.com" target="_blank">Maxiaoxiang</a></p>
         </div>
     </div>
-    <div class="right-bg"></div>
 </body>
 </html>
