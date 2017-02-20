@@ -44,7 +44,7 @@
             <p class="ex">长按复制下列信息，打开手机淘宝，即可领券购买</p>
             <div class="content">
                 <div class="text">【安全座椅9个月-12岁婴儿童安全座椅9个月-12岁】复制这条信息，打开手机淘宝</div>
-                <span class="code">￥0u7Eh0IW6U￥</span>
+                <span class="code" id="copy_key_ios">￥0u7Eh0IW6U￥</span>
             </div>
         </div>
         <div class="mod-good">
@@ -75,6 +75,13 @@
                 $(this).toggleClass('open');
                 $more.toggle();
             });
+            document.addEventListener("selectionchange", function (e) {
+                if (window.getSelection().anchorNode.parentNode.id == 'copy_key_ios' && document.getElementById('copy_key_ios').innerText != window.getSelection()) {
+                    var key = document.getElementById('copy_key_ios');
+                    window.getSelection().selectAllChildren(key);
+                }
+            }, false);
+
         });
     </script>
 </body>
