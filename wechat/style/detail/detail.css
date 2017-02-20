@@ -48,6 +48,38 @@ body,.wrapper{
 .mod-info .bd .coupon{
     text-align: right;
 }
+.mod-info .bd .cou{
+    position: relative;
+    display: inline-block;
+    width: 158px;
+    height: 50px;
+    background-image: url('../../image/coupon.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+.mod-info .cou .cou-1{
+    position: absolute;
+    left: 10px;
+    top: 0;
+    font-size: 30px;
+    color: #ec6d88;
+    height: 50px;
+    line-height: 50px;
+}
+.mod-info .cou .cou-1 i{
+    font-size: 12px;
+    font-style: normal;
+}
+.mod-info .cou-box{
+    height: 50px;
+    padding-top: 10px;
+    padding-right: 23px;
+    line-height: 1;
+}
+.mod-info .cou-box p{
+    color: #fffee3;
+    font-size: 14px;
+}
 .mod-info .old-price{
     padding-left: 20px;
     color: #282828;
@@ -60,7 +92,7 @@ body,.wrapper{
 }
 .mod-info .soy{
     margin-right: 15px;
-    padding: 1px 6px;
+    padding: 3px 6px;
     background: #ff0032;
     color: #fff;
     border-radius: 3px;
@@ -77,6 +109,12 @@ body,.wrapper{
 .mod-method .ex{
     margin-top: 5px;
     font-size: 14px;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
 }
 .mod-method .content{
     margin-top: 15px;
@@ -96,13 +134,31 @@ body,.wrapper{
 .mod-good{
     margin-top: 12px;
     background: #fff;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
 }
-.mod-good a{
+.mod-good .swtich{
     display: block;
     position: relative;
     padding: 18px 16px;
 }
-.mod-good a:after{
+.mod-good .good-more{
+    padding: 10px 16px;
+}
+.mod-good .good-more p{
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.mod-good .good-more img{
+    margin: 10px 0;
+    width: 100%;
+}
+.mod-good .swtich:after{
     content: "";
     display: block;
     position: absolute;
@@ -117,7 +173,17 @@ body,.wrapper{
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
-.mod-good a span{
+.mod-good .good-more{
+    display: none;
+}
+.mod-good .swtich.open:after{
+    top: 17px;
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.mod-good .swtich span{
     margin-left: 10px;
     font-size: 12px;
     color: #ff0000;
@@ -150,9 +216,20 @@ body,.wrapper{
     .mod-info .bd{
         margin-top: 10px;
     }
-    .mod-info .bd .box img{
+    .mod-info .bd .cou{
         width: 120px;
         height: 38px;
+    }
+    .mod-info .cou .cou-1{
+        height: 38px;
+        line-height: 38px;
+        font-size: 24px;
+    }
+    .mod-info .cou-box{
+        height: 38px;
+        padding-top: 4px;
+        padding-right: 13px;
+        font-size: 12px;
     }
     .mod-info .now-price{
         margin-top: 0;
