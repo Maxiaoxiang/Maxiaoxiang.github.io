@@ -24,7 +24,13 @@
                 </div>
                 <div class="bd">
                     <div class="box coupon">
-                        <img src="./image/coupon.jpg" alt="优惠券" width="158" height="50">
+                        <div class="cou">
+                            <span class="cou-1"><i>&yen;</i>100</span>
+                            <div class="cou-box">
+                                <p>满199</p>
+                                <p>减100</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="box">
                         <p class="old-price">现价：219</p>
@@ -37,11 +43,16 @@
             <p class="title">购买方法</p>
             <p class="ex">长按复制下列信息，打开手机淘宝，即可领券购买</p>
             <div class="content">
-                <p class="text">【安全座椅9个月-12岁婴儿童安全座椅9个月-12岁】复制这条信息，打开手机淘宝<br>￥0u7Eh0IW6U￥</p>
+                <div class="text" id="copy_key_ios">【安全座椅9个月-12岁婴儿童安全座椅9个月-12岁】复制这条信息，打开手机淘宝<br>
+                ￥0u7Eh0IW6U￥</div>
             </div>
         </div>
         <div class="mod-good">
-            <a href="/">商品图文详情<span>（点击展开）</span></a>
+            <a href="javascript:;" class="swtich j-switch">商品图文详情<span>（点击展开）</span></a>
+            <div class="good-more">
+                <p>商品详情测试数据商品详情测试数据商品详情测试数据商品详情测试数据商品详情测试数据</p>
+                <img src="./image/demo/slider.jpg" alt="">
+            </div>
         </div>
         <div class="mod-qrcode">
             <p class="title">扫码进群</p>
@@ -54,5 +65,24 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="./script/lib/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var $mod_good = $('.mod-good');
+            var $switch_btn = $mod_good.find('.j-switch');
+            var $more = $mod_good.find('.good-more');
+            $switch_btn.click(function(){
+                $(this).toggleClass('open');
+                $more.toggle();
+            });
+            document.addEventListener("selectionchange", function (e) {
+                if (window.getSelection().anchorNode.parentNode.id == 'copy_key_ios' && document.getElementById('copy_key_ios').innerText != window.getSelection()) {
+                    var key = document.getElementById('copy_key_ios');
+                    window.getSelection().selectAllChildren(key);
+                }
+            }, false);
+
+        });
+    </script>
 </body>
 </html>
