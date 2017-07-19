@@ -2,7 +2,7 @@
  * @Author: maxiaoxiang 
  * @Date: 2017-07-18 15:37:31 
  * @Last Modified by: maxiaoxiang
- * @Last Modified time: 2017-07-18 17:30:18
+ * @Last Modified time: 2017-07-19 15:09:49
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -31,46 +31,78 @@ Vue.use(VueRouter)
  */
 const routes = [{
     path: '/',
-    component: index
+    component: index,
+    meta: {
+      title: 'Mss'
+    }
   },
   {
     path: '/project',
     component: project,
+    meta: {
+      title: '项目 - Mss'
+    },
     children: [{
       path: 'jquery',
       component: jqueryPlugins,
+      meta: {
+        title: 'jQuery插件 - Mss'
+      },
       children: [{
         path: 'jquery-pagination',
         component: jqueryPagination
       }]
-    },{
+    }, {
       path: 'vue',
       component: vuePlugins,
+      meta: {
+        title: 'Vue插件 - Mss'
+      },
       children: [{
         path: 'vue-pagination',
         component: vuePagination
       }]
-    },{
+    }, {
       path: 'game',
       component: game,
+      meta: {
+        title: '游戏 - Mss'
+      },
       children: [{
         path: 'snaker',
-        component: snaker
+        component: snaker,
+        meta: {
+          title: '贪吃蛇 - Mss'
+        },
       }]
     }]
   },
   {
     path: '/message',
-    component: message
+    component: message,
+    meta: {
+      title: '留言板 - Mss'
+    },
   },
   {
     path: '/photography',
-    component: photography
+    component: photography,
+    meta: {
+      title: '摄影 - Mss'
+    },
   }
 ]
 
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  /* 路由发生变化修改页面title */
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  }
+  next();
 })
 
 const app = new Vue({

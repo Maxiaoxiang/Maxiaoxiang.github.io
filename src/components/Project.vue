@@ -29,8 +29,6 @@ export default {
 .mod-plugins {
   position: relative;
   display: flex;
-  margin: 0 auto;
-  width: 960px;
   .navs {
     width: 200px;
     text-align: center;
