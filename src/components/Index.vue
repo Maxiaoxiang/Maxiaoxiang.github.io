@@ -2,13 +2,11 @@
   <div class="mod-main">
     <div class="bd">
       <div class="image">
-        <!-- <img src="../assets/image/old.jpg"> -->
+         <img src="../assets/image/old.jpg"> 
       </div>
       <div class="text">
         <div class="txt">
           <h1>古城小巷</h1>
-          <p>一切都没变</p>
-          <p>一切都变了。</p>
         </div>
         <div class="information">
           <p class="address">中国 福建省 南平市</p>
