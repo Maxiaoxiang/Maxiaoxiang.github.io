@@ -54,14 +54,16 @@ a {
 }
 
 #app {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
 }
 
 .container {
-  padding: 132px 0 26px 0;
+  flex: 1 0 auto;
+  padding: 132px 0 66px 0;
 }
 
 .l-border {

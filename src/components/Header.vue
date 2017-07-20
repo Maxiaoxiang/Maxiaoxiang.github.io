@@ -29,8 +29,9 @@ export default {
 
 <style lang="scss" scope>
 .header {
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
+  flex: 0 0 auto;
   position: fixed;
   padding: 16px;
   line-height: 80px;
