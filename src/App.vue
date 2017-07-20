@@ -61,7 +61,7 @@ a {
 }
 
 .container {
-  padding-top: 112px;
+  padding: 132px 0 26px 0;
 }
 
 .l-border {

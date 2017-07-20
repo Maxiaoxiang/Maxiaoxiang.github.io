@@ -39,6 +39,8 @@ export default {
   background: #fff;
   width: calc(100% - 52px);
   z-index: 99;
+  border-bottom: 1px solid #f1f1f1;
+  box-shadow: -1px -1px 5px 2px #e6e6e6;
   .logo {
     margin-left: 16px;
     font-size: 0;

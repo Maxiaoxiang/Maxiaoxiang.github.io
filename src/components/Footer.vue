@@ -15,12 +15,17 @@ export default {
 
 <style lang="scss" scope>
 .footer {
-  position: absolute;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
   height: 40px;
   .corner {
+    position: absolute;
+    left: 0;
+    bottom: 26px;
+    width: 100%;
+    height: 100%;
     font-family: "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", tahoma, arial, simsun, "\5B8B\4F53";
     font-size: 12px;
     opacity: .5;

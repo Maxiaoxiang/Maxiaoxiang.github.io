@@ -2,13 +2,12 @@
  * @Author: maxiaoxiang
  * @Date: 2017-07-18 15:37:31 
  * @Last Modified by: maxiaoxiang
- * @Last Modified time: 2017-07-20 14:42:30
+ * @Last Modified time: 2017-07-20 16:02:10
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import App from './App.vue'
-import $ from 'jquery'
 import index from './components/Index.vue'
 import project from './components/Project.vue'
 import photography from './components/Photography.vue'

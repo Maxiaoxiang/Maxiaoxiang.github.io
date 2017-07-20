@@ -25,6 +25,17 @@ module.exports = {
       '@': resolve('src')
     }
   },
+  plugins: [
+    
+      // ...
+    
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jquery: 'jquery',
+        'window.jQuery': 'jquery',
+        jQuery: 'jquery'
+      })
+    ],
   module: {
     rules: [
       {
