@@ -99,7 +99,7 @@ const Slider = require('../../assets/script/plugins/javascript/slider.js');
  * @url   链接
  * @img   图片
  */
-var data = [{
+const data = [{
     title: '迷你发光字体制作',
     url: 'https://www.baidu.com',
     img: 'http://f11.baidu.com/it/u=408993445,3121105811&fm=76'
@@ -157,7 +157,7 @@ var data = [{
     img: 'http://f12.baidu.com/it/u=160246100,1126827621&fm=76'
 }];
 
-var data2 = [{
+const data2 = [{
     title: '1',
     url: 'https://www.baidu.com',
     img: 'http://f11.baidu.com/it/u=408993445,3121105811&fm=76'
@@ -215,23 +215,31 @@ var data2 = [{
     img: 'http://f12.baidu.com/it/u=160246100,1126827621&fm=76'
 }];
 export default {
-    created() {
-        window.onload = function () {
-            var options = {
-                id: 'first',
-                duration: 1200,
-                data: data
-            }
-            var slider = new Slider(options);
-            var options2 = {
-                id: 'second',
-                target: 'box2',
-                duration: 500,
-                data: data2
-            }
-            var slider2 = new Slider(options2);
-        };
-    }
+    name: 'slider',
+    data() {
+        return {
+            slider: {},
+            slider2: {}
+        }
+    },
+    // created() {
+    //     let options = {
+    //         id: 'first',
+    //         duration: 1200,
+    //         data: data
+    //     }
+    //     this.slider = new Slider(options);
+    //     let options2 = {
+    //         id: 'second',
+    //         target: 'box2',
+    //         duration: 500,
+    //         data: data2
+    //     }
+    //     this.slider2 = new Slider(options2);
+    // },
+    // beforeRouteLeave(to, from, next) {
+    //     console.log(this.slider);
+    // }
 }
 </script>
 <style lang="scss">

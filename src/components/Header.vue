@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <router-link :to="{path: '/'}" class="logo">
-      <img src="../../dist/logo.png" alt="Mss">
+      <img src="../../dist/logo.png" alt="Mss" width="100" height="47">
     </router-link>
     <div class="nav">
       <ul>
@@ -33,7 +33,6 @@ export default {
   justify-content: space-between;
   flex: 0 0 auto;
   position: fixed;
-  padding: 16px;
   line-height: 80px;
   font-size: 24px;
   box-sizing: border-box;
@@ -43,7 +42,7 @@ export default {
   border-bottom: 1px solid #f1f1f1;
   box-shadow: -1px -1px 5px 2px #e6e6e6;
   .logo {
-    margin-left: 16px;
+    margin-left: 32px;
     font-size: 0;
   }
   .nav {

@@ -35,13 +35,16 @@ export default {
 
 <style lang="scss" scope>
 .mod-plugins {
+  position: relative;
   padding: 0 30px;
+  overflow: hidden;
   .item {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ccc;
+    margin-top: -1px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
   }
   .links {
     position: relative;

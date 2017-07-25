@@ -25,13 +25,14 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../src/assets/style/public/reset.scss';
+@import '../src/assets/style/public/common';
 html {
   height: 100%;
 }
 
 body {
   position: relative;
+  display: flex;
   padding: 26px;
   font-family: "Lucida Grande", "Microsoft JhengHei", "Microsoft YaHei";
   font-size: 16px;
@@ -57,14 +58,15 @@ a {
 #app {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  width: 100%;
+  padding: 26px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
   flex: 1 0 auto;
-  padding: 132px 0 66px 0;
+  padding: 100px 0 66px 0;
 }
 
 .l-border {
