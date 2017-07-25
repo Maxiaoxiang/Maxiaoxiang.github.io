@@ -55,7 +55,7 @@
           <pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.M-box4'</span>).<span style="color:#000">pagination</span>({<br>    <span style="color:#000">pageCount</span>: <span style="color:#164">3</span>, <span style="color:#a50">//初始化时总页数3页</span><br>    <span style="color:#000">callback</span>:<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>        <span style="color:#000-2">api</span>.<span style="color:#000">setPageCount</span>(<span style="color:#164">20</span>);<span style="color:#a50">//动态修改总页数为20页</span><br>    }<br>});</pre>
         </div>
         <div class="eg">
-           <img src="../../assets/image/demo.gif" alt="带参数分页示例" class="demo-image"> 
+          <img src="../../assets/image/demo.gif" alt="带参数分页示例" class="demo-image">
           <p class="tips">有朋友对ajax请求带参数分页有疑问，因为不是服务器环境，就用图做个示例。</p>
           <p>HTML</p>
           <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box4"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
@@ -223,7 +223,7 @@ import $ from 'jquery'
 window.jQuery = $;
 
 //引入分页插件
-require('../../assets/script/plugins/pagination')(jQuery)
+require('../../assets/script/plugins/jquery/pagination')(jQuery)
 
 export default {
   created() {
@@ -287,7 +287,7 @@ export default {
 </script>
 <style lang="scss" scope>
 @import '../../assets/style/public/common.scss';
-@import '../../assets/style/plugins/pagination.scss';
+@import '../../assets/style/plugins/jquery/pagination.scss';
 .content {
   position: relative;
   padding: 0 30px;
