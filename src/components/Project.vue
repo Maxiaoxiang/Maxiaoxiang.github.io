@@ -19,9 +19,9 @@
       </div>
     </div>
     <div class="item">
-      <h4>游戏</h4>
+      <h4>小游戏</h4>
       <div class="links">
-        <router-link :to="{path: '/project/snaker'}">snaker</router-link>
+        <router-link :to="{path: '/project/snaker'}">贪吃蛇</router-link>
       </div>
     </div>
   </div>

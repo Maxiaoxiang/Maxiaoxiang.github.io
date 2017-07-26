@@ -8,9 +8,9 @@
         <li>
           <router-link :to="{path: '/project'}">项目</router-link>
         </li>
-        <li>
+        <!-- <li>
           <router-link :to="{path: '/photography'}">摄影</router-link>
-        </li>
+        </li> -->
         <li>
           <router-link :to="{path: '/message'}">留言</router-link>
         </li>
