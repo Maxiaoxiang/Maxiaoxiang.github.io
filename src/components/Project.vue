@@ -6,12 +6,12 @@
         <router-link :to="{path: '/project/jquery-pagination'}">jQuery分页</router-link>
       </div>
     </div>
-    <div class="item">
+    <!-- <div class="item">
       <h4>Javascript插件</h4>
       <div class="links">
         <router-link :to="{path: '/project/javascript-slider'}">Javascript轮播</router-link>
       </div>
-    </div>
+    </div> -->
     <div class="item">
       <h4>Vue插件</h4>
       <div class="links">
