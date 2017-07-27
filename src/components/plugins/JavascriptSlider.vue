@@ -92,10 +92,6 @@
     </div>
 </template>
 <script>
-import $ from 'jquery'
-//将jQuery挂载到全局，第三方插件才能获取到jQuery
-window.jQuery = $;
-
 const Slider = require('../../assets/script/plugins/javascript/slider');
 /**
  * 模拟数据
@@ -227,21 +223,19 @@ export default {
         }
     },
     created() {
-        $(document).ready(function ($) {
-            let options = {
-                id: 'first',
-                duration: 1200,
-                data: data
-            }
-            this.slider = new Slider(options);
-            let options2 = {
-                id: 'second',
-                target: 'box2',
-                duration: 500,
-                data: data2
-            }
-            this.slider2 = new Slider(options2);
-        });
+        let options = {
+            id: 'first',
+            duration: 1200,
+            data: data
+        }
+        this.slider = new Slider(options);
+        let options2 = {
+            id: 'second',
+            target: 'box2',
+            duration: 500,
+            data: data2
+        }
+        this.slider2 = new Slider(options2);
     },
     methods: {
 
