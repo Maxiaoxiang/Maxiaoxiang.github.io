@@ -4,6 +4,7 @@
       <h4>jQuery插件</h4>
       <div class="links">
         <router-link :to="{path: '/project/jquery-pagination'}">jQuery分页</router-link>
+        <router-link :to="{path: '/project/jquery-tooltip'}">ToolTip提示</router-link>
       </div>
     </div>
      <!-- <div class="item">

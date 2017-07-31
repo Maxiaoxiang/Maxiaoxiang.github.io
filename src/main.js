@@ -2,7 +2,7 @@
  * @Author: maxiaoxiang
  * @Date: 2017-07-18 15:37:31 
  * @Last Modified by: maxiaoxiang
- * @Last Modified time: 2017-07-31 11:30:33
+ * @Last Modified time: 2017-07-31 14:18:38
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -13,6 +13,7 @@ import project from './components/Project.vue'
 import photography from './components/Photography.vue'
 import message from './components/Message.vue'
 import jqueryPagination from './components/plugins/JqueryPagination.vue'
+import jqueryToolTip from './components/plugins/JqueryToolTip.vue'
 import vuePagination from './components/plugins/VuePagination.vue'
 import javascriptSlider from './components/plugins/JavascriptSlider.vue'
 import snaker from './components/game/Snaker.vue'
@@ -44,6 +45,12 @@ const routes = [{
         title: 'pagination.js 分页 jquery分页插件'
     }
 }, {
+    path: '/project/jquery-tooltip',
+    component: jqueryToolTip,
+    meta: {
+        title: 'tooltip.js 信息提示 jquery提示插件'
+    }
+}, {
     path: '/project/javascript-slider',
     component: javascriptSlider,
     meta: {
@@ -59,7 +66,7 @@ const routes = [{
     path: '/project/snaker',
     component: snaker,
     meta: {
-        title: 'sn'
+        title: '贪吃蛇'
     }
 }, {
     path: '/message',

@@ -223,7 +223,7 @@ import $ from 'jquery'
 window.jQuery = $;
 
 //引入分页插件
-require('../../assets/script/plugins/jquery/pagination')(jQuery)
+require('../../assets/script/plugins/jquery/jquery.pagination')(jQuery)
 
 export default {
   created() {
