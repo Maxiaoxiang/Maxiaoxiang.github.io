@@ -2,7 +2,7 @@
  * @Author: maxiaoxiang
  * @Date: 2017-07-18 15:37:31 
  * @Last Modified by: maxiaoxiang
- * @Last Modified time: 2017-07-25 09:54:07
+ * @Last Modified time: 2017-07-31 11:30:33
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -26,68 +26,68 @@ Vue.use(VueRouter)
  * message     => 留言
  */
 const routes = [{
-  path: '/',
-  component: index,
-  meta: {
-    title: 'Mss'
-  }
+    path: '/',
+    component: index,
+    meta: {
+        title: 'Mss'
+    }
 }, {
-  path: '/project',
-  component: project,
-  meta: {
-    title: '项目 - Mss'
-  }
+    path: '/project',
+    component: project,
+    meta: {
+        title: '项目 - Mss'
+    }
 }, {
-  path: '/project/jquery-pagination',
-  component: jqueryPagination,
-  meta: {
-    title: 'pagination.js 分页 jquery分页插件'
-  }
+    path: '/project/jquery-pagination',
+    component: jqueryPagination,
+    meta: {
+        title: 'pagination.js 分页 jquery分页插件'
+    }
 }, {
-  path: '/project/javascript-slider',
-  component: javascriptSlider,
-  meta: {
-    title: 'javasrcript轮播 javascript轮播插件 原生js'
-  }
+    path: '/project/javascript-slider',
+    component: javascriptSlider,
+    meta: {
+        title: 'javasrcript轮播 javascript轮播插件 原生js'
+    }
 }, {
-  path: '/project/vue-pagination',
-  component: vuePagination,
-  meta: {
-    title: 'vue分页 vue分页插件'
-  }
+    path: '/project/vue-pagination',
+    component: vuePagination,
+    meta: {
+        title: 'vue分页 vue分页插件'
+    }
 }, {
-  path: '/project/snaker',
-  component: snaker,
-  meta: {
-    title: '贪吃蛇小游戏'
-  }
+    path: '/project/snaker',
+    component: snaker,
+    meta: {
+        title: 'sn'
+    }
 }, {
-  path: '/message',
-  component: message,
-  meta: {
-    title: '留言板 - Mss'
-  }
+    path: '/message',
+    component: message,
+    meta: {
+        title: '留言板 - Mss'
+    }
 }, {
-  path: '/photography',
-  component: photography,
-  meta: {
-    title: '摄影 - Mss'
-  }
+    path: '/photography',
+    component: photography,
+    meta: {
+        title: '摄影 - Mss'
+    }
 }]
 
 const router = new VueRouter({
-  routes
+    routes
 })
 
 router.beforeEach((to, from, next) => {
-  /* 路由发生变化修改页面title */
-  if (to.meta.title) {
-    document.title = to.meta.title;
-  }
-  next();
+    /* 路由发生变化修改页面title */
+    if (to.meta.title) {
+        document.title = to.meta.title;
+    }
+    next();
 })
 
 const app = new Vue({
-  router,
-  render: h => h(App)
+    router,
+    render: h => h(App)
 }).$mount('#app')

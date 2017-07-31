@@ -3,13 +3,17 @@
  * @Author: maxiaoxiang 
  * @Date: 2017-07-28 09:57:09 
  * @Last Modified by: maxiaoxiang
- * @Last Modified time: 2017-07-28 10:03:56
+ * @Last Modified time: 2017-07-31 11:49:19
  */
+;
 (function () {
-  function Square() {
 
-  }
-  Square.prototype.draw = function () {
-    
-  };
+    'use static'
+
+    class Square {
+        constructor(){
+            
+        }
+    }
+
 })();
