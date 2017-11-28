@@ -2,11 +2,11 @@
  * @Author: maxiaoxiang
  * @Date: 2017-07-18 15:37:31 
  * @Last Modified by: maxiaoxiang
- * @Last Modified time: 2017-07-31 14:18:38
+ * @Last Modified time: 2017-09-21 11:02:15
  */
 import Vue from 'vue'
-import Vuex from 'vuex'
 import VueRouter from 'vue-router'
+import axios from 'axios'
 import App from './App.vue'
 import index from './components/Index.vue'
 import project from './components/Project.vue'
@@ -19,6 +19,7 @@ import javascriptSlider from './components/plugins/JavascriptSlider.vue'
 import snaker from './components/game/Snaker.vue'
 
 Vue.use(VueRouter)
+Vue.prototype.$http = axios
 
 /**
  * index       => 主页
@@ -72,7 +73,7 @@ const routes = [{
     path: '/message',
     component: message,
     meta: {
-        title: '留言板 - Mss'
+        title: '留言 - Mss'
     }
 }, {
     path: '/photography',
