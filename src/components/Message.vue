@@ -17,7 +17,7 @@ export default {
         this.getIssues();
     },
     methods: {
-        //issue
+        //获取issue
         getIssues() {
             this.$http.get('https://api.github.com/repos/Maxiaoxiang/Maxiaoxiang.github.io/issues')
                 .then(response => {
