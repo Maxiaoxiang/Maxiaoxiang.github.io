@@ -2,7 +2,7 @@
  * @Author: maxiaoxiang
  * @Date: 2017-07-18 15:37:31 
  * @Last Modified by: maxiaoxiang
- * @Last Modified time: 2017-09-21 11:02:15
+ * @Last Modified time: 2018-01-19 18:00:04
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -84,6 +84,7 @@ const routes = [{
 }]
 
 const router = new VueRouter({
+    mode: 'history', //去除url #
     routes
 })
 
